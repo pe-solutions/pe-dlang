@@ -2,4 +2,4 @@
 
 <p align="center"><img src="logo.png"></p>
 
-WIP... My former repository (more than 60 D solutions to the Project Euler sofar) is under heavy Refactoring.
+*WIP*... My _former repository_ (more than 60 D solutions to the Project Euler sofar) is under heavy Refactoring and will be soon transferred here.
