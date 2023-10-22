@@ -4,4 +4,4 @@
 
 I followed the [Dlang project](https://dlang.org/) since early 2004 when its tiny community was divided by the Phobos/Tango debate.
 
-**WIP**... My _former repository_ (more than 60 D solutions to the Project Euler sofar) is currently under heavy Refactoring and will be soon transferred here.
+**WIP**... My _former repository_ (more than 60 D solutions to the Project Euler sofar) is currently under heavy Refactoring and will be soon commited here.
