@@ -2,7 +2,7 @@
 
 <p align="center"><img src="logo.png"></p>
 
-I followed the [DMD](https://dlang.org/) since early 2004 when the _"Great Divide"_ Phobos/Tango debate was still prevalent.
+I followed the ins and outs of [DMD](https://dlang.org/) since early 2004 when the _"Great Divide"_ Phobos/Tango debate was still prevalent.
 
 **WIP**... My _former repository_ (more than 60 Project Euler problems particularly solve in D sofar) is currently under heavy **Refactoring** and will be soon commited here.
 
