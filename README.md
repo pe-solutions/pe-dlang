@@ -5,3 +5,5 @@
 I followed the [DMD](https://dlang.org/) since early 2004 when its tiny community was still divided by the Phobos/Tango debate.
 
 **WIP**... My _former repository_ (more than 60 Project Euler problems particularly solve in D sofar) is currently under heavy Refactoring and will be soon commited here.
+
+Meanwhile they are also ported into Rust without delay here [pe-solution/pe-rustlang](https://github.com/pe-solutions/pe-rustlang/)
