@@ -6,6 +6,6 @@ I followed the ins and outs of [DMD](https://dlang.org/) since early 2004 when t
 
 **WIP**... My _former repository_ (more than 60 Project Euler problems particularly solved in D sofar) is currently under heavy **Refactoring** and will be soon commmited here.
 
-Meanwhile they are also ported into [Rust](https://www.rust-lang.org/) without delay here [pe-solution/pe-rustlang](https://github.com/pe-solutions/pe-rustlang/).
+Meanwhile they are also ported into [Rust](https://www.rust-lang.org/) without delay here [pe-solution/pe-rustlang](https://github.com/pe-solutions/pe-rustlang/). Take a glimpse of them 👀
 
 Such a great opportinity to learn with fun and without fuss the great promising language. I've made the choice to include it into my weapons of choice.
