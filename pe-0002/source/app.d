@@ -1,9 +1,6 @@
 // Even Fibonacci Numbers
 // https://projecteuler.net/problem=2
 
-// Even Fibonacci Numbers
-// https://projecteuler.net/problem=2
-
 import std.stdio : writefln;
 import std.datetime.stopwatch: StopWatch;
 
