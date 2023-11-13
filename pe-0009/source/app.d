@@ -49,12 +49,12 @@ void main() {
     timer.start();
     
     // Starting with an initial guess of 200
-	long a = newtonRaphson(200).to!long;
+    long a = newtonRaphson(200).to!long;
 
     long b = 1000 * (500 - a) / (1000 - a);
     long c = 1000 - a - b;
 
-	auto answer = a*b*c;
+    auto answer = a*b*c;
 
     timer.stop();
     
