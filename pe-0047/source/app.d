@@ -9,7 +9,7 @@ import std.algorithm;
 ulong[] generateOmegaSieve(ulong limit, ulong requiredFactors) {
     // The Sieve!
     
-	ulong[] omegaSieve = new ulong[](limit);
+    ulong[] omegaSieve = new ulong[](limit);
 
     for (ulong i = 2; i < limit; i++) {
         if (omegaSieve[i] == 0) {
@@ -25,7 +25,7 @@ ulong[] generateOmegaSieve(ulong limit, ulong requiredFactors) {
 ulong findFirstNumber() {
     // Sieve approach... neither BF nor Memoization is worth it!
 	
-	ulong limit = 135_000; // ...just above the correct answer ;-)
+    ulong limit = 135_000; // ...just above the correct answer ;-)
 	
     ulong requiredFactors = 4; // Required number of distinct prime factors
 
