@@ -1,4 +1,4 @@
-// Multiple of 3 or 5
+// Multiples of 3 or 5
 // https://projecteuler.net/problem=1
 
 import std.stdio : writefln;
