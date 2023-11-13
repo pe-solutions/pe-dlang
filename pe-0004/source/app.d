@@ -10,7 +10,7 @@ import std.algorithm: cartesianProduct, filter, map, maxElement;
 bool isPalindrome(int n) 
 {
     auto str = n.text;
-	
+    
     return  (str == str.retro.array.text);
 }
 
@@ -18,8 +18,7 @@ void main() {
     StopWatch timer;
     timer.start();
     
-	auto R = iota(899,999+1);
-	
+    auto R = iota(899,999+1);
     auto answer = cartesianProduct(R, R).map!(a => a[0] * a[1]).filter!isPalindrome.maxElement;
 
     timer.stop();
