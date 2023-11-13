@@ -41,7 +41,7 @@ void main() {
         auto candidate = i * i;
 
         if (hasConcealedSquarePattern(candidate)) {
-            answer = i; // writeln(i);
+            answer = i;
             break;
         }
     }
