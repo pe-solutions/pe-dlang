@@ -4,18 +4,28 @@
 import std.stdio : writefln;
 import std.datetime.stopwatch: StopWatch;
 
-int isPrime( int p ) {
-    int i;
-	
-    if(p==2) return 1;
-	
-    if(!(p%2)) return 0;
-	
-    for(i=3; i*i<=p; i+=2) {
-       if(!(p%i)) return 0;
+bool isPrime(int n) {
+    if (n <= 1) {
+        return false;
     }
-	
-    return 1;
+    
+    if (n <= 3) {
+        return true;
+    }
+    
+    if (n % 2 == 0 || n % 3 == 0) {
+        return false;
+    }
+    
+    int i = 5;
+    while (i * i <= n) {
+        if (n % i == 0 || n % (i + 2) == 0) {
+            return false;
+        }
+        i += 6;
+    }
+    
+    return true;
 }
 
 int nthprime( int n ) {
