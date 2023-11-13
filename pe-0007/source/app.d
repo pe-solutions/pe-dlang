@@ -3,8 +3,6 @@
 
 import std.stdio : writefln;
 import std.datetime.stopwatch: StopWatch;
-import std.range: iota;
-import std.algorithm: map, sum;
 
 int isPrime( int p ) {
     int i;
