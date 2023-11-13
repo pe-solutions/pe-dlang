@@ -1,3 +1,6 @@
+// Distinct Primes Factors
+// https://projecteuler.net/problem=47
+
 import std.stdio;
 import std.datetime.stopwatch;
 import std.container;
