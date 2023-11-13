@@ -6,7 +6,7 @@ import std.datetime.stopwatch;
 import std.container;
 import std.algorithm;
 
-ulong[] generateOmegaSieve(ulong limit, ulong requiredFactors) {
+ulong[] generateOmegaSieve(ulong limit) {
     // The Sieve!
     
     ulong[] omegaSieve = new ulong[](limit);
@@ -29,7 +29,7 @@ ulong findFirstNumber() {
 	
     ulong requiredFactors = 4; // Required number of distinct prime factors
 
-    auto omegaSieve = generateOmegaSieve(limit, requiredFactors);
+    auto omegaSieve = generateOmegaSieve(limit);
 
     for (ulong i = 1; i < limit - requiredFactors; i++) {
         bool found = true;
