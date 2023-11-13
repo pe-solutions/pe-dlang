@@ -32,7 +32,7 @@ void main() {
     StopWatch timer;
     timer.start();
     
-     auto answer = iota(2, 2_000_000)
+    auto answer = iota(2, 2_000_000)
                 .filter!(isPrime)
                 .map!(a => cast(ulong)a)
                 .sum;
