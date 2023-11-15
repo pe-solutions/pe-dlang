@@ -22,6 +22,6 @@ void main() {
 	
 	timer.stop();
         
-    writefln("\nProject Euler #40\nAnswer: %s", answer);
+        writefln("\nProject Euler #40\nAnswer: %s", answer);
 	writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
 }
