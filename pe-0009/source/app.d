@@ -5,14 +5,22 @@ import std.stdio : writeln, writefln;
 import std.datetime.stopwatch: StopWatch;
 import std.typecons: tuple, Tuple;
 
+const P = 1_000u;
+
 Tuple!(uint, uint, uint) findTriplet() {
-    for (uint a = 1; a < 334; a++) {
-        for (uint b = a + 1; b < (1000 - a) / 2; b++) {
-            auto c = 1000 - a - b;
-            //
-            if (a * a + b * b == c * c) {
-                return tuple(a, b, c);
-            }
+    for (uint a = 1; a < P / 3; a++) {
+        // Calculate numerator (n) and denominator (d)
+        int n = P^^2 - 2 * P * a;
+        int d = 2 * P - 2 * a;
+
+        // Check if n is divisible evenly by d
+        if (d != 0 && n % d == 0)
+        {
+            // Calculate b and c based on conditions
+            uint b = n / d;
+            uint c = P - a - b;
+
+            return tuple(a, b, c);
         }
     }
 
@@ -34,3 +42,4 @@ void main() {
     timer.stop();
     writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
 }
+
