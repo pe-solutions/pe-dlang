@@ -35,12 +35,12 @@ void main() {
     StopWatch timer;
     timer.start();
 
-	const long N = 100;
+    const long N = 100;
     const long MODULO = 10^^9 + 7;
     
-	auto answer = f_alternate(N, MODULO);
+    auto answer = f_alternate(N, MODULO);
     
-	timer.stop();
+    timer.stop();
 
     writefln("\nProject Euler #849\nAnswer: %s", answer);
     writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
