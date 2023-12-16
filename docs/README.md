@@ -8,6 +8,6 @@ I followed the ins and outs of [DMD](https://dlang.org/) since early 2004 when t
 
 My first attempt _repository_ (more than 60 Project Euler problems particularly solved in D sofar) is currently under _heavy_ **Refactoring** and will be soon re-commited here.
 
-Meanwhile they are also ported without any further delay into [Rust](https://www.rust-lang.org/) here [pe-solution/pe-rustlang](https://github.com/pe-solutions/pe-rustlang/).
+Meanwhile they are also ported without any further delay into [Rust](https://www.rust-lang.org/) in my other repository here [pe-rustlang](https://github.com/pe-solutions/pe-rustlang/).
 
 Take a glimpse at them if you feel like it 👀
