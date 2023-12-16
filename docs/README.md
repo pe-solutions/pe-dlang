@@ -10,4 +10,4 @@ My first attempt _old repository_ (more than 60 Project Euler problems particula
 
 Meanwhile they are also ported without any further delay into [Rust](https://www.rust-lang.org/) in my other _repository_ here [pe-rustlang](https://github.com/pe-solutions/pe-rustlang/).
 
-Take a glimpse at them if you feel like it 👀
+Take a glimpse 👀 at them if you feel like it 
