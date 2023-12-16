@@ -6,7 +6,7 @@ I followed the ins and outs of [DMD](https://dlang.org/) since early 2004 when t
 
 **WIP**...
 
-My first attempt _old repository_ (more than 60 Project Euler problems particularly solved in D sofar) is currently under _heavy_ **Refactoring** and will be soon re-commited here.
+My first attempt _old repository_ (more than 60 Project Euler problems particularly solved in D as of the creation of this) is currently under _heavy_ **Refactoring** and will be soon re-commited here.
 
 Meanwhile they are also ported without any further delay into [Rust](https://www.rust-lang.org/) in my other _repository_ here [pe-rustlang](https://github.com/pe-solutions/pe-rustlang/).
 
