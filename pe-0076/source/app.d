@@ -7,7 +7,7 @@ import std.datetime.stopwatch: StopWatch;
 long numbpart(long n)
 {
     long[] partitionTable = new long[n + 1];
-	const long[] initialVector = [1, 1, 2, 3];
+    const long[] initialVector = [1, 1, 2, 3];
 
     void initializePartitionTable(const long[] initialValue)
     {
