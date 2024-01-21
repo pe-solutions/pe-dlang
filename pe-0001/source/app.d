@@ -1,20 +1,27 @@
 // Multiples of 3 or 5
 // https://projecteuler.net/problem=1
 
-import std.stdio : writefln;
+import std.stdio;
 import std.datetime.stopwatch: StopWatch;
-import std.range : iota;
-import std.algorithm : filter, sum;
-import std.numeric;
+import std.range;
+import std.algorithm;
 
-void main() {
+int solve(int[] multiples, int limit)
+{
+    return iota(1, limit)
+        .filter!(n => multiples.any!(m => n % m == 0))
+        .sum;
+}
+
+void main()
+{
     StopWatch timer;
     timer.start();
     
-    auto answer = iota(1,999+1).filter!(a => gcd(a,3*5)>1).sum;
+    auto answer =  solve([5, 3], 999+1);
     
     timer.stop();
-        
+    
     writefln("\nProject Euler #1\nAnswer: %s", answer);
     writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
 }
