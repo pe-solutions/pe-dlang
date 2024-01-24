@@ -4,42 +4,39 @@
 import std.stdio : writefln;
 import std.datetime.stopwatch: StopWatch;
 
-void main()
-{
+void main() {
     StopWatch timer;
     timer.start();
-	
-	int maxPerimeter = 0;
+
+    int maxPerimeter = 0;
     int maxCount = 0;
 
-    foreach (p; 12 .. 1001)
-    {
+    foreach (int p; 12 .. 1001) {
         int count = 0;
 
-        foreach (b; 2 .. p / 2)
-        {
-            foreach (a; 1 .. b)
-            {
+        foreach (int b; 2 .. p / 2) {
+            foreach (int a; 1 .. b) {
                 int c = p - (a + b);
-				// 
-                if (a * a + b * b == c * c && c > b && c > a)
-                {
+
+                // Check for a right-angled triangle 
+                // `c > a` is implicit since c is determined as p - (a + b)
+                if (a * a + b * b == c * c && c > b) {
                     count++;
                 }
             }
         }
 
-        if (count > maxCount)
-        {
+        // Update maxCount and maxPerimeter if a new maximum is found
+        if (count > maxCount) {
             maxCount = count;
             maxPerimeter = p;
         }
     }
 
-	auto answer = maxPerimeter;
+    auto answer = maxPerimeter;
 
-	timer.stop();
+    timer.stop();
 
-	writefln("\nProject Euler #39\nAnswer: %s", answer);
-	writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
+    writefln("\nProject Euler #39\nAnswer: %s", answer);
+    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
 }
