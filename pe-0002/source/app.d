@@ -3,40 +3,25 @@
 
 import std.stdio : writefln;
 import std.datetime.stopwatch: StopWatch;
-
-ulong calcSumOfEvenFibo(ulong limit)
-{
-    ulong sum = 0;
-    
-    ulong x = 1, y = 1;
-    
-    do
-    {
-        auto currentEven = x + y;
-        
-        if (currentEven > limit)
-            break;
-        
-        sum += currentEven;
-        
-        x = y + currentEven;
-        y = x + currentEven;
-    } while (true);
-
-    return sum;
-}
+import std.range : recurrence;
+import std.algorithm.searching : until;
+import std.algorithm : filter, sum;
 
 void main()
 {
     StopWatch timer;
     timer.start();
     
-    const UPPER_LIMIT = 4_000_000;
+    auto fib = recurrence!("a[n-1] + a[n-2]")(1uL, 1uL);
     
-    auto answer = calcSumOfEvenFibo(UPPER_LIMIT);
-    
+    auto answer = fib
+        .until!(x => x >= 4_000_000uL)
+        .filter!(x => x % 2uL == 0uL)
+        .sum;
+
     timer.stop();
         
     writefln("\nProject Euler #2\nAnswer: %s", answer);
     writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
+
 }
