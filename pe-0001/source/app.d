@@ -3,8 +3,8 @@
 
 import std.stdio;
 import std.datetime.stopwatch: StopWatch;
-import std.range;
-import std.algorithm;
+import std.range: iota;
+import std.algorithm: any, filter, sum;
 
 int solve(int[] multiples, int limit)
 {
@@ -18,7 +18,7 @@ void main()
     StopWatch timer;
     timer.start();
     
-    auto answer =  solve([5, 3], 999+1);
+    auto answer =  solve([3, 5], 1_000);
     
     timer.stop();
     
