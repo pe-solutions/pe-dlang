@@ -4,29 +4,36 @@
 import std.stdio : writefln;
 import std.datetime.stopwatch: StopWatch;
 
-void main() {
+ulong calcSumOfEvenFibo(ulong limit)
+{
+    ulong sum = 0;
+    
+    ulong x = 1, y = 1;
+    
+    do
+    {
+        auto currentEven = x + y;
+        
+        if (currentEven > limit)
+            break;
+        
+        sum += currentEven;
+        
+        x = y + currentEven;
+        y = x + currentEven;
+    } while (true);
+
+    return sum;
+}
+
+void main()
+{
     StopWatch timer;
     timer.start();
     
-    const UPPERLIMIT = 4_000_000;
+    const UPPER_LIMIT = 4_000_000;
     
-    int a = 1;
-    int b = 1;
-    
-    int answer = 0;
-    
-    while (a < UPPERLIMIT)
-    {
-        int next = a + b;
-        
-        a = b;
-        b = next;
-        
-        if (b % 2 == 0)
-        {
-            answer += b;
-        }
-    }
+    auto answer = calcSumOfEvenFibo(UPPER_LIMIT);
     
     timer.stop();
         
