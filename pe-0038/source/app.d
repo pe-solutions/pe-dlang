@@ -3,34 +3,33 @@
 
 import std.stdio : writefln;
 import std.datetime.stopwatch: StopWatch;
-import std.array: array;
+import std.array;
 import std.algorithm: sort;
-import std.conv: to;
+import std.conv: text;
 
-bool isPanDigital(int num) {
-	auto s = num.to!string;
-	//
-    return s.length == 9 &&  to!string(s.array.sort) == "123456789";
+bool isPandigitalConcatenation(int num) {
+    auto s = text(num);
+    return s.length == 9 && text(s.array.sort) == "123456789";
 }
 
-void main()
-{
+void main() {
     StopWatch timer;
     timer.start();
 
-	for (int index = 9876; true; index--)
-    {
-        int candidate = index * (10^^5 + 2);
+    const int MAX_INDEX = 9_876;
+    const MULTIPLIER = 10 ^^ 5 + 2;
+    
+    for (int index = MAX_INDEX; index > 0; index--) {
+        int candidate = index * MULTIPLIER;
 
-        if (isPanDigital(candidate))
-        {
+        if (isPandigitalConcatenation(candidate)) {
             writefln("\nProject Euler #38\nAnswer: %s", candidate);
-			//
+            //
             break;
         }
     }
 
-	timer.stop();
-
-	writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
+    timer.stop();
+    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
 }
+
