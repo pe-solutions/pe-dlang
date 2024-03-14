@@ -17,35 +17,41 @@ bool isPrime(int n) {
         return false;
     }
     
-    int i = 5;
-    while (i * i <= n) {
+    for (int i = 5; i * i <= n; i += 6) {
         if (n % i == 0 || n % (i + 2) == 0) {
             return false;
         }
-        i += 6;
     }
     
     return true;
 }
 
-int nthprime( int n ) {
-	
-    if(n==1) return 2;
-	
-    int p, pn=1;
-	
-    for(p=3;pn<n;p+=2) {
-        if(isPrime(p)) pn++;
+int nthPrime(int n) {
+    if (n == 1) {
+        return 2;
     }
-	
-    return p-2;
+    
+    int primeCount = 1; // Counts the prime numbers found so far
+    int candidate = 3;  // Start with the first odd number after 2
+    
+    for(;;) {
+        if (isPrime(candidate)) {
+            primeCount++;
+            
+            if (primeCount == n) {
+                return candidate;
+            }
+        }
+        
+        candidate += 2; // Move to the next odd number
+    }
 }
 
 void main() {
     StopWatch timer;
     timer.start();
     
-    auto answer = nthprime(10_001);
+    auto answer = nthPrime(10_001);
     
     timer.stop();
     
