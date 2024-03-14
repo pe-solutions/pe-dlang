@@ -25,7 +25,7 @@ ulong[] generateOmegaSieve(ulong limit) {
 ulong findFirstNumber() {
     // Sieve approach... neither BF nor Memoization is worth it!
 	
-    ulong limit = 135_000; // ...just above the correct answer ;-)
+    ulong limit = 135_000; // ...just above the EXPECTED answer ;-)
 	
     ulong requiredFactors = 4; // Required number of distinct prime factors
 
