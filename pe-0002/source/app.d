@@ -3,28 +3,26 @@
 
 import std.stdio: writefln;
 import std.datetime.stopwatch: StopWatch;
-import std.range: recurrence;
-import std.algorithm.searching : until;
+import std.range: recurrence, take;
 import std.algorithm: sum;
+import std.algorithm.searching: until;
 
-ulong calculateSumOfEvenFibo(ulong limit)
+static ulong genEvenFibonacci(R)(R state, size_t n)
 {
-    auto evenNumberedTermFib = recurrence!("4*a[n-1] + a[n-2]")(2uL, 8uL);
-    
-    return evenNumberedTermFib
-        .until!(x => x >= limit)
-        .sum;
+    return 4 * state[n-1] + state[n-2];
 }
-
+    
 void main()
 {
     StopWatch timer;
     timer.start();
     
+    auto evenfib = recurrence!genEvenFibonacci(2uL, 8uL);
+    
     const ulong UPPER_LIMIT = 4_000_000uL;
-    
-    auto answer = calculateSumOfEvenFibo(UPPER_LIMIT);
-    
+
+    auto answer = evenfib.until!(n => n > UPPER_LIMIT).sum;
+
     timer.stop();
     
     writefln("\nProject Euler #2\nAnswer: %s", answer);
