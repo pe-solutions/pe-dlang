@@ -1,3 +1,6 @@
+// Lychrel Numbers
+// https://projecteuler.net/problem=55
+
 import std.stdio;
 import std.datetime.stopwatch;
 
