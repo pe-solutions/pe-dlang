@@ -5,8 +5,7 @@ import std.stdio : writefln;
 import std.datetime.stopwatch: StopWatch;
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
 
     int maxPerimeter = 0;
     int maxCount = 0;

@@ -7,8 +7,7 @@ import std.range: iota;
 import std.algorithm.iteration: reduce;
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     alias countRoutes = (int n) => reduce!((a, b) => a * (n + b) / b)(1L, iota(1, n + 1));
     

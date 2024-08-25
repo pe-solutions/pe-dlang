@@ -19,8 +19,7 @@ T largestPrimeFactor(T)(in T n) pure nothrow {
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     auto answer = 600_851_475_143.largestPrimeFactor;
 

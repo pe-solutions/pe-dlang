@@ -46,8 +46,7 @@ ulong findPrimePermutations() {
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
 
     auto answer = findPrimePermutations();
 

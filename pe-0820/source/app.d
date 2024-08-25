@@ -8,8 +8,7 @@ import std.math: powmod;
 import std.algorithm: map, sum;
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     ulong n = 10_000_000;
     

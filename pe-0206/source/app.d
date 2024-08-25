@@ -29,8 +29,7 @@ bool hasConcealedSquarePattern(ulong candidate) {
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     auto max = calculateSquareRootUpperBound();
     auto min = calculateSquareRootLowerBound();

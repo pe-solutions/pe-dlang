@@ -10,8 +10,7 @@ long sumOfSpiralDiagonals(const long n) =>
 
 void main()
 {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
 
     // Size of the spiral
     const SIZE = 1_001L;

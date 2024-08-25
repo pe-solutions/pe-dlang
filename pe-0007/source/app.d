@@ -37,8 +37,7 @@ int nthPrime(int n) {
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     const int N = 10_001;
     

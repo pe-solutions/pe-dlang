@@ -60,8 +60,8 @@ int count_hybrid_integers(int base, int exponent) {
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
+    
     //
     
     const int BASE = 800_800;
@@ -70,6 +70,7 @@ void main() {
     auto answer = count_hybrid_integers(BASE, EXPONENT);
     
     //
+    
     timer.stop();
 
     writefln("\nProject Euler #800\nAnswer: %s", answer);

@@ -10,8 +10,7 @@ long large_non_mersenne_prime(BigInt base, BigInt exponent, BigInt coeff, BigInt
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     auto answer = large_non_mersenne_prime(2.BigInt, 7_830_457.BigInt, 28_433.BigInt, 10.BigInt ^^ 10);
 

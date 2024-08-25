@@ -71,8 +71,7 @@ ulong sumOfReversiblePrimes(uint count) {
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     auto answer = sumOfReversiblePrimes(50);
     

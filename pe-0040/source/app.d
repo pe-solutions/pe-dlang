@@ -8,8 +8,7 @@ import std.algorithm : joiner, map;
 import std.conv : to;
 
 void main() {
-    StopWatch timer;	
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
 	
     auto c = iota(1, 250_000+1)
         .map!(x => to!string(x)

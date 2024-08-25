@@ -7,8 +7,7 @@ import std.range: iota;
 import std.algorithm: map, sum;
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     auto answer = iota(1, 100+1).sum ^^ 2 - iota(1, 100+1).map!(a => a ^^ 2).sum;
     

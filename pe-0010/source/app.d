@@ -32,8 +32,7 @@ bool isPrime(int n) {
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     auto answer = iota(2, 2_000_000)
                 .filter!(isPrime)

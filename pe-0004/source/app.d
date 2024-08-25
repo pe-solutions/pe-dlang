@@ -15,8 +15,7 @@ bool isPalindrome(int n)
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     auto R = iota(899,999+1);
     auto answer = cartesianProduct(R, R).map!(a => a[0] * a[1]).filter!isPalindrome.maxElement;

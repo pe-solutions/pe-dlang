@@ -15,8 +15,7 @@ int solve(int[] multiples, int limit)
 
 void main()
 {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     auto answer =  solve([3, 5], 1_000);
     

@@ -14,8 +14,7 @@ static ulong genEvenFibonacci(R)(R state, size_t n)
     
 void main()
 {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     auto evenfib = recurrence!genEvenFibonacci(2uL, 8uL);
     

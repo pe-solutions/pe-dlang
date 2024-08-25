@@ -6,8 +6,7 @@ import std.datetime.stopwatch: StopWatch;
 
 void main()
 {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
 
     // Dynamic Programming
     

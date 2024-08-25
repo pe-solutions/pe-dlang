@@ -13,8 +13,7 @@ bool isPandigitalConcatenation(int num) {
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
 
     const int MAX_INDEX = 9_876;
     const MULTIPLIER = 10 ^^ 5 + 2;

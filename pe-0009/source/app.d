@@ -21,8 +21,7 @@ Tuple!(uint, uint, uint) findTriplet() {
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
 
     auto result = findTriplet();
 

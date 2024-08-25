@@ -23,8 +23,7 @@ size_t nPartitions(int n) {
 
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     const int N = 100;
     auto answer = nPartitions(N);

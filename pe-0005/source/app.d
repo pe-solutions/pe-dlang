@@ -8,8 +8,7 @@ import std.algorithm: reduce;
 import std.numeric: lcm;
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     auto answer = iota(1, 20+1).reduce!lcm;
     

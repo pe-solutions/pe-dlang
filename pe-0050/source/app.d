@@ -51,8 +51,7 @@ long sum_of_primes(long n) {
 
 void main() {
 
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
 
     const long LIMIT = 1_000_000L;
     auto answer = sum_of_primes(LIMIT);

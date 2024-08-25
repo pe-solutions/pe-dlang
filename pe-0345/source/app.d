@@ -28,8 +28,7 @@ int[N][N] a = [
 int[N2][N+1] dp;
 
 void main() {   
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     foreach (n; 0 .. N) {
         foreach (c; 0 .. N2) {

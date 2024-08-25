@@ -9,8 +9,7 @@ import std.algorithm: map, sum;
 
 void main()
 {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     auto answer = powmod(iota(1, 1001).map!(i => BigInt(i) ^^ i).sum, 1.BigInt, 10.BigInt ^^ 10);
     

@@ -32,8 +32,7 @@ long f_alternate(long numIterations, long moduloValue) {
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
 
     const long N = 100;
     const long MODULO = 10^^9 + 7;

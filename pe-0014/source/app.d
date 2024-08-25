@@ -48,8 +48,7 @@ ulong findLongestCollatzSequence() {
 }
 
 void main() {
-    StopWatch timer;
-    timer.start();
+    auto timer = StopWatch(AutoStart.yes);
     
     auto answer = findLongestCollatzSequence();
     
