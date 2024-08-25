@@ -1,9 +1,10 @@
 // Right Triangles with Integer Coordinates
 // https://projecteuler.net/problem=91
 
-import std.range;
-import std.algorithm;
 import std.stdio;
+import std.range;
+import std.datetime.stopwatch;
+import std.algorithm;
 
 bool isValidTuple(int k1, int k2, int l1, int l2)
 {
@@ -26,5 +27,12 @@ ulong count_triangles(int n)
 
 void main()
 {
-    writeln(count_triangles(50));
+    auto timer = StopWatch(AutoStart.yes);
+    
+    auto answer = count_triangles(50);
+    
+    timer.stop();
+
+    writefln("\nProject Euler #91\nAnswer: %s", answer);
+    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
 }
