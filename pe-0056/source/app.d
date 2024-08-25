@@ -1,3 +1,6 @@
+// Powerful Digit Sum
+// https://projecteuler.net/problem=56
+
 import std.stdio;
 import std.datetime.stopwatch;
 import std.algorithm;
