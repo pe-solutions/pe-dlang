@@ -2,7 +2,7 @@
 // https://projecteuler.net/problem=2
 
 import std.stdio: writefln;
-import std.datetime.stopwatch: StopWatch;
+import std.datetime.stopwatch: AutoStart, StopWatch;
 import std.range: recurrence, take;
 import std.algorithm: sum;
 import std.algorithm.searching: until;
