@@ -2,7 +2,7 @@
 // https://projecteuler.net/problem=1
 
 import std.stdio;
-import std.datetime.stopwatch: StopWatch;
+import std.datetime.stopwatch: AutoStart, StopWatch;
 import std.range: iota;
 import std.algorithm: any, filter, sum;
 
