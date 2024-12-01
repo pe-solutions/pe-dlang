@@ -2,10 +2,11 @@
 // https://projecteuler.net/problem=849
 
 import std.stdio;
-import std.datetime.stopwatch: StopWatch;
+import std.traits : isIntegral;
+import std.datetime.stopwatch: AutoStart, StopWatch;
 import std.algorithm: max;
 
-long mod(long a, long b) {
+T mod(T)(T a, T b) if (isIntegral!T) {
     return (a % b + b) % b;
 }
 
