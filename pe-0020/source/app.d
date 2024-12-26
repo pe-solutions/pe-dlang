@@ -4,7 +4,7 @@
 import std.stdio;
 import std.datetime.stopwatch;
 
-uint pe0020() {    
+uint sum_of_digits() {    
     import std.range;
     import std.bigint;
     import std.conv;
@@ -19,9 +19,9 @@ uint pe0020() {
 void main()
 {
     auto timer = StopWatch(AutoStart.yes);
-    auto sum_of_digits = pe0020();
+    auto answer = sum_of_digits();
     timer.stop();
     
-    writefln("\nProject Euler #20\nAnswer: %s", sum_of_digits);
+    writefln("\nProject Euler #20\nAnswer: %s", answer);
     writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
 }
