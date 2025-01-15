@@ -6,7 +6,7 @@ import std.datetime.stopwatch: AutoStart, StopWatch;
 import std.range: iota;
 import std.algorithm: any, filter, sum;
 
-int solve(int[] multiples, int limit)
+int getSumOfMultiples(int[] multiples, int limit)
 {
     return iota(1, limit)
         .filter!(n => multiples.any!(m => n % m == 0))
@@ -17,7 +17,7 @@ void main()
 {
     auto timer = StopWatch(AutoStart.yes);
     
-    auto answer =  solve([3, 5], 1_000);
+    auto answer =  getSumOfMultiples([3, 5], 1_000);
     
     timer.stop();
     
