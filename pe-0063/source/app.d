@@ -1,24 +1,16 @@
 // Powerful Digit Counts
 // https://projecteuler.net/problem=63
 
-import std.stdio;
-import std.datetime.stopwatch;
-import std.math;
+import std.math : floor, log10;
+import euler.common : runSolution;
 
-void main() {
-     auto timer = StopWatch(AutoStart.yes);
-
+auto solve() {
     int totalCount = 0;
-
     foreach (i; 1 .. 10) {
         real log_i = log10(cast(real)i);
-        int count = cast(int) floor(1.0 / (1.0 - log_i));
-        
-        totalCount += count;
+        totalCount += cast(int) floor(1.0 / (1.0 - log_i));
     }
-
-    timer.stop();
-    
-    writefln("\nProject Euler #63\nAnswer: %s", totalCount);
-    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
+    return totalCount;
 }
+
+void main() { runSolution!(solve, 63)(); }

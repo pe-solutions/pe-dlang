@@ -1,21 +1,15 @@
 // The Tournament
 // https://projecteuler.net/problem=849
 
-import std.stdio;
-import std.traits : isIntegral;
-import std.datetime.stopwatch: AutoStart, StopWatch;
-import std.algorithm: max;
-
-T mod(T)(T a, T b) if (isIntegral!T) {
-    return (a % b + b) % b;
-}
+import std.algorithm : max;
+import euler.math : mod;
+import euler.common : runSolution;
 
 long f_alternate(long numIterations, long moduloValue) {
     long maxs = 2 * numIterations * (numIterations - 1);
     long maxd = 4 * (numIterations - 1);
 
     long[][] dp;
-
     foreach (i; 0 .. numIterations + 1)
         dp ~= new long[maxs + 1];
 
@@ -32,16 +26,8 @@ long f_alternate(long numIterations, long moduloValue) {
     return dp[numIterations][maxs];
 }
 
-void main() {
-    auto timer = StopWatch(AutoStart.yes);
-
-    const long N = 100;
-    const long MODULO = 10^^9 + 7;
-    
-    auto answer = f_alternate(N, MODULO);
-    
-    timer.stop();
-
-    writefln("\nProject Euler #849\nAnswer: %s", answer);
-    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
+auto solve() {
+    return f_alternate(100L, 10L^^9 + 7);
 }
+
+void main() { runSolution!(solve, 849)(); }

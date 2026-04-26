@@ -1,43 +1,9 @@
 // Reversible Prime Squares
 // https://projecteuler.net/problem=808
 
-import std.stdio : writefln;
-import std.datetime.stopwatch: StopWatch;
-import std.range: iota;
-import std.algorithm: filter, map, sum;
-import std.math: sqrt;
-
-bool isPrime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    if (n <= 3) {
-        return true;
-    }
-    if (n % 2 == 0 || n % 3 == 0) {
-        return false;
-    }
-    
-    int i = 5;
-    while (i * i <= n) {
-        if (n % i == 0 || n % (i + 2) == 0) {
-            return false;
-        }
-        i += 6;
-    }
-    
-    return true;
-}
-
-ulong reverse(ulong n) {
-    ulong reversed = 0;
-    while (n > 0) {
-        reversed *= 10;
-        reversed += n % 10;
-        n /= 10;
-    }
-    return reversed;
-}
+import std.math : sqrt;
+import euler.math : isPrime, reverseDigits;
+import euler.common : runSolution;
 
 ulong sumOfReversiblePrimes(uint count) {
     ulong sum = 0;
@@ -54,7 +20,7 @@ ulong sumOfReversiblePrimes(uint count) {
         uint quotient = n / powersOf10;
         if ((quotient == 1 || quotient == 3) && isPrime(n)) {
             ulong square = cast(ulong)n * n;
-            ulong reversedSquare = reverse(square);
+            ulong reversedSquare = reverseDigits(square);
 
             if (reversedSquare != square) {
                 uint root = cast(uint)sqrt(cast(real)reversedSquare);
@@ -70,13 +36,8 @@ ulong sumOfReversiblePrimes(uint count) {
     return sum;
 }
 
-void main() {
-    auto timer = StopWatch(AutoStart.yes);
-    
-    auto answer = sumOfReversiblePrimes(50);
-    
-    timer.stop();
-    
-    writefln("\nProject Euler #10\nAnswer: %s", answer);
-    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
+auto solve() {
+    return sumOfReversiblePrimes(50);
 }
+
+void main() { runSolution!(solve, 808)(); }

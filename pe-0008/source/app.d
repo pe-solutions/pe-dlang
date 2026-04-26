@@ -1,17 +1,14 @@
 // Largest Product in a Series
 // https://projecteuler.net/problem=8
 
-import std.stdio : writefln;
-import std.datetime.stopwatch: StopWatch;
-import std.range: array, iota;
-import std.algorithm: map, maxElement, reduce;
-import std.conv: to;
+import std.range : array, iota;
+import std.algorithm : map, maxElement, reduce;
+import std.conv : to;
+import euler.common : runSolution;
 
-const int CONSECUTIVEDIGITS = 13;
+enum CONSECUTIVEDIGITS = 13;
 
-void main() {
-    auto timer = StopWatch(AutoStart.yes);
-    
+auto solve() {
     auto data = "73167176531330624919225119674426574742355349194934"
                 ~ "96983520312774506326239578318016984801869478851843"
                 ~ "85861560789112949495459501737958331952853208805511"
@@ -32,16 +29,10 @@ void main() {
                 ~ "84580156166097919133875499200524063689912560717606"
                 ~ "05886116467109405077541002256983155200055935729725"
                 ~ "71636269561882670428252483600823257530420752963450";
-    
     auto digits = data.map!(a => to!long(a) - 48L).array;
-    
-    auto products = iota(0, digits.length - CONSECUTIVEDIGITS)
-                   .map!(i => digits[i .. i + CONSECUTIVEDIGITS].reduce!"a * b"());
-    
-    long answer = products.maxElement;
-    
-    timer.stop();
-    
-    writefln("\nProject Euler #8\nAnswer: %s", answer);
-    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
+    return iota(0, digits.length - CONSECUTIVEDIGITS)
+           .map!(i => digits[i .. i + CONSECUTIVEDIGITS].reduce!"a * b"())
+           .maxElement;
 }
+
+void main() { runSolution!(solve, 8)(); }

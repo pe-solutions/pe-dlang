@@ -1,4 +1,10 @@
 {
-	"description": "Counting Summations",
-	"name": "pe-0076"
+	"name": "pe-0076",
+	"description": "Project Euler problem 76 - D solution.",
+	"authors": [
+		"menjaraz"
+	],
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
 }

@@ -1,36 +1,24 @@
 // Special Pythagorean Triplet
 // https://projecteuler.net/problem=9
 
-import std.stdio : writeln, writefln;
-import std.datetime.stopwatch: StopWatch;
-import std.typecons: tuple, Tuple;
+import std.typecons : tuple, Tuple;
+import euler.common : runSolution;
 
-const PERIMETER = 1_000u;
+enum PERIMETER = 1_000u;
 
 Tuple!(uint, uint, uint) findTriplet() {
-    foreach (uint a; 1 .. PERIMETER/3) {
+    foreach (uint a; 1 .. PERIMETER/3)
         foreach (uint b; a + 1 .. PERIMETER/2) {
             uint c = PERIMETER - a - b;
-            //
             if (a * a + b * b == c * c)
                 return tuple(a, b, c);
         }
-    }
-    //
-    return tuple(0u, 0u, 0u); // No solution found
+    return tuple(0u, 0u, 0u);
 }
 
-void main() {
-    auto timer = StopWatch(AutoStart.yes);
-
-    auto result = findTriplet();
-
-    if (result[0] != 0 && result[1] != 0 && result[2] != 0) {
-        writefln("\nProject Euler #9\nAnswer: %s", result[0] * result[1] * result[2]);
-    } else {
-        writefln("No solution found.");
-    }
-
-    timer.stop();
-    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
+auto solve() {
+    auto t = findTriplet();
+    return t[0] * t[1] * t[2];
 }
+
+void main() { runSolution!(solve, 9)(); }

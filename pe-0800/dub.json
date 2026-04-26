@@ -1,4 +1,10 @@
 {
-	"description": "Hybrid Integers",
-	"name": "pe-0800"
+	"name": "pe-0800",
+	"description": "Project Euler problem 800 - D solution.",
+	"authors": [
+		"menjaraz"
+	],
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
 }

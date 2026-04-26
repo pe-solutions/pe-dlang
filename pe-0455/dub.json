@@ -1,9 +1,10 @@
 {
+	"name": "pe-0455",
+	"description": "Project Euler problem 455 - D solution.",
 	"authors": [
-		"menja"
+		"menjaraz"
 	],
-	"copyright": "Copyright © 2024, menja",
-	"description": "A minimal D application.",
-	"license": "proprietary",
-	"name": "pe-0455"
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
 }

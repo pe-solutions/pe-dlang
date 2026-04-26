@@ -1,57 +1,25 @@
 // Prime Permutations
 // https://projecteuler.net/problem=49
 
-import std.stdio;
-import std.datetime.stopwatch: StopWatch;
-import std.algorithm;
-import std.array;
-import std.conv;
-
-bool isprime(ulong n) {
-    if (n < 2) {
-        return false;
-    }
-
-    foreach (i; 2 .. n) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-
-    return true;
-}
+import std.algorithm : equal, sort;
+import std.array : array;
+import std.conv : to;
+import euler.math : isPrime;
+import euler.common : runSolution;
 
 bool ispermutation(ulong a, ulong b) {
-    auto str_a = to!string(a).array.sort;
-    auto str_b = to!string(b).array.sort;
-
-    return equal(str_a, str_b);
+    return equal(to!string(a).array.sort, to!string(b).array.sort);
 }
 
-ulong findPrimePermutations() {
+auto solve() {
     const ulong STEP = 3330;
-    
-    ulong a, b, c;
-
-    for (a = 1487 + 1; a <= STEP + 1; a++) {
-        b = a + STEP;
-        c = b + STEP;
-
-        if (isprime(a) && isprime(b) && isprime(c) && ispermutation(a, b) && ispermutation(b, c)) {
+    for (ulong a = 1488; a <= STEP + 1; a++) {
+        ulong b = a + STEP;
+        ulong c = b + STEP;
+        if (isPrime(a) && isPrime(b) && isPrime(c) && ispermutation(a, b) && ispermutation(b, c))
             return 10^^(2 * 4) * a + 10^^4 * b + c;
-        }
     }
-
-    return 0;
+    return 0uL;
 }
 
-void main() {
-    auto timer = StopWatch(AutoStart.yes);
-
-    auto answer = findPrimePermutations();
-
-    timer.stop();
-
-    writefln("\nProject Euler #49\nAnswer: %s", answer);
-    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
-}
+void main() { runSolution!(solve, 49)(); }

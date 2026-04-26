@@ -1,7 +1,10 @@
 {
-	"description": "Project Euler problem 345 - D solution.",
 	"name": "pe-0345",
+	"description": "Project Euler problem 345 - D solution.",
 	"authors": [
 		"menjaraz"
-	]
+	],
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
 }

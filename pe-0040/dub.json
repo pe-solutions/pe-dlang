@@ -3,5 +3,8 @@
 	"description": "Project Euler problem 40 - D solution.",
 	"authors": [
 		"menjaraz"
-	]
+	],
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
 }

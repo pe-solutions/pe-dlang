@@ -1,4 +1,10 @@
 {
-	"description": "Project Euler #63 - D Solution",
-	"name": "pe-0063"
+	"name": "pe-0063",
+	"description": "Project Euler problem 63 - D solution.",
+	"authors": [
+		"menjaraz"
+	],
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
 }

@@ -1,0 +1,8 @@
+{
+	"name": "pe-common",
+	"description": "Shared utilities for Project Euler D solutions.",
+	"authors": [
+		"menjaraz"
+	],
+	"targetType": "library"
+}

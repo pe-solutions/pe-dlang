@@ -1,0 +1,12 @@
+# DUB build artifacts
+*.exe
+*.pdb
+*.lib
+*.exp
+*.obj
+*.o
+.dub/
+dub.selections.json
+
+# DUB cache
+__cache__/

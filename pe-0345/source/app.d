@@ -1,8 +1,7 @@
 // Matrix Sum
 // https://projecteuler.net/problem=345
 
-import std.stdio;
-import std.datetime.stopwatch: StopWatch;
+import euler.common : runSolution;
 
 enum N = 15;
 enum N2 = 1 << N;
@@ -25,31 +24,20 @@ int[N][N] a = [
     [ 813, 883, 451, 509, 615,  77, 281, 613, 459, 205, 380, 274, 302,  35, 805 ]
 ];
 
-int[N2][N+1] dp;
-
-void main() {   
-    auto timer = StopWatch(AutoStart.yes);
-    
+auto solve() {
+    int[N2][N+1] dp;
     foreach (n; 0 .. N) {
         foreach (c; 0 .. N2) {
             dp[n+1][c] = dp[n][c];
-            
             foreach (x; 0 .. N) {
                 if ((1 << x) & c) {
                     auto r = a[n][x] + dp[n][c - (1 << x)];
-                    
-                    if (dp[n+1][c] < r) {
-                        dp[n+1][c] = r;
-                    }
+                    if (dp[n+1][c] < r) dp[n+1][c] = r;
                 }
             }
         }
     }
-    
-    auto answer = dp[N][N2 - 1];
-    
-    timer.stop();
-
-    writefln("\nProject Euler #345\nAnswer: %s", answer);
-    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
+    return dp[N][N2 - 1];
 }
+
+void main() { runSolution!(solve, 345)(); }

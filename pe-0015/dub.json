@@ -1,4 +1,10 @@
 {
-	"description": "Lattice Paths",
-	"name": "pe-0015"
+	"name": "pe-0015",
+	"description": "Project Euler problem 15 - D solution.",
+	"authors": [
+		"menjaraz"
+	],
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
 }

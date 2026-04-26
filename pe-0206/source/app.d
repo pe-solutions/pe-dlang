@@ -1,12 +1,8 @@
 // Concealed Square
 // https://projecteuler.net/problem=206
 
-import std.stdio : writefln;
-import std.datetime.stopwatch: StopWatch;
-import std.math: sqrt;
-import std.range: iota;
-import std.algorithm: filter, sum;
-import std.numeric: gcd;
+import std.math : sqrt;
+import euler.common : runSolution;
 
 ulong calculateSquareRootUpperBound() {
     return (cast(ulong)sqrt(cast(double)1929394959697989990uL) / 10) * 10;
@@ -18,35 +14,19 @@ ulong calculateSquareRootLowerBound() {
 
 bool hasConcealedSquarePattern(ulong candidate) {
     candidate /= 100;
-
     for (ulong digit = 9; digit > 0; digit--, candidate /= 100) {
-        if (candidate % 10 != digit) {
-            return false;
-        }
+        if (candidate % 10 != digit) return false;
     }
-
     return true;
 }
 
-void main() {
-    auto timer = StopWatch(AutoStart.yes);
-    
+auto solve() {
     auto max = calculateSquareRootUpperBound();
     auto min = calculateSquareRootLowerBound();
-
-    ulong answer= 0;
-
     for (ulong i = min; i <= max; i += 10) {
-        auto candidate = i * i;
-
-        if (hasConcealedSquarePattern(candidate)) {
-            answer = i;
-            break;
-        }
+        if (hasConcealedSquarePattern(i * i)) return i;
     }
-        
-    timer.stop();
-        
-    writefln("\nProject Euler #206\nAnswer: %s", answer);
-    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
+    return 0uL;
 }
+
+void main() { runSolution!(solve, 206)(); }

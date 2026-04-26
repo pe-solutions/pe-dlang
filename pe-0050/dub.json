@@ -1,4 +1,7 @@
 {
+	"name": "pe-0050",
 	"description": "Consecutive Prime Sum",
-	"name": "pe-0050"
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
 }

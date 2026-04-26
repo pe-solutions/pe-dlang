@@ -1,24 +1,11 @@
 // Number Spiral Diagonals
 // https://projecteuler.net/problem=28
 
-import std.stdio;
-import std.datetime.stopwatch: StopWatch;
+import euler.common : runSolution;
 
-/// Closed form
 long sumOfSpiralDiagonals(const long n) =>
-    (4L * n ^^ 3L + 3L * n ^^ 2L + 8L * n - 9L) / 6L;
+    (4L * n^^3L + 3L * n^^2L + 8L * n - 9L) / 6L;
 
-void main()
-{
-    auto timer = StopWatch(AutoStart.yes);
+auto solve() { return sumOfSpiralDiagonals(1_001L); }
 
-    // Size of the spiral
-    const SIZE = 1_001L;
-    
-    auto answer = sumOfSpiralDiagonals(SIZE);
-    
-    timer.stop();
-    
-    writefln("\nProject Euler #28\nAnswer: %s", answer);
-    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
-}
+void main() { runSolution!(solve, 28)(); }

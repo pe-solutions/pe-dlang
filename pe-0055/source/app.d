@@ -1,60 +1,23 @@
 // Lychrel Numbers
 // https://projecteuler.net/problem=55
 
-import std.stdio;
-import std.datetime.stopwatch;
+import euler.math : isPalindrome, reverseDigits;
+import euler.common : runSolution;
 
-long reverseDigits(long number)
-{
-    long reversed = 0;
-    
-    while (number > 0)
-    {
-        reversed = reversed * 10 + (number % 10);
-        number /= 10;
-    }
-    
-    return reversed;
-}
-
-bool isPalindrome(long number)
-{
-    return number == reverseDigits(number);
-}
-
-bool isLychrel(long number)
-{
+bool isLychrel(long number) {
     long temp = number;
-    
-    for (long iteration = 1; iteration <= 50; iteration++)
-    {
+    for (long iteration = 1; iteration <= 50; iteration++) {
         temp += reverseDigits(temp);
-        
-        if (isPalindrome(temp))
-        {
-            return false;
-        }
+        if (isPalindrome(temp)) return false;
     }
-    
     return true;
 }
 
-void main()
-{
-    auto timer = StopWatch(AutoStart.yes);
-    
-    int lychrelTotal = 0;
-    
-    for (long candidate = 1; candidate <= 10_000; candidate++)
-    {
-        if (isLychrel(candidate))
-        {
-            lychrelTotal++;
-        }
-    }
-    
-    timer.stop();
-        
-    writefln("\nProject Euler #55\nAnswer: %s", lychrelTotal);
-    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());    
+auto solve() {
+    int total = 0;
+    for (long n = 1; n <= 10_000; n++)
+        if (isLychrel(n)) total++;
+    return total;
 }
+
+void main() { runSolution!(solve, 55)(); }

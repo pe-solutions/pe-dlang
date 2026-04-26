@@ -1,4 +1,10 @@
 {
-	"description": "Project Euler Problem 849 Dlang solution.",
-	"name": "pe-0849"
+	"name": "pe-0849",
+	"description": "Project Euler problem 849 - D solution.",
+	"authors": [
+		"menjaraz"
+	],
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
 }
