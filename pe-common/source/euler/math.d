@@ -55,3 +55,17 @@ T largestPrimeFactor(T)(in T n) pure nothrow if (isIntegral!T) {
 T mod(T)(T a, T b) if (isIntegral!T) {
     return (a % b + b) % b;
 }
+
+// Returns the nth prime using a sieve sized by Rosser's bound: p_n < n*(ln n + ln ln n) for n >= 6.
+T nthPrime(T = int)(int n) if (isIntegral!T) {
+    import std.math : log;
+    if (n == 1) return cast(T)2;
+    immutable dn = cast(double)n;
+    int limit = n < 6 ? 20 : cast(int)(dn * (log(dn) + log(log(dn)))) + 3;
+    auto s = sieve(limit);
+    int count = 0;
+    foreach (i; 2 .. limit + 1)
+        if (s[i] && ++count == n)
+            return cast(T)i;
+    return cast(T)-1;
+}
