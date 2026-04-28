@@ -30,13 +30,13 @@ bool isPalindrome(T)(T n) if (isIntegral!T) {
 // Returns bool[0..n]: isPrime[i] == true iff i is prime.
 bool[] sieve(int n) {
     auto s = new bool[n + 1];
-    if (n >= 2) {
-        s[2 .. $] = true;
-        for (int i = 2; i * i <= n; ++i)
-            if (s[i])
-                for (int j = i * i; j <= n; j += i)
-                    s[j] = false;
-    }
+    if (n < 2) return s;
+    s[2 .. $] = true;
+    for (int j = 4; j <= n; j += 2) s[j] = false;
+    for (int i = 3; i * i <= n; i += 2)
+        if (s[i])
+            for (int j = i * i; j <= n; j += 2 * i)
+                s[j] = false;
     return s;
 }
 
