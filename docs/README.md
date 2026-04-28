@@ -20,7 +20,9 @@ pe-dlang/
 ├── pe-XXXX/            # One DUB package per problem
 │   ├── dub.json
 │   └── source/app.d
-└── build-all.ps1       # Build all solutions in one shot
+├── build-all.ps1       # Build all solutions in one shot
+├── run-all.ps1         # Run all solutions in one shot
+└── clean-all.ps1       # Clean all solutions in one shot
 ```
 
 Each `pe-XXXX/` directory is a self-contained [DUB](https://dub.pm/) package that depends on `pe-common` via a local path.
@@ -43,6 +45,21 @@ dub run --build=release   # optimised
 .\build-all.ps1                  # debug build
 .\build-all.ps1 -Release         # release build
 .\build-all.ps1 -ShowOutput      # print dub output for every solution
+```
+
+**Run all solutions at once:**
+
+```powershell
+.\run-all.ps1                    # debug build + run
+.\run-all.ps1 -Release           # release build + run
+.\run-all.ps1 -ShowOutput        # also print dub build messages on success
+```
+
+**Clean all solutions at once:**
+
+```powershell
+.\clean-all.ps1                  # remove build artifacts
+.\clean-all.ps1 -ShowOutput      # print dub output for every solution
 ```
 
 ---

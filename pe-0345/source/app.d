@@ -25,7 +25,7 @@ int[N][N] a = [
 ];
 
 auto solve() {
-    int[N2][N+1] dp;
+    static int[N2][N+1] dp;
     foreach (n; 0 .. N) {
         foreach (c; 0 .. N2) {
             dp[n+1][c] = dp[n][c];
