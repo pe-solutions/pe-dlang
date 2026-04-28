@@ -15,7 +15,7 @@ pe-dlang/
 ├── pe-common/          # Shared library
 │   └── source/euler/
 │       ├── common.d    # runSolution template
-│       └── math.d      # isPrime, sieve, reverseDigits, isPalindrome,
+│       └── math.d      # isPrime, sieve, nthPrime, reverseDigits, isPalindrome,
 │                       # largestPrimeFactor, mod
 ├── pe-XXXX/            # One DUB package per problem
 │   ├── dub.json
@@ -78,6 +78,7 @@ dub run --build=release   # optimised
 |--------|-------------|
 | `isPrime(n)` | Trial division primality test — O(√n), works on any integral type |
 | `sieve(n)` | Sieve of Eratosthenes — returns `bool[0..n]`, O(n log log n) |
+| `nthPrime!T(n)` | Returns the nth prime as type `T` (default `int`), sized by Rosser's bound |
 | `reverseDigits(n)` | Reverses the decimal digits of an integer |
 | `isPalindrome(n)` | Returns `true` if `n == reverseDigits(n)` |
 | `largestPrimeFactor(n)` | Returns the largest prime factor of `n` |
