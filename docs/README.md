@@ -22,7 +22,7 @@ pe-dlang/
 │   └── source/euler/
 │       ├── common.d    # runSolution template
 │       └── math.d      # isPrime, sieve, nthPrime, reverseDigits, isPalindrome,
-│                       # largestPrimeFactor, mod
+│                       # largestPrimeFactor, mod, fib, matMul, matVec, matPow
 ├── pe-XXXX/            # One DUB package per problem
 │   ├── dub.json
 │   └── source/app.d
@@ -89,6 +89,10 @@ dub run --build=release   # optimised
 | `isPalindrome(n)` | Returns `true` if `n == reverseDigits(n)` |
 | `largestPrimeFactor(n)` | Returns the largest prime factor of `n` |
 | `mod(a, b)` | True modulo — always non-negative, unlike D's `%` remainder |
+| `fib!T(n)` | nth Fibonacci number as type `T` (default `BigInt`); use `fib!long(n)` for n ≤ 93 |
+| `matMul(A, B, m)` | 2×2 matrix multiplication mod `m` |
+| `matVec(M, v, m)` | 2×2 matrix × 2-vector multiplication mod `m` |
+| `matPow(M, n, m)` | 2×2 matrix power `M^n` mod `m`; `n` may be any integral type or `BigInt` |
 
 ---
 
@@ -165,3 +169,4 @@ Elapsed time: 3 milliseconds.
 | [808](../pe-0808/source/app.d) | Reversible Prime Squares | Find primes p where both p² and rev(p²) are squares of primes |
 | [820](../pe-0820/source/app.d) | Nth Digit of Reciprocals | nth digit of 1/k = (10ⁿ mod 10k) / k via modular exponentiation |
 | [849](../pe-0849/source/app.d) | The Tournament | DP score distribution over 100 rounds, mod 10⁹+7 |
+| [940](../pe-0940/source/app.d) | Two-Dimensional Recurrence | Matrix exponentiation on two coupled recurrences; sum A(f_i, f_j) over 2 ≤ i, j ≤ 50 with Fibonacci indices |

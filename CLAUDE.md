@@ -14,7 +14,8 @@ pe-dlang/
 │   └── source/euler/
 │       ├── common.d    # runSolution template
 │       └── math.d      # isPrime, sieve, nthPrime, reverseDigits,
-│                       # isPalindrome, largestPrimeFactor, mod
+│                       # isPalindrome, largestPrimeFactor, mod,
+│                       # fib, matMul, matVec, matPow
 ├── pe-XXXX/            # One DUB package per problem
 │   ├── dub.json
 │   └── source/app.d
@@ -97,3 +98,7 @@ Elapsed time: 3 milliseconds.
 | `isPalindrome(n)` | `true` if `n == reverseDigits(n)` |
 | `largestPrimeFactor(n)` | Largest prime factor of `n` |
 | `mod(a, b)` | True modulo — always non-negative, unlike D's `%` |
+| `fib!T(n)` | nth Fibonacci number as type `T` (default `BigInt`); use `fib!long(n)` for n ≤ 93 |
+| `matMul(A, B, m)` | 2×2 matrix multiplication mod `m` |
+| `matVec(M, v, m)` | 2×2 matrix × 2-vector multiplication mod `m` |
+| `matPow(M, n, m)` | 2×2 matrix power `M^n` mod `m`; `n` may be any integral type or `BigInt` |

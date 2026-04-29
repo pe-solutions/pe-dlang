@@ -1,5 +1,6 @@
 module euler.math;
 
+import std.bigint : BigInt;
 import std.traits : isIntegral;
 
 bool isPrime(T)(T n) if (isIntegral!T) {
@@ -68,4 +69,43 @@ T nthPrime(T = int)(int n) if (isIntegral!T) {
         if (s[i] && ++count == n)
             return cast(T)i;
     return cast(T)-1;
+}
+
+// 2×2 matrix multiplication mod m.
+long[][] matMul(long[][] A, long[][] B, long m) {
+    long[][] C = [[0L, 0L], [0L, 0L]];
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            for (int p = 0; p < 2; p++)
+                C[i][j] = (C[i][j] + (A[i][p] * B[p][j]) % m) % m;
+    return C;
+}
+
+// 2×2 matrix × 2-vector multiplication mod m.
+long[] matVec(long[][] M, long[] v, long m) {
+    long[] r = [0L, 0L];
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            r[i] = (r[i] + (M[i][j] * v[j]) % m) % m;
+    return r;
+}
+
+// 2×2 matrix power M^n mod m via square-and-multiply; n may be any integral type or BigInt.
+long[][] matPow(N)(long[][] M, N n, long m) if (isIntegral!N || is(N == BigInt)) {
+    long[][] result = [[1L, 0L], [0L, 1L]];
+    long[][] base = M;
+    while (n > 0) {
+        if (n % 2 == 1) result = matMul(result, base, m);
+        base = matMul(base, base, m);
+        n /= 2;
+    }
+    return result;
+}
+
+// nth Fibonacci number as type T (default BigInt); for T = long, valid up to n = 93.
+T fib(T = BigInt)(int n) if (isIntegral!T || is(T == BigInt)) {
+    if (n <= 1) return T(n);
+    T a = T(0), b = T(1);
+    foreach (_; 2..n + 1) { T c = a + b; a = b; b = c; }
+    return b;
 }

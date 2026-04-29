@@ -1,0 +1,10 @@
+{
+	"name": "pe-0940",
+	"description": "Project Euler problem 940 - D solution.",
+	"authors": [
+		"menjaraz"
+	],
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
+}
