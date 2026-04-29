@@ -1,7 +1,7 @@
 // Two-Dimensional Recurrence
 // https://projecteuler.net/problem=940
 
-import euler.math : fib, matMul, matPow, matVec;
+import euler.math : fib, matMul, matPow, matVecMul;
 import euler.common : runSolution;
 
 enum long MOD = 1123581313;
@@ -24,8 +24,8 @@ struct Precomputed {
             fibs[idx] = fib!long(i);
             // One matPow for the row direction; derive A(fib(i)-1, 0) via M_row^(-1).
             auto Mn      = matPow([[0L, 1L], [1L, 3L]], fibs[idx], mod);
-            dFi[idx]     = matVec(Mn, [0L, 1L], mod)[0];
-            dFiPrev[idx] = matVec(matMul([[INV_MROW[0][0], INV_MROW[0][1]],
+            dFi[idx]     = matVecMul(Mn, [0L, 1L], mod)[0];
+            dFiPrev[idx] = matVecMul(matMul([[INV_MROW[0][0], INV_MROW[0][1]],
                                           [INV_MROW[1][0], INV_MROW[1][1]]], Mn, mod),
                                   [0L, 1L], mod)[0];
             // Accumulate column-direction sums; no need to store individual matrices.

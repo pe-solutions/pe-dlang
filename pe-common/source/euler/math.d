@@ -71,32 +71,32 @@ T nthPrime(T = int)(int n) if (isIntegral!T) {
     return cast(T)-1;
 }
 
-// 2×2 matrix multiplication mod m.
-long[][] matMul(long[][] A, long[][] B, long m) {
+// 2×2 matrix multiplication mod modulus.
+long[][] matMul(long[][] A, long[][] B, long modulus) {
     long[][] C = [[0L, 0L], [0L, 0L]];
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             for (int p = 0; p < 2; p++)
-                C[i][j] = (C[i][j] + (A[i][p] * B[p][j]) % m) % m;
+                C[i][j] = (C[i][j] + (A[i][p] * B[p][j]) % modulus) % modulus;
     return C;
 }
 
-// 2×2 matrix × 2-vector multiplication mod m.
-long[] matVec(long[][] M, long[] v, long m) {
+// 2×2 matrix × 2-vector multiplication mod modulus.
+long[] matVecMul(long[][] M, long[] v, long modulus) {
     long[] r = [0L, 0L];
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
-            r[i] = (r[i] + (M[i][j] * v[j]) % m) % m;
+            r[i] = (r[i] + (M[i][j] * v[j]) % modulus) % modulus;
     return r;
 }
 
-// 2×2 matrix power M^n mod m via square-and-multiply; n may be any integral type or BigInt.
-long[][] matPow(N)(long[][] M, N n, long m) if (isIntegral!N || is(N == BigInt)) {
+// 2×2 matrix power M^n mod modulus via square-and-multiply; n may be any integral type or BigInt.
+long[][] matPow(N)(long[][] M, N n, long modulus) if (isIntegral!N || is(N == BigInt)) {
     long[][] result = [[1L, 0L], [0L, 1L]];
     long[][] base = M;
     while (n > 0) {
-        if (n % 2 == 1) result = matMul(result, base, m);
-        base = matMul(base, base, m);
+        if (n % 2 == 1) result = matMul(result, base, modulus);
+        base = matMul(base, base, modulus);
         n /= 2;
     }
     return result;
