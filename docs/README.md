@@ -4,7 +4,7 @@
 
 I followed the ins and outs of [DMD](https://dlang.org/) since early 2004 when the _"Great Divide"_ Phobos/Tango debate was still prevalent.
 
-I ❤️ D and mostly Math'n code too!
+I ❤️ D and mostly `Math'n code` too!
 
 <p align="center">
   <a href="https://projecteuler.net/profile/mavotroky.png">
