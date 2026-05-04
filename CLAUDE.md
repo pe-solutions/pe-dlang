@@ -61,7 +61,7 @@ Every `app.d` follows the same pattern:
 // https://projecteuler.net/problem=N
 
 import euler.math : sieve;          // math utilities as needed
-import euler.numerics : Solver;     // root-finding as needed
+import euler.numerics : Solver, Method; // root-finding as needed
 import euler.common : runSolution;
 
 auto solve() {
@@ -75,9 +75,11 @@ void main() { runSolution!(solve, N)(); }
 `runSolution` starts the timer, calls `solve()`, then prints:
 
 ```
+
 Project Euler #N
 Answer: 12345
 Elapsed time: 3 milliseconds.
+
 ```
 
 **D idioms** — range pipelines (`iota`, `filter`, `map`, `sum`, etc. from `std.range` / `std.algorithm`) are preferred over imperative loops where they read naturally; heavier numerical work uses explicit loops.
