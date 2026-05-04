@@ -131,7 +131,7 @@ struct Solver
     private Tuple!(double, size_t) newtonRaphson() nothrow
     {
         enum double TOL = 1e-15;
-        double x     = (a + b) / 2.0;
+        double x     = (a + b) / 2.0;  // initial guess: bracket midpoint
         size_t evals = 0;
         foreach (i; 0 .. 300)
         {
