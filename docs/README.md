@@ -21,8 +21,10 @@ pe-dlang/
 ├── pe-common/          # Shared library
 │   └── source/euler/
 │       ├── common.d    # runSolution template
-│       └── math.d      # isPrime, sieve, nthPrime, reverseDigits, isPalindrome,
-│                       # largestPrimeFactor, mod, fib, matMul, matVec, matPow
+│       ├── math.d      # isPrime, sieve, nthPrime, reverseDigits, isPalindrome,
+│       │               # largestPrimeFactor, mod, fib, matMul, matVecMul, matPow
+│       └── numerics.d  # Solver, Method, SolveResult — root-finding
+│                       # (Newton-Raphson, Brent-Dekker, TOMS 748, ITP)
 ├── pe-XXXX/            # One DUB package per problem
 │   ├── dub.json
 │   └── source/app.d
@@ -93,6 +95,16 @@ dub run --build=release   # optimised
 | `matMul(A, B, modulus)` | 2×2 matrix multiplication mod `modulus` |
 | `matVecMul(M, v, modulus)` | 2×2 matrix × 2-vector multiplication mod `modulus` |
 | `matPow(M, n, modulus)` | 2×2 matrix power `M^n` mod `modulus`; `n` may be any integral type or `BigInt` |
+
+### `euler.numerics`
+
+| Symbol | Description |
+|--------|-------------|
+| `Method` | Enum selecting the algorithm: `NewtonRaphson`, `Brent`, `Toms748`, `Itp` |
+| `label(m)` | Returns a human-readable name for a `Method` value |
+| `SolveResult` | Result struct — `method` (Method), `root` (double), `evals` (size_t) |
+| `Solver(method, a, b, func)` | Configures a root-finding solve for f(r) = 0 on \[a, b\]; `func` is a `double delegate(double)` |
+| `Solver.solve()` | Runs the selected algorithm and returns a `SolveResult` |
 
 ---
 
