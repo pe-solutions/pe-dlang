@@ -51,7 +51,7 @@ There are no tests — correctness is verified by running and checking the print
 Every `app.d` follows the same pattern:
 
 1. **Header comment** — problem title and URL (`// Title\n// https://projecteuler.net/problem=N`)
-2. **Imports** — `euler.math` utilities as needed, always `euler.common : runSolution`
+2. **Imports** — `euler.math` and/or `euler.numerics` utilities as needed, always `euler.common : runSolution`
 3. **Helper functions** — kept in the same `app.d` file if needed
 4. **`solve()`** — returns the answer; no I/O, no timing
 5. **`main()`** — single call to `runSolution!(solve, N)()`
@@ -61,6 +61,7 @@ Every `app.d` follows the same pattern:
 // https://projecteuler.net/problem=N
 
 import euler.math : sieve;          // math utilities as needed
+import euler.numerics : Solver;     // root-finding as needed
 import euler.common : runSolution;
 
 auto solve() {

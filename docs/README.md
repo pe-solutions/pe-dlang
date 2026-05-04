@@ -118,6 +118,7 @@ Every `app.d` follows the same pattern:
 
 import ...;
 import euler.math : ...;       // math utilities as needed
+import euler.numerics : ...;   // root-finding as needed
 import euler.common : runSolution;
 
 // helper functions if any
