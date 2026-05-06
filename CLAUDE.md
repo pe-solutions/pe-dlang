@@ -99,6 +99,7 @@ Elapsed time: 3 milliseconds.
 | `countDivisors(n)` | Number of divisors via prime factorisation — O(√n), any integral type |
 | `isPrime(n)` | Trial division primality test — O(√n), any integral type |
 | `sieve(n)` | Sieve of Eratosthenes — returns `bool[0..n]`, O(n log log n) |
+| `segmentedSieve(lo, hi)` | Range sieve — returns `bool[]` where `result[i]` is true iff `lo+i` is prime; O(hi-lo + √hi) memory |
 | `nthPrime!T(n)` | nth prime as type `T` (default `int`), sized by Rosser's bound |
 | `reverseDigits(n)` | Reverses the decimal digits of an integer |
 | `isPalindrome(n)` | `true` if `n == reverseDigits(n)` |

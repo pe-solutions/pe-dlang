@@ -70,6 +70,29 @@ bool[] sieve(T)(T n) if (isIntegral!T) {
     return s;
 }
 
+// Returns bool[] of length (hi-lo+1): result[i] == true iff (lo+i) is prime.
+// Only allocates O(hi-lo + sqrt(hi)) memory; efficient for large lo.
+bool[] segmentedSieve(T)(T lo, T hi) if (isIntegral!T) {
+    import std.math : sqrt;
+    size_t len = cast(size_t)(hi - lo + 1);
+    auto result = new bool[len];
+    result[] = true;
+    for (T v = lo; v < cast(T)2 && v <= hi; ++v)
+        result[cast(size_t)(v - lo)] = false;
+    auto limit = cast(size_t)(sqrt(cast(double)hi)) + 1;
+    auto small = sieve(limit);
+    foreach (p; 2 .. limit + 1) {
+        if (!small[p]) continue;
+        T prime = cast(T)p;
+        T first = (lo / prime) * prime;
+        if (first < lo) first += prime;
+        if (first < prime + prime) first = prime + prime;
+        for (T j = first; j <= hi; j += prime)
+            result[cast(size_t)(j - lo)] = false;
+    }
+    return result;
+}
+
 T reverseDigits(T)(T n) if (isIntegral!T) {
     T reversed = 0;
     while (n > 0) {
