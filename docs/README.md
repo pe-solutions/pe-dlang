@@ -186,3 +186,4 @@ Elapsed time: 3 milliseconds.
 | [820](../pe-0820/source/app.d) | Nth Digit of Reciprocals | nth digit of 1/k = (10ⁿ mod 10k) / k via modular exponentiation |
 | [849](../pe-0849/source/app.d) | The Tournament | DP score distribution over 100 rounds, mod 10⁹+7 |
 | [940](../pe-0940/source/app.d) | Two-Dimensional Recurrence | Matrix exponentiation on two coupled recurrences; sum A(f_i, f_j) over 2 ≤ i, j ≤ 50 with Fibonacci indices |
+| [974](../pe-0974/source/app.d) | Very Odd Numbers | DP over (residue mod 105, odd-digit parity bitmask) to locate target length; suffix-count table for greedy digit-by-digit reconstruction |
