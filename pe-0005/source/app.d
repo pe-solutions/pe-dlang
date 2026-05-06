@@ -8,4 +8,4 @@ import euler.common : runSolution;
 
 auto solve() { return iota(1, 20+1).reduce!lcm; }
 
-void main() { runSolution!(solve, 5)(); }
+void main() { runSolution!(solve)(5); }

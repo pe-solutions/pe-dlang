@@ -10,4 +10,4 @@ auto solve() {
     return countRoutes(20);
 }
 
-void main() { runSolution!(solve, 15)(); }
+void main() { runSolution!(solve)(15); }

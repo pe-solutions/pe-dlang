@@ -34,4 +34,4 @@ auto solve() {
     return longestSequence;
 }
 
-void main() { runSolution!(solve, 14)(); }
+void main() { runSolution!(solve)(14); }

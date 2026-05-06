@@ -15,4 +15,4 @@ auto solve() {
         .maxElement;
 }
 
-void main() { runSolution!(solve, 56)(); }
+void main() { runSolution!(solve)(56); }

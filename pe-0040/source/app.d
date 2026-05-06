@@ -14,4 +14,4 @@ auto solve() {
     return c[0] * c[9] * c[99] * c[999] * c[9_999] * c[99_999] * c[999_999];
 }
 
-void main() { runSolution!(solve, 40)(); }
+void main() { runSolution!(solve)(40); }

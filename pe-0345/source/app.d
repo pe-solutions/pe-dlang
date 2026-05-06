@@ -40,4 +40,4 @@ auto solve() {
     return dp[N][N2 - 1];
 }
 
-void main() { runSolution!(solve, 345)(); }
+void main() { runSolution!(solve)(345); }

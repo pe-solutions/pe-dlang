@@ -19,4 +19,4 @@ auto solve() {
         .count / 2;
 }
 
-void main() { runSolution!(solve, 91)(); }
+void main() { runSolution!(solve)(91); }

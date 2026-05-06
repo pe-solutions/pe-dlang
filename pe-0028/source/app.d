@@ -8,4 +8,4 @@ long sumOfSpiralDiagonals(const long n) =>
 
 auto solve() { return sumOfSpiralDiagonals(1_001L); }
 
-void main() { runSolution!(solve, 28)(); }
+void main() { runSolution!(solve)(28); }

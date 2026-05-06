@@ -20,4 +20,4 @@ auto solve() {
     return total;
 }
 
-void main() { runSolution!(solve, 55)(); }
+void main() { runSolution!(solve)(55); }

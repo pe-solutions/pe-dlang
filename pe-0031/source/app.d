@@ -14,4 +14,4 @@ auto solve() {
     return ways[TARGET];
 }
 
-void main() { runSolution!(solve, 31)(); }
+void main() { runSolution!(solve)(31); }

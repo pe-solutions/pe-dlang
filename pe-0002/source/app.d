@@ -16,4 +16,4 @@ auto solve() {
         .sum;
 }
 
-void main() { runSolution!(solve, 2)(); }
+void main() { runSolution!(solve)(2); }

@@ -10,4 +10,4 @@ auto solve() {
     return powmod(iota(1, 1001).map!(i => BigInt(i) ^^ i).sum, 1.BigInt, 10.BigInt ^^ 10);
 }
 
-void main() { runSolution!(solve, 48)(); }
+void main() { runSolution!(solve)(48); }

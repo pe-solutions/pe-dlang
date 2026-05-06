@@ -6,4 +6,4 @@ import euler.common : runSolution;
 
 auto solve() { return nthPrime(10_001); }
 
-void main() { runSolution!(solve, 7)(); }
+void main() { runSolution!(solve)(7); }

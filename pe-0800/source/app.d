@@ -36,4 +36,4 @@ auto solve() {
     return count;
 }
 
-void main() { runSolution!(solve, 800)(); }
+void main() { runSolution!(solve)(800); }

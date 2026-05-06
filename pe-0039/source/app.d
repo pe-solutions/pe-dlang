@@ -26,4 +26,4 @@ auto solve() {
     return maxPerimeter;
 }
 
-void main() { runSolution!(solve, 39)(); }
+void main() { runSolution!(solve)(39); }

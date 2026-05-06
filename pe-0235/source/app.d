@@ -32,4 +32,4 @@ auto solve()
     return format("%.12f", root);
 }
 
-void main() { runSolution!(solve, 235)(); }
+void main() { runSolution!(solve)(235); }

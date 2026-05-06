@@ -25,4 +25,4 @@ auto solve() {
     return maxSum;
 }
 
-void main() { runSolution!(solve, 50)(); }
+void main() { runSolution!(solve)(50); }

@@ -9,4 +9,4 @@ auto solve() {
     return iota(1, 100+1).sum ^^ 2 - iota(1, 100+1).map!(a => a ^^ 2).sum;
 }
 
-void main() { runSolution!(solve, 6)(); }
+void main() { runSolution!(solve)(6); }

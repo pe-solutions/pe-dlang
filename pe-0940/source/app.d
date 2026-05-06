@@ -52,4 +52,4 @@ auto solve() {
     return S(50, MOD);
 }
 
-void main() { runSolution!(solve, 940)(); }
+void main() { runSolution!(solve)(940); }

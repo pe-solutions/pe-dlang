@@ -11,4 +11,4 @@ auto solve() {
     return iota(1UL, n + 1).map!(k => powmod(10UL, n, 10UL * k) / k).sum;
 }
 
-void main() { runSolution!(solve, 820)(); }
+void main() { runSolution!(solve)(820); }

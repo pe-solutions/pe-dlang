@@ -11,4 +11,4 @@ auto solve() {
     return cartesianProduct(R, R).map!(a => a[0] * a[1]).filter!isPalindrome.maxElement;
 }
 
-void main() { runSolution!(solve, 4)(); }
+void main() { runSolution!(solve)(4); }

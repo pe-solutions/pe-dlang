@@ -54,7 +54,7 @@ Every `app.d` follows the same pattern:
 2. **Imports** — `euler.math` and/or `euler.numerics` utilities as needed, always `euler.common : runSolution`
 3. **Helper functions** — kept in the same `app.d` file if needed
 4. **`solve()`** — returns the answer; no I/O, no timing
-5. **`main()`** — single call to `runSolution!(solve, N)()`
+5. **`main()`** — single call to `runSolution!(solve)(N)`
 
 ```d
 // Problem title
@@ -69,7 +69,7 @@ auto solve() {
     return answer;
 }
 
-void main() { runSolution!(solve, N)(); }
+void main() { runSolution!(solve)(N); }
 ```
 
 `runSolution` starts the timer, calls `solve()`, then prints:
@@ -90,7 +90,7 @@ Elapsed time: 3 milliseconds.
 
 | Symbol | Description |
 |--------|-------------|
-| `runSolution!(solver, N)()` | Times `solver()`, prints answer and elapsed milliseconds |
+| `runSolution!(solver)(N)` | Times `solver()`, prints answer and elapsed milliseconds |
 
 ### `euler.math`
 

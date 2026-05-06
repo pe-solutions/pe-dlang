@@ -13,4 +13,4 @@ auto solve() {
     return totalCount;
 }
 
-void main() { runSolution!(solve, 63)(); }
+void main() { runSolution!(solve)(63); }

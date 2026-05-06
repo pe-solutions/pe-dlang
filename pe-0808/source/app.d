@@ -40,4 +40,4 @@ auto solve() {
     return sumOfReversiblePrimes(50);
 }
 
-void main() { runSolution!(solve, 808)(); }
+void main() { runSolution!(solve)(808); }

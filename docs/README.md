@@ -78,7 +78,7 @@ dub run --build=release   # optimised
 
 | Symbol | Description |
 |--------|-------------|
-| `runSolution!(solver, N)()` | Starts a timer, calls `solver()`, prints the answer and elapsed time |
+| `runSolution!(solver)(N)` | Starts a timer, calls `solver()`, prints the answer and elapsed time |
 
 ### `euler.math`
 
@@ -128,7 +128,7 @@ auto solve() {
     return answer;
 }
 
-void main() { runSolution!(solve, N)(); }
+void main() { runSolution!(solve)(N); }
 ```
 
 `runSolution` handles the timer and output format:

@@ -22,4 +22,4 @@ auto solve() {
     return 0;
 }
 
-void main() { runSolution!(solve, 38)(); }
+void main() { runSolution!(solve)(38); }

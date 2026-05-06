@@ -43,4 +43,4 @@ auto solve() {
     return 0uL;
 }
 
-void main() { runSolution!(solve, 60)(); }
+void main() { runSolution!(solve)(60); }

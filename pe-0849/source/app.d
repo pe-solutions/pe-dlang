@@ -31,4 +31,4 @@ auto solve() {
     return f_alternate(100L, 10L^^9 + 7);
 }
 
-void main() { runSolution!(solve, 849)(); }
+void main() { runSolution!(solve)(849); }

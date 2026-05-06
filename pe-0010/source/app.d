@@ -10,4 +10,4 @@ auto solve() {
     return iota(2, 2_000_000).filter!(isPrime).sum(0L);
 }
 
-void main() { runSolution!(solve, 10)(); }
+void main() { runSolution!(solve)(10); }

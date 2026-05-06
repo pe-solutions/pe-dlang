@@ -18,4 +18,4 @@ auto solve() {
     return computePartitions(100) - 1;
 }
 
-void main() { runSolution!(solve, 76)(); }
+void main() { runSolution!(solve)(76); }

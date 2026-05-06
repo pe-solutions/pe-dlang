@@ -12,4 +12,4 @@ auto solve() {
     return large_non_mersenne_prime(2.BigInt, 7_830_457.BigInt, 28_433.BigInt, 10.BigInt ^^ 10);
 }
 
-void main() { runSolution!(solve, 97)(); }
+void main() { runSolution!(solve)(97); }

@@ -21,4 +21,4 @@ auto solve() {
     return t[0] * t[1] * t[2];
 }
 
-void main() { runSolution!(solve, 9)(); }
+void main() { runSolution!(solve)(9); }
