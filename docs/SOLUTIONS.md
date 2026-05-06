@@ -39,6 +39,7 @@
 | [800](../pe-0800/source/app.d) | Hybrid Integers | Log-space: q·log p + p·log q ≤ E·log B; binary search on q |
 | [808](../pe-0808/source/app.d) | Reversible Prime Squares | Find primes p where both p² and rev(p²) are squares of primes |
 | [820](../pe-0820/source/app.d) | Nth Digit of Reciprocals | nth digit of 1/k = (10ⁿ mod 10k) / k via modular exponentiation |
+| [831](../pe-0831/source/app.d) | Triple Product | Polynomial g(m) = (81m⁵ + 765m⁴) / 40 via interpolation; compute g(142857) as BigInt, encode in base 7, return leading 10 digits |
 | [849](../pe-0849/source/app.d) | The Tournament | DP score distribution over 100 rounds, mod 10⁹+7 |
 | [940](../pe-0940/source/app.d) | Two-Dimensional Recurrence | Matrix exponentiation on two coupled recurrences; sum A(f_i, f_j) over 2 ≤ i, j ≤ 50 with Fibonacci indices |
 | [974](../pe-0974/source/app.d) | Very Odd Numbers | DP over (residue mod 105, odd-digit parity bitmask) to locate target length; suffix-count table for greedy digit-by-digit reconstruction |
