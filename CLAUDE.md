@@ -13,9 +13,9 @@ pe-dlang/
 ├── pe-common/          # Shared library
 │   └── source/euler/
 │       ├── common.d    # runSolution template
-│       ├── math.d      # isPrime, sieve, nthPrime, reverseDigits,
-│       │               # isPalindrome, largestPrimeFactor, mod,
-│       │               # fib, matMul, matVecMul, matPow
+│       ├── math.d      # countDivisors, isPrime, sieve, nthPrime,
+│       │               # reverseDigits, isPalindrome, largestPrimeFactor,
+│       │               # mod, fib, matMul, matVecMul, matPow
 │       └── numerics.d  # Solver, Method, SolveResult — root-finding
 │                       # (Newton-Raphson, Brent-Dekker, TOMS 748, ITP)
 ├── pe-XXXX/            # One DUB package per problem
@@ -96,6 +96,7 @@ Elapsed time: 3 milliseconds.
 
 | Symbol | Description |
 |--------|-------------|
+| `countDivisors(n)` | Number of divisors via prime factorisation — O(√n), any integral type |
 | `isPrime(n)` | Trial division primality test — O(√n), any integral type |
 | `sieve(n)` | Sieve of Eratosthenes — returns `bool[0..n]`, O(n log log n) |
 | `nthPrime!T(n)` | nth prime as type `T` (default `int`), sized by Rosser's bound |

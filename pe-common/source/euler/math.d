@@ -1,7 +1,23 @@
 module euler.math;
 
+import std.traits : isIntegral, Unqual;
 import std.bigint : BigInt;
-import std.traits : isIntegral;
+
+// Number of divisors of n via prime factorisation.
+// For each prime p with exponent e, contributes (e+1) to the product.
+auto countDivisors(T)(T n) if (isIntegral!T) {
+    Unqual!T m = n;
+    Unqual!T count = 1;
+    for (Unqual!T p = 2; p * p <= m; ++p) {
+        if (m % p == 0) {
+            Unqual!T e = 0;
+            while (m % p == 0) { m /= p; ++e; }
+            count *= e + 1;
+        }
+    }
+    if (m > 1) count *= 2;  // remaining prime factor
+    return count;
+}
 
 bool isPrime(T)(T n) if (isIntegral!T) {
     if (n <= 1) return false;
@@ -13,6 +29,45 @@ bool isPrime(T)(T n) if (isIntegral!T) {
         i += 6;
     }
     return true;
+}
+
+// Returns the nth prime using a sieve sized by Rosser's bound: p_n < n*(ln n + ln ln n) for n >= 6.
+T nthPrime(T = int)(int n) if (isIntegral!T) {
+    import std.math : log;
+    if (n == 1) return cast(T)2;
+    immutable dn = cast(double)n;
+    int limit = n < 6 ? 20 : cast(int)(dn * (log(dn) + log(log(dn)))) + 3;
+    auto s = sieve(limit);
+    int count = 0;
+    foreach (i; 2 .. limit + 1)
+        if (s[i] && ++count == n)
+            return cast(T)i;
+    return cast(T)-1;
+}
+
+T largestPrimeFactor(T)(in T n) pure nothrow if (isIntegral!T) {
+    T limit = n / 2;
+    T retval = n;
+    for (T i = 3; i < limit; i += 2) {
+        for (T k = retval; k % i == 0; retval = k) {
+            k = k / i;
+            limit = k / 2;
+        }
+    }
+    return retval;
+}
+
+// Returns bool[0..n+1]: result[i] == true iff i is prime.
+bool[] sieve(T)(T n) if (isIntegral!T) {
+    auto s = new bool[cast(size_t)(n + 1)];
+    if (n < 2) return s;
+    s[2 .. $] = true;
+    for (T j = 4; j <= n; j += 2) s[j] = false;
+    for (T i = 3; cast(long)i * i <= n; i += 2)
+        if (s[cast(size_t)i])
+            for (T j = i * i; j <= n; j += cast(T)(2 * cast(long)i))
+                s[cast(size_t)j] = false;
+    return s;
 }
 
 T reverseDigits(T)(T n) if (isIntegral!T) {
@@ -28,47 +83,8 @@ bool isPalindrome(T)(T n) if (isIntegral!T) {
     return n == reverseDigits(n);
 }
 
-// Returns bool[0..n]: isPrime[i] == true iff i is prime.
-bool[] sieve(int n) {
-    auto s = new bool[n + 1];
-    if (n < 2) return s;
-    s[2 .. $] = true;
-    for (int j = 4; j <= n; j += 2) s[j] = false;
-    for (int i = 3; i * i <= n; i += 2)
-        if (s[i])
-            for (int j = i * i; j <= n; j += 2 * i)
-                s[j] = false;
-    return s;
-}
-
-T largestPrimeFactor(T)(in T n) pure nothrow if (isIntegral!T) {
-    T limit = n / 2;
-    T retval = n;
-    for (T i = 3; i < limit; i += 2) {
-        for (T k = retval; k % i == 0; retval = k) {
-            k = k / i;
-            limit = k / 2;
-        }
-    }
-    return retval;
-}
-
 T mod(T)(T a, T b) if (isIntegral!T) {
     return (a % b + b) % b;
-}
-
-// Returns the nth prime using a sieve sized by Rosser's bound: p_n < n*(ln n + ln ln n) for n >= 6.
-T nthPrime(T = int)(int n) if (isIntegral!T) {
-    import std.math : log;
-    if (n == 1) return cast(T)2;
-    immutable dn = cast(double)n;
-    int limit = n < 6 ? 20 : cast(int)(dn * (log(dn) + log(log(dn)))) + 3;
-    auto s = sieve(limit);
-    int count = 0;
-    foreach (i; 2 .. limit + 1)
-        if (s[i] && ++count == n)
-            return cast(T)i;
-    return cast(T)-1;
 }
 
 // 2×2 matrix multiplication mod modulus.
