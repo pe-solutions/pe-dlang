@@ -12,6 +12,7 @@
 | [8](../pe-0008/source/app.d) | Largest Product in a Series | Sliding 13-digit window, maximise product |
 | [9](../pe-0009/source/app.d) | Special Pythagorean Triplet | Nested search with a+b+c=1000, a²+b²=c² |
 | [10](../pe-0010/source/app.d) | Summation of Primes | Trial division filter and sum below 2M |
+| [11](../pe-0011/source/app.d) | Largest Product in a Grid | 4-direction scan (right, down, two diagonals); reverse directions omitted as redundant |
 | [14](../pe-0014/source/app.d) | Longest Collatz Sequence | Memoised iterative Collatz chain |
 | [15](../pe-0015/source/app.d) | Lattice Paths | Combinatorics — C(2n, n) = C(40, 20) |
 | [19](../pe-0019/source/app.d) | Counting Sundays | Date library — count first-of-month Sundays 1901–2000 |
