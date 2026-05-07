@@ -6,5 +6,6 @@
 	],
 	"dependencies": {
 		"pe-common": {"path": "../pe-common"}
-	}
+	},
+	"stringImportPaths": ["source"]
 }
