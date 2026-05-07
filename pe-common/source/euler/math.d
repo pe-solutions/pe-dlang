@@ -106,6 +106,16 @@ bool isPalindrome(T)(T n) if (isIntegral!T) {
     return n == reverseDigits(n);
 }
 
+bool isSquare(T)(T n) if (isIntegral!T) {
+    import std.math : sqrt;
+    if (n <= 0) return false;
+    Unqual!T s = cast(Unqual!T)sqrt(cast(real)n);
+    if (s > 0 && (s - 1) * (s - 1) == n) return true;
+    if (s * s == n) return true;
+    if ((s + 1) * (s + 1) == n) return true;
+    return false;
+}
+
 T mod(T)(T a, T b) if (isIntegral!T) {
     return (a % b + b) % b;
 }
