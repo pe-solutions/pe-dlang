@@ -25,7 +25,7 @@
 | [19](../pe-0019/source/app.d) | Counting Sundays | Date library — count first-of-month Sundays 1901–2000 |
 | [20](../pe-0020/source/app.d) | Factorial Digit Sum | BigInt 100!, then digit sum |
 | [21](../pe-0021/source/app.d) | Amicable Numbers | Additive sieve for sum-of-proper-divisors up to 10 000; filter a where d(d(a)) = a and d(a) ≠ a |
-| 22 | | |
+| [22](../pe-0022/source/app.d) | Names Scores | Strip quotes, split on comma, sort; score = position × Σ(c−'A'+1); names file-imported |
 | 23 | | |
 | 24 | | |
 | 25 | | |
