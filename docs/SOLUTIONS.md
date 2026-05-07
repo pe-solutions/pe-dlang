@@ -35,6 +35,7 @@
 | [76](../pe-0076/source/app.d) | Counting Summations | Partition DP — p(100) − 1 |
 | [91](../pe-0091/source/app.d) | Right Triangles with Integer Coordinates | Dot-product perpendicularity check on three vertex pairs |
 | [97](../pe-0097/source/app.d) | Large Non-Mersenne Prime | Modular exponentiation: 28433·2^7830457 + 1 mod 10¹⁰ |
+| [98](../pe-0098/source/app.d) | Anagramic Squares | Anagram-group word pairs; for each pair try all N-digit squares as mappings, check if the induced substitution on the partner word also yields a square; groups processed largest-first with early exit |
 | [206](../pe-0206/source/app.d) | Concealed Square | sqrt bounds + alternating-digit pattern check, step 10 |
 | [235](../pe-0235/source/app.d) | An Arithmetic Geometric Sequence | Root-finding (TOMS 748) on s(5000, r) + 6·10¹¹ = 0; closed-form arithmetico-geometric sum |
 | [345](../pe-0345/source/app.d) | Matrix Sum | Bitmask DP — optimal column assignment over 15×15 matrix; matrix file-imported via CTFE |
