@@ -26,7 +26,7 @@
 | [20](../pe-0020/source/app.d) | Factorial Digit Sum | BigInt 100!, then digit sum |
 | [21](../pe-0021/source/app.d) | Amicable Numbers | Additive sieve for sum-of-proper-divisors up to 10 000; filter a where d(d(a)) = a and d(a) ≠ a |
 | [22](../pe-0022/source/app.d) | Names Scores | Strip quotes, split on comma, sort; score = position × Σ(c−'A'+1); names file-imported |
-| 23 | Non-Abundant Sums | |
+| [23](../pe-0023/source/app.d) | Non-Abundant Sums | Additive sieve for sum-of-proper-divisors; collect abundant numbers; mark all pairwise sums; sum unmarked integers ≤ 28123 |
 | 24 | Lexicographic Permutations | |
 | 25 | 1000-digit Fibonacci Number | |
 | 26 | Reciprocal Cycles | |
