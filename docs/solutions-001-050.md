@@ -20,7 +20,7 @@
 | [14](../pe-0014/source/app.d) | Longest Collatz Sequence | Memoised iterative Collatz chain |
 | [15](../pe-0015/source/app.d) | Lattice Paths | Combinatorics — C(2n, n) = C(40, 20) |
 | [16](../pe-0016/source/app.d) | Power Digit Sum | BigInt 2^1000, convert to string, sum digits |
-| 17 | | |
+| [17](../pe-0017/source/app.d) | Number Letter Counts | Lookup tables for ones/teens and tens; recurse for hundreds with British "and" rule |
 | 18 | | |
 | [19](../pe-0019/source/app.d) | Counting Sundays | Date library — count first-of-month Sundays 1901–2000 |
 | [20](../pe-0020/source/app.d) | Factorial Digit Sum | BigInt 100!, then digit sum |
