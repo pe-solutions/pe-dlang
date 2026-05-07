@@ -20,7 +20,7 @@
 | 64 | | |
 | 65 | | |
 | 66 | | |
-| 67 | | |
+| [67](../pe-0067/source/app.d) | Maximum Path Sum II | Same bottom-up DP as #18; CTFE-parsed 100-row triangle file |
 | 68 | | |
 | 69 | | |
 | 70 | | |

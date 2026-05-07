@@ -1,0 +1,11 @@
+{
+	"name": "pe-0067",
+	"description": "Project Euler problem 67 - D solution.",
+	"authors": [
+		"menjaraz"
+	],
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	},
+	"stringImportPaths": ["source"]
+}
