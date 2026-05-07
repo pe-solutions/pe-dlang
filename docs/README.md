@@ -28,7 +28,9 @@ pe-dlang/
 │                       # (Newton-Raphson, Brent-Dekker, TOMS 748, ITP)
 ├── pe-XXXX/            # One DUB package per problem
 │   ├── dub.json
-│   └── source/app.d
+│   └── source/
+│       ├── app.d
+│       └── data/       # optional: problem-given data files (digits, grids, matrices)
 ├── build-all.ps1       # Build all solutions in one shot
 ├── run-all.ps1         # Run all solutions in one shot
 └── clean-all.ps1       # Clean all solutions in one shot
