@@ -9,10 +9,10 @@
 | [5](../pe-0005/source/app.d) | Smallest Multiple | LCM reduction over 1..20 |
 | [6](../pe-0006/source/app.d) | Sum Square Difference | (Σn)² − Σ(n²) via range pipelines |
 | [7](../pe-0007/source/app.d) | 10001st Prime | Sieve bounded by Rosser's theorem p_n < n(ln n + ln ln n) |
-| [8](../pe-0008/source/app.d) | Largest Product in a Series | Sliding 13-digit window, maximise product |
+| [8](../pe-0008/source/app.d) | Largest Product in a Series | Sliding 13-digit window, maximise product; digit string file-imported, entire solve CTFE (0 ms) |
 | [9](../pe-0009/source/app.d) | Special Pythagorean Triplet | Nested search with a+b+c=1000, a²+b²=c² |
 | [10](../pe-0010/source/app.d) | Summation of Primes | Trial division filter and sum below 2M |
-| [11](../pe-0011/source/app.d) | Largest Product in a Grid | 4-direction scan (right, down, two diagonals); reverse directions omitted as redundant |
+| [11](../pe-0011/source/app.d) | Largest Product in a Grid | 4-direction scan (right, down, two diagonals); reverse directions omitted as redundant; grid file-imported, entire solve CTFE (0 ms) |
 | [12](../pe-0012/source/app.d) | Highly Divisible Triangular Number | Multiplicative divisor count: d(T_n) = d(a)·d(b) for the coprime pair from n·(n+1)/2 |
 | [13](../pe-0013/source/app.d) | Large Sum | BigInt sum of 100 fifty-digit numbers; extract leading 10 digits (computed at compile time via CTFE) |
 | [14](../pe-0014/source/app.d) | Longest Collatz Sequence | Memoised iterative Collatz chain |
@@ -30,14 +30,14 @@
 | [50](../pe-0050/source/app.d) | Consecutive Prime Sum | Sliding sum of consecutive primes; track longest prime-valued sum |
 | [55](../pe-0055/source/app.d) | Lychrel Numbers | Reverse-and-add up to 50 times; no palindrome ⇒ Lychrel |
 | [56](../pe-0056/source/app.d) | Powerful Digit Sum | Maximise digit sum of aᵇ (BigInt) for a, b < 100 |
-| [60](../pe-0060/source/app.d) | Prime Pair Sets | 5-clique in prime-pair graph: any two concatenate to a prime |
+| [60](../pe-0060/source/app.d) | Prime Pair Sets | 5-clique in prime-pair graph: any two concatenate to a prime; primes from euler.math.sieve(), CTFE-baked |
 | [63](../pe-0063/source/app.d) | Powerful Digit Counts | dⁿ has n digits iff n ≤ ⌊1 / (1 − log₁₀ d)⌋; sum over d = 1..9 |
 | [76](../pe-0076/source/app.d) | Counting Summations | Partition DP — p(100) − 1 |
 | [91](../pe-0091/source/app.d) | Right Triangles with Integer Coordinates | Dot-product perpendicularity check on three vertex pairs |
 | [97](../pe-0097/source/app.d) | Large Non-Mersenne Prime | Modular exponentiation: 28433·2^7830457 + 1 mod 10¹⁰ |
 | [206](../pe-0206/source/app.d) | Concealed Square | sqrt bounds + alternating-digit pattern check, step 10 |
 | [235](../pe-0235/source/app.d) | An Arithmetic Geometric Sequence | Root-finding (TOMS 748) on s(5000, r) + 6·10¹¹ = 0; closed-form arithmetico-geometric sum |
-| [345](../pe-0345/source/app.d) | Matrix Sum | Bitmask DP — optimal column assignment over 15×15 matrix |
+| [345](../pe-0345/source/app.d) | Matrix Sum | Bitmask DP — optimal column assignment over 15×15 matrix; matrix file-imported via CTFE |
 | [455](../pe-0455/source/app.d) | Powers With Trailing Digits | Fixed-point iteration k = nᵏ mod 10⁹ until stable |
 | [800](../pe-0800/source/app.d) | Hybrid Integers | Log-space: q·log p + p·log q ≤ E·log B; binary search on q |
 | [808](../pe-0808/source/app.d) | Reversible Prime Squares | Find primes p where both p² and rev(p²) are squares of primes |
