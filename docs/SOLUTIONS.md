@@ -37,6 +37,7 @@
 | [92](../pe-0092/source/app.d) | Square Digit Chains | Digit-DP: precompute chain terminus for sums ≤ 567; count valid numbers by prepending non-zero leading digits to suffix distributions each round |
 | [93](../pe-0093/source/app.d) | Arithmetic Expressions | Try all C(10,4)=210 digit sets × 24 permutations × 64 operator combos × 5 parenthesisations; exact rational arithmetic avoids fp errors on intermediate fractions |
 | [94](../pe-0094/source/app.d) | Almost Equilateral Triangles | Sides a,a,a±1 with integer area reduce to Pell-like p²−3q²=4; iterate recurrence pₙ=4pₙ₋₁−pₙ₋₂ from (2,4); perimeter = p±2 based on p mod 3 |
+| [95](../pe-0095/source/app.d) | Amicable Chains | Additive sieve for sum-of-proper-divisors; cycle detection by stamping each chain node with its step index; pre-allocated path buffer avoids GC churn |
 | [97](../pe-0097/source/app.d) | Large Non-Mersenne Prime | Modular exponentiation: 28433·2^7830457 + 1 mod 10¹⁰ |
 | [98](../pe-0098/source/app.d) | Anagramic Squares | Anagram-group word pairs; for each pair try all N-digit squares as mappings, check if the induced substitution on the partner word also yields a square; groups processed largest-first with early exit |
 | [99](../pe-0099/source/app.d) | Largest Exponential | Compare a^b by b·log(a); find the line index with the maximum value |
