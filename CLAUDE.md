@@ -14,7 +14,7 @@ pe-dlang/
 │   └── source/euler/
 │       ├── common.d    # runSolution template
 │       ├── math.d      # countDivisors, isPrime, sieve, segmentedSieve, nthPrime,
-│       │               # reverseDigits, isPalindrome, largestPrimeFactor,
+│       │               # reverseDigits, isPalindrome, isSquare, largestPrimeFactor,
 │       │               # mod, fib, matMul, matVecMul, matPow
 │       └── numerics.d  # Solver, Method, SolveResult — root-finding
 │                       # (Newton-Raphson, Brent-Dekker, TOMS 748, ITP)
