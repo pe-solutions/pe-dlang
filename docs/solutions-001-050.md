@@ -19,7 +19,7 @@
 | [13](../pe-0013/source/app.d) | Large Sum | BigInt sum of 100 fifty-digit numbers; extract leading 10 digits (computed at compile time via CTFE) |
 | [14](../pe-0014/source/app.d) | Longest Collatz Sequence | Memoised iterative Collatz chain |
 | [15](../pe-0015/source/app.d) | Lattice Paths | Combinatorics — C(2n, n) = C(40, 20) |
-| 16 | | |
+| [16](../pe-0016/source/app.d) | Power Digit Sum | BigInt 2^1000, convert to string, sum digits |
 | 17 | | |
 | 18 | | |
 | [19](../pe-0019/source/app.d) | Counting Sundays | Date library — count first-of-month Sundays 1901–2000 |
