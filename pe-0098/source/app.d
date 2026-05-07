@@ -6,7 +6,7 @@ import std.array    : array;
 import std.conv     : to;
 import std.math     : sqrt;
 import std.string   : split, strip;
-import euler.math   : isSquare;
+import euler.math   : isPerfectSquare;
 import euler.common : runSolution;
 
 // Returns (value, string-form) pairs for all N-digit squares, largest first.
@@ -92,7 +92,7 @@ auto solve() {
                     if (!buildMap(w1, sq.str, m, used)) continue;
                     long n2 = applyMap(w2, m);
                     if (n2 < lo || n2 > hi) continue;   // rejects leading zero without allocation
-                    if (!isSquare(n2)) continue;
+                    if (!isPerfectSquare(n2)) continue;
                     best = max(best, sq.val, n2);
                 }
             }

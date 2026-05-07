@@ -17,7 +17,7 @@
 | `nthPrime!T(n)` | Returns the nth prime as type `T` (default `int`), sized by Rosser's bound |
 | `reverseDigits(n)` | Reverses the decimal digits of an integer |
 | `isPalindrome(n)` | Returns `true` if `n == reverseDigits(n)` |
-| `isSquare(n)` | `true` if `n` is a perfect square — any integral type |
+| `isPerfectSquare(n)` | `true` if `n` is a perfect square — any integral type |
 | `largestPrimeFactor(n)` | Returns the largest prime factor of `n` |
 | `mod(a, b)` | True modulo — always non-negative, unlike D's `%` remainder |
 | `fib!T(n)` | nth Fibonacci number as type `T` (default `BigInt`); use `fib!long(n)` for n ≤ 93 |

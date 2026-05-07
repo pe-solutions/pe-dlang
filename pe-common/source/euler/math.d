@@ -108,7 +108,7 @@ bool isPalindrome(T)(T n) if (isIntegral!T) {
 
 // Uses real (80-bit) instead of double so every 64-bit integer is representable exactly;
 // checks s-1/s/s+1 to absorb fp rounding in either direction.
-bool isSquare(T)(T n) if (isIntegral!T) {
+bool isPerfectSquare(T)(T n) if (isIntegral!T) {
     import std.math : sqrt;
     if (n <= 0) return false;
     Unqual!T s = cast(Unqual!T)sqrt(cast(real)n);
