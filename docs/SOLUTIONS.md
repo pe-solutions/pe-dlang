@@ -13,6 +13,8 @@
 | [9](../pe-0009/source/app.d) | Special Pythagorean Triplet | Nested search with a+b+c=1000, a²+b²=c² |
 | [10](../pe-0010/source/app.d) | Summation of Primes | Trial division filter and sum below 2M |
 | [11](../pe-0011/source/app.d) | Largest Product in a Grid | 4-direction scan (right, down, two diagonals); reverse directions omitted as redundant |
+| [12](../pe-0012/source/app.d) | Highly Divisible Triangular Number | Multiplicative divisor count: d(T_n) = d(a)·d(b) for the coprime pair from n·(n+1)/2 |
+| [13](../pe-0013/source/app.d) | Large Sum | BigInt sum of 100 fifty-digit numbers; extract leading 10 digits (computed at compile time via CTFE) |
 | [14](../pe-0014/source/app.d) | Longest Collatz Sequence | Memoised iterative Collatz chain |
 | [15](../pe-0015/source/app.d) | Lattice Paths | Combinatorics — C(2n, n) = C(40, 20) |
 | [19](../pe-0019/source/app.d) | Counting Sundays | Date library — count first-of-month Sundays 1901–2000 |
