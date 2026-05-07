@@ -13,14 +13,16 @@ pe-dlang/
 ├── pe-common/          # Shared library
 │   └── source/euler/
 │       ├── common.d    # runSolution template
-│       ├── math.d      # countDivisors, isPrime, sieve, nthPrime,
+│       ├── math.d      # countDivisors, isPrime, sieve, segmentedSieve, nthPrime,
 │       │               # reverseDigits, isPalindrome, largestPrimeFactor,
 │       │               # mod, fib, matMul, matVecMul, matPow
 │       └── numerics.d  # Solver, Method, SolveResult — root-finding
 │                       # (Newton-Raphson, Brent-Dekker, TOMS 748, ITP)
 ├── pe-XXXX/            # One DUB package per problem
 │   ├── dub.json
-│   └── source/app.d
+│   └── source/
+│       ├── app.d
+│       └── data/       # optional: problem-given data files (digits, grids, matrices)
 ├── build-all.ps1       # Build all solutions in one shot
 ├── run-all.ps1         # Run all solutions in one shot
 └── clean-all.ps1       # Clean all solutions in one shot
@@ -83,6 +85,29 @@ Elapsed time: 3 milliseconds.
 ```
 
 **D idioms** — range pipelines (`iota`, `filter`, `map`, `sum`, etc. from `std.range` / `std.algorithm`) are preferred over imperative loops where they read naturally; heavier numerical work uses explicit loops.
+
+**External data** — when a problem supplies a large dataset (digit strings, grids, matrices), store it in `source/data/` and embed it at compile time rather than hardcoding it inline:
+
+1. Add `"stringImportPaths": ["source"]` to `dub.json`
+2. Use `import("data/file.txt")` to pull the file in as a compile-time string
+3. Use `enum` for a plain string, `static immutable` for arrays
+4. Parse with `splitLines`, `join`, `split`, `to!int`, or a CTFE lambda — D evaluates all of these at compile time, so there is zero runtime cost
+
+```d
+// Plain string (e.g. a digit sequence) — entire pipeline becomes CTFE:
+enum string data = import("data/digits.txt").splitLines.join;
+
+// 2D integer array (e.g. a grid or matrix):
+static immutable int[R][C] grid = () {
+    int[R][C] result;
+    foreach (r, line; import("data/grid.txt").splitLines)
+        foreach (c, tok; line.split)
+            result[r][c] = tok.to!int;
+    return result;
+}();
+```
+
+Never hardcode large data blobs inline — this pattern gives identical binary embedding with readable, maintainable source. Similarly, never hardcode derived numeric data (e.g. a list of primes) when a library function from `euler.math` can generate it; prefer `sieve()` over a raw array literal.
 
 ## Shared library (`pe-common`)
 
