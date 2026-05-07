@@ -26,30 +26,30 @@
 | [20](../pe-0020/source/app.d) | Factorial Digit Sum | BigInt 100!, then digit sum |
 | [21](../pe-0021/source/app.d) | Amicable Numbers | Additive sieve for sum-of-proper-divisors up to 10 000; filter a where d(d(a)) = a and d(a) ≠ a |
 | [22](../pe-0022/source/app.d) | Names Scores | Strip quotes, split on comma, sort; score = position × Σ(c−'A'+1); names file-imported |
-| 23 | | |
-| 24 | | |
-| 25 | | |
-| 26 | | |
-| 27 | | |
+| 23 | Non-Abundant Sums | |
+| 24 | Lexicographic Permutations | |
+| 25 | 1000-digit Fibonacci Number | |
+| 26 | Reciprocal Cycles | |
+| 27 | Quadratic Primes | |
 | [28](../pe-0028/source/app.d) | Number Spiral Diagonals | Closed form: (4n³ + 3n² + 8n − 9) / 6 |
-| 29 | | |
-| 30 | | |
+| 29 | Distinct Powers | |
+| 30 | Digit Fifth Powers | |
 | [31](../pe-0031/source/app.d) | Coin Sums | Unbounded knapsack DP |
-| 32 | | |
-| 33 | | |
-| 34 | | |
-| 35 | | |
-| 36 | | |
-| 37 | | |
+| 32 | Pandigital Products | |
+| 33 | Digit Cancelling Fractions | |
+| 34 | Digit Factorials | |
+| 35 | Circular Primes | |
+| 36 | Double-base Palindromes | |
+| 37 | Truncatable Primes | |
 | [38](../pe-0038/source/app.d) | Pandigital Multiples | Search n × 100002; verify 9-digit pandigital |
 | [39](../pe-0039/source/app.d) | Integer Right Triangles | Closed-form a = p(p−2b) / 2(p−b) eliminates inner loop |
 | [40](../pe-0040/source/app.d) | Champernowne's Constant | Concatenate integers; index positions 10⁰..10⁶ and multiply |
-| 41 | | |
-| 42 | | |
-| 43 | | |
-| 44 | | |
-| 45 | | |
-| 46 | | |
+| 41 | Pandigital Prime | |
+| 42 | Coded Triangle Numbers | |
+| 43 | Sub-string Divisibility | |
+| 44 | Pentagon Numbers | |
+| 45 | Triangular, Pentagonal, and Hexagonal | |
+| 46 | Goldbach's Other Conjecture | |
 | [47](../pe-0047/source/app.d) | Distinct Primes Factors | Omega sieve counts distinct prime factors; scan for 4 consecutive |
 | [48](../pe-0048/source/app.d) | Self Powers | BigInt Σ(nⁿ), n=1..1000, mod 10¹⁰ |
 | [49](../pe-0049/source/app.d) | Prime Permutations | Arithmetic progression step 3330 among digit-permutation primes |

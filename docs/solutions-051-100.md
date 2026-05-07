@@ -4,46 +4,46 @@
 
 | # | Title | Approach |
 |---|-------|----------|
-| 51 | | |
-| 52 | | |
-| 53 | | |
-| 54 | | |
+| 51 | Prime Digit Replacements | |
+| 52 | Permuted Multiples | |
+| 53 | Combinatoric Selections | |
+| 54 | Poker Hands | |
 | [55](../pe-0055/source/app.d) | Lychrel Numbers | Reverse-and-add up to 50 times; no palindrome ⇒ Lychrel |
 | [56](../pe-0056/source/app.d) | Powerful Digit Sum | Maximise digit sum of aᵇ (BigInt) for a, b < 100 |
-| 57 | | |
-| 58 | | |
-| 59 | | |
+| 57 | Square Root Convergents | |
+| 58 | Spiral Primes | |
+| 59 | XOR Decryption | |
 | [60](../pe-0060/source/app.d) | Prime Pair Sets | 5-clique in prime-pair graph: any two concatenate to a prime; primes from euler.math.sieve(), CTFE-baked |
-| 61 | | |
-| 62 | | |
+| 61 | Cyclical Figurate Numbers | |
+| 62 | Cubic Permutations | |
 | [63](../pe-0063/source/app.d) | Powerful Digit Counts | dⁿ has n digits iff n ≤ ⌊1 / (1 − log₁₀ d)⌋; sum over d = 1..9 |
-| 64 | | |
-| 65 | | |
-| 66 | | |
+| 64 | Odd Period Square Roots | |
+| 65 | Convergents of e | |
+| 66 | Diophantine Equation | |
 | [67](../pe-0067/source/app.d) | Maximum Path Sum II | Same bottom-up DP as #18; CTFE-parsed 100-row triangle file |
-| 68 | | |
-| 69 | | |
-| 70 | | |
-| 71 | | |
-| 72 | | |
-| 73 | | |
-| 74 | | |
-| 75 | | |
+| 68 | Magic 5-gon Ring | |
+| 69 | Totient Maximum | |
+| 70 | Totient Permutation | |
+| 71 | Ordered Fractions | |
+| 72 | Counting Fractions | |
+| 73 | Counting Fractions in a Range | |
+| 74 | Digit Factorial Chains | |
+| 75 | Singular Integer Right Triangles | |
 | [76](../pe-0076/source/app.d) | Counting Summations | Partition DP — p(100) − 1 |
-| 77 | | |
-| 78 | | |
-| 79 | | |
-| 80 | | |
-| 81 | | |
-| 82 | | |
-| 83 | | |
-| 84 | | |
-| 85 | | |
-| 86 | | |
-| 87 | | |
-| 88 | | |
-| 89 | | |
-| 90 | | |
+| 77 | Prime Summations | |
+| 78 | Coin Partitions | |
+| 79 | Passcode Derivation | |
+| 80 | Square Root Digital Expansion | |
+| 81 | Path Sum: Two Ways | |
+| 82 | Path Sum: Three Ways | |
+| 83 | Path Sum: Four Ways | |
+| 84 | Monopoly Odds | |
+| 85 | Counting Rectangles | |
+| 86 | Cuboid Route | |
+| 87 | Prime Power Triples | |
+| 88 | Product-sum Numbers | |
+| 89 | Roman Numerals | |
+| 90 | Cube Digit Pairs | |
 | [91](../pe-0091/source/app.d) | Right Triangles with Integer Coordinates | Dot-product perpendicularity check on three vertex pairs |
 | [92](../pe-0092/source/app.d) | Square Digit Chains | Digit-DP: precompute chain terminus for sums ≤ 567; count valid numbers by prepending non-zero leading digits to suffix distributions each round |
 | [93](../pe-0093/source/app.d) | Arithmetic Expressions | Try all C(10,4)=210 digit sets × 24 permutations × 64 operator combos × 5 parenthesisations; exact rational arithmetic avoids fp errors on intermediate fractions |
