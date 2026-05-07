@@ -24,7 +24,7 @@
 | [18](../pe-0018/source/app.d) | Maximum Path Sum I | Bottom-up DP: collapse triangle from base, each cell becomes value + max of two children; CTFE-parsed triangle file |
 | [19](../pe-0019/source/app.d) | Counting Sundays | Date library — count first-of-month Sundays 1901–2000 |
 | [20](../pe-0020/source/app.d) | Factorial Digit Sum | BigInt 100!, then digit sum |
-| 21 | | |
+| [21](../pe-0021/source/app.d) | Amicable Numbers | Additive sieve for sum-of-proper-divisors up to 10 000; filter a where d(d(a)) = a and d(a) ≠ a |
 | 22 | | |
 | 23 | | |
 | 24 | | |
