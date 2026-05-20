@@ -48,7 +48,7 @@
 | [42](../pe-0042/source/app.d) | Coded Triangle Numbers | n triangular iff √(1+8n) is integer (`isPerfectSquare`); `splitter(',').count!` over file-imported word list; non-alpha chars (quotes) silently skipped |
 | [43](../pe-0043/source/app.d) | Sub-string Divisibility | DFS over 0–9 pandigitals; checks each 3-digit window constraint as it completes (depth 3–9) — prunes to ~O(1) paths vs 10! brute force |
 | [44](../pe-0044/source/app.d) | Pentagon Numbers | Outer loop over k, inner j breaks when pj gap ≥ best; `isPent` via `24n+1` perfect-square + `(√+1) % 6 == 0` |
-| 45 | Triangular, Pentagonal, and Hexagonal | |
+| [45](../pe-0045/source/app.d) | Triangular, Pentagonal, and Hexagonal | Every H_n = n(2n−1) is triangular (= T_{2n−1}); iterate hexagonals from n=144, test pentagonality via `24n+1` perfect-square check |
 | 46 | Goldbach's Other Conjecture | |
 | [47](../pe-0047/source/app.d) | Distinct Primes Factors | Omega sieve counts distinct prime factors; scan for 4 consecutive |
 | [48](../pe-0048/source/app.d) | Self Powers | BigInt Σ(nⁿ), n=1..1000, mod 10¹⁰ |
