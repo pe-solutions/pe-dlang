@@ -33,7 +33,7 @@
 | [27](../pe-0027/source/app.d) | Quadratic Primes | Sieve + parity pruning (a and b share parity so f(1) can be an odd prime); incremental f(n) update in inner loop |
 | [28](../pe-0028/source/app.d) | Number Spiral Diagonals | Closed form: (4n³ + 3n² + 8n − 9) / 6 |
 | [29](../pe-0029/source/app.d) | Distinct Powers | Reduce a^b to minBase^(k·b); count distinct (base, exponent) pairs in a bool bitmap — no BigInt needed |
-| 30 | Digit Fifth Powers | |
+| [30](../pe-0030/source/app.d) | Digit Fifth Powers | Precomputed digit⁵ table; `iota(2, 6×9⁵).filter!(...).sum` — upper bound from 7×9⁵ being only 6 digits |
 | [31](../pe-0031/source/app.d) | Coin Sums | Unbounded knapsack DP |
 | 32 | Pandigital Products | |
 | 33 | Digit Cancelling Fractions | |
