@@ -27,7 +27,7 @@
 | [21](../pe-0021/source/app.d) | Amicable Numbers | Additive sieve for sum-of-proper-divisors up to 10 000; filter a where d(d(a)) = a and d(a) ≠ a |
 | [22](../pe-0022/source/app.d) | Names Scores | Strip quotes, split on comma, sort; score = position × Σ(c−'A'+1); names file-imported |
 | [23](../pe-0023/source/app.d) | Non-Abundant Sums | Additive sieve for sum-of-proper-divisors; collect abundant numbers; mark all pairwise sums; sum unmarked integers ≤ 28123 |
-| 24 | Lexicographic Permutations | |
+| [24](../pe-0024/source/app.d) | Lexicographic Permutations | Advance through 999 999 `nextPermutation` steps from `[0..9]`; join digit strings |
 | 25 | 1000-digit Fibonacci Number | |
 | 26 | Reciprocal Cycles | |
 | 27 | Quadratic Primes | |
