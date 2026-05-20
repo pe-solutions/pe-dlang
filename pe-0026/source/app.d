@@ -5,13 +5,15 @@ import std.range     : iota;
 import std.algorithm : maxElement;
 import euler.common  : runSolution;
 
-// Length of the repeating cycle in 1/d: simulate long division,
-// return the step count between the first repeated remainder.
-private int cycleLength(int d) {
+private int cycleLength(int d)
+{
     int[1000] seen = -1;
-    for (int r = 1, p = 0; r != 0; r = r * 10 % d, ++p) {
+    int r = 1, p = 0;
+    while (r != 0)
+    {
         if (seen[r] >= 0) return p - seen[r];
-        seen[r] = p;
+        seen[r] = p++;
+        r = r * 10 % d;
     }
     return 0;
 }
