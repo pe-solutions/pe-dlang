@@ -153,6 +153,14 @@ long[][] matPow(N)(long[][] M, N n, long modulus) if (isIntegral!N || is(N == Bi
     return result;
 }
 
+// Index of the first Fibonacci number with at least d decimal digits.
+// Derived from Binet's formula F(n) ~ phi^n/sqrt(5); uses 80-bit real for precision.
+int fibFirstNDigits(int d) {
+    import std.math : ceil, log10, sqrt;
+    enum real phi = (1.0L + sqrt(5.0L)) / 2.0L;
+    return cast(int) ceil((cast(real)(d - 1) + 0.5L * log10(5.0L)) / log10(phi));
+}
+
 // nth Fibonacci number as type T (default BigInt); for T = long, valid up to n = 93.
 T fib(T = BigInt)(int n) if (isIntegral!T || is(T == BigInt)) {
     if (n <= 1) return T(n);

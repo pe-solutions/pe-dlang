@@ -28,7 +28,7 @@
 | [22](../pe-0022/source/app.d) | Names Scores | Strip quotes, split on comma, sort; score = position × Σ(c−'A'+1); names file-imported |
 | [23](../pe-0023/source/app.d) | Non-Abundant Sums | Additive sieve for sum-of-proper-divisors; collect abundant numbers; mark all pairwise sums; sum unmarked integers ≤ 28123 |
 | [24](../pe-0024/source/app.d) | Lexicographic Permutations | Advance through 999 999 `nextPermutation` steps from `[0..9]`; join digit strings |
-| 25 | 1000-digit Fibonacci Number | |
+| [25](../pe-0025/source/app.d) | 1000-digit Fibonacci Number | Binet's formula: first n where n·log10(φ) − ½·log10(5) ≥ 999; closed-form ceil, 0 ms |
 | 26 | Reciprocal Cycles | |
 | 27 | Quadratic Primes | |
 | [28](../pe-0028/source/app.d) | Number Spiral Diagonals | Closed form: (4n³ + 3n² + 8n − 9) / 6 |

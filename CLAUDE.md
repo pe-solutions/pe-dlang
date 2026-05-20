@@ -15,7 +15,7 @@ pe-dlang/
 │       ├── common.d    # runSolution template
 │       ├── math.d      # countDivisors, isPrime, sieve, segmentedSieve, nthPrime,
 │       │               # reverseDigits, isPalindrome, isPerfectSquare, largestPrimeFactor,
-│       │               # mod, fib, matMul, matVecMul, matPow
+│       │               # mod, fib, fibFirstNDigits, matMul, matVecMul, matPow
 │       └── numerics.d  # Solver, Method, SolveResult — root-finding
 │                       # (Newton-Raphson, Brent-Dekker, TOMS 748, ITP)
 ├── pe-XXXX/            # One DUB package per problem
@@ -132,6 +132,7 @@ Never hardcode large data blobs inline — this pattern gives identical binary e
 | `largestPrimeFactor(n)` | Largest prime factor of `n` |
 | `mod(a, b)` | True modulo — always non-negative, unlike D's `%` |
 | `fib!T(n)` | nth Fibonacci number as type `T` (default `BigInt`); use `fib!long(n)` for n ≤ 93 |
+| `fibFirstNDigits(d)` | Index of the first Fibonacci number with at least `d` decimal digits — Binet's formula, 80-bit real |
 | `matMul(A, B, modulus)` | 2×2 matrix multiplication mod `modulus` |
 | `matVecMul(M, v, modulus)` | 2×2 matrix × 2-vector multiplication mod `modulus` |
 | `matPow(M, n, modulus)` | 2×2 matrix power `M^n` mod `modulus`; `n` may be any integral type or `BigInt` |
