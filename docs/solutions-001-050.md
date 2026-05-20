@@ -32,7 +32,7 @@
 | [26](../pe-0026/source/app.d) | Reciprocal Cycles | Long-division remainder tracking per d; `maxElement!cycleLength` over `iota(2, 1000)` |
 | [27](../pe-0027/source/app.d) | Quadratic Primes | Sieve + parity pruning (a and b share parity so f(1) can be an odd prime); incremental f(n) update in inner loop |
 | [28](../pe-0028/source/app.d) | Number Spiral Diagonals | Closed form: (4n³ + 3n² + 8n − 9) / 6 |
-| 29 | Distinct Powers | |
+| [29](../pe-0029/source/app.d) | Distinct Powers | Reduce a^b to minBase^(k·b); count distinct (base, exponent) pairs in a bool bitmap — no BigInt needed |
 | 30 | Digit Fifth Powers | |
 | [31](../pe-0031/source/app.d) | Coin Sums | Unbounded knapsack DP |
 | 32 | Pandigital Products | |
