@@ -30,7 +30,7 @@
 | [24](../pe-0024/source/app.d) | Lexicographic Permutations | Advance through 999 999 `nextPermutation` steps from `[0..9]`; join digit strings |
 | [25](../pe-0025/source/app.d) | 1000-digit Fibonacci Number | Binet's formula: first n where n·log10(φ) − ½·log10(5) ≥ 999; closed-form ceil, 0 ms |
 | [26](../pe-0026/source/app.d) | Reciprocal Cycles | Long-division remainder tracking per d; `maxElement!cycleLength` over `iota(2, 1000)` |
-| 27 | Quadratic Primes | |
+| [27](../pe-0027/source/app.d) | Quadratic Primes | Sieve + parity pruning (a and b share parity so f(1) can be an odd prime); incremental f(n) update in inner loop |
 | [28](../pe-0028/source/app.d) | Number Spiral Diagonals | Closed form: (4n³ + 3n² + 8n − 9) / 6 |
 | 29 | Distinct Powers | |
 | 30 | Digit Fifth Powers | |

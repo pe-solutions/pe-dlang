@@ -2,12 +2,12 @@
 
 D language solutions to [Project Euler](https://projecteuler.net/) problems — one DUB package per problem.
 
-**63 solved** across 9 active ranges.
+**64 solved** across 9 active ranges.
 
 ---
 
 ### [1–50](solutions-001-050.md)
-35 of 50 solved &nbsp;·&nbsp; 1–26, 28, 31, 38–40, 47–50
+36 of 50 solved &nbsp;·&nbsp; 1–28, 31, 38–40, 47–50
 
 ---
 
