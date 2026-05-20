@@ -29,7 +29,7 @@
 | [23](../pe-0023/source/app.d) | Non-Abundant Sums | Additive sieve for sum-of-proper-divisors; collect abundant numbers; mark all pairwise sums; sum unmarked integers ≤ 28123 |
 | [24](../pe-0024/source/app.d) | Lexicographic Permutations | Advance through 999 999 `nextPermutation` steps from `[0..9]`; join digit strings |
 | [25](../pe-0025/source/app.d) | 1000-digit Fibonacci Number | Binet's formula: first n where n·log10(φ) − ½·log10(5) ≥ 999; closed-form ceil, 0 ms |
-| 26 | Reciprocal Cycles | |
+| [26](../pe-0026/source/app.d) | Reciprocal Cycles | Long-division remainder tracking per d; `maxElement!cycleLength` over `iota(2, 1000)` |
 | 27 | Quadratic Primes | |
 | [28](../pe-0028/source/app.d) | Number Spiral Diagonals | Closed form: (4n³ + 3n² + 8n − 9) / 6 |
 | 29 | Distinct Powers | |
