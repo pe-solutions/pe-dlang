@@ -21,7 +21,7 @@
 | 965 | Expected Minimal Fractional Value | |
 | 966 | Triangle Circle Intersection | |
 | 967 | B-Trivisible Numbers | |
-| 968 | 5D Summation | |
+| [968](../pe-0968/source/app.d) | 5D Summation | Digit DP (bit-by-bit, LSB-first) over K5 edge-product bounds; carry state = 10-trit base-3 vector (3^10 = 59 049 states); CTFE tables for prime-power bit-factors and mask→next-state transitions; parallelised over 100 instances |
 | 969 | Kangaroo Hopping | |
 | 970 | Kangaroo Hopping over Sixes | |
 | 971 | Modular Polynomial Composition | |
