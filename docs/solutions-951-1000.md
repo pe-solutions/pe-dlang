@@ -49,8 +49,8 @@
 | 993 | Banana Beaver | |
 | 994 | Counting Triangles | |
 | 995 | A Particular Pair of Polynomials | |
-| 996 | | |
-| 997 | | |
+| 996 | Overtakes | |
+| 997 | Dice Box | |
 | 998 | | |
 | 999 | | |
 | 1000 | | |
