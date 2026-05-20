@@ -45,7 +45,7 @@
 | [39](../pe-0039/source/app.d) | Integer Right Triangles | Closed-form a = p(p−2b) / 2(p−b) eliminates inner loop |
 | [40](../pe-0040/source/app.d) | Champernowne's Constant | Concatenate integers; index positions 10⁰..10⁶ and multiply |
 | [41](../pe-0041/source/app.d) | Pandigital Prime | n(n+1)/2 divisible by 3 for n=2,3,5,6,8,9 → only n=4,7 are candidates; enumerate 5040+24 permutations via `nextPermutation`, take max prime |
-| 42 | Coded Triangle Numbers | |
+| [42](../pe-0042/source/app.d) | Coded Triangle Numbers | n triangular iff √(1+8n) is integer (`isPerfectSquare`); `splitter(',').count!` over file-imported word list; non-alpha chars (quotes) silently skipped |
 | 43 | Sub-string Divisibility | |
 | 44 | Pentagon Numbers | |
 | 45 | Triangular, Pentagonal, and Hexagonal | |
