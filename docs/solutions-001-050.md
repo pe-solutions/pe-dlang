@@ -44,7 +44,7 @@
 | [38](../pe-0038/source/app.d) | Pandigital Multiples | Search n × 100002; verify 9-digit pandigital |
 | [39](../pe-0039/source/app.d) | Integer Right Triangles | Closed-form a = p(p−2b) / 2(p−b) eliminates inner loop |
 | [40](../pe-0040/source/app.d) | Champernowne's Constant | Concatenate integers; index positions 10⁰..10⁶ and multiply |
-| 41 | Pandigital Prime | |
+| [41](../pe-0041/source/app.d) | Pandigital Prime | n(n+1)/2 divisible by 3 for n=2,3,5,6,8,9 → only n=4,7 are candidates; enumerate 5040+24 permutations via `nextPermutation`, take max prime |
 | 42 | Coded Triangle Numbers | |
 | 43 | Sub-string Divisibility | |
 | 44 | Pentagon Numbers | |
