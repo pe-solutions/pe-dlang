@@ -46,7 +46,7 @@
 | [40](../pe-0040/source/app.d) | Champernowne's Constant | Concatenate integers; index positions 10⁰..10⁶ and multiply |
 | [41](../pe-0041/source/app.d) | Pandigital Prime | n(n+1)/2 divisible by 3 for n=2,3,5,6,8,9 → only n=4,7 are candidates; enumerate 5040+24 permutations via `nextPermutation`, take max prime |
 | [42](../pe-0042/source/app.d) | Coded Triangle Numbers | n triangular iff √(1+8n) is integer (`isPerfectSquare`); `splitter(',').count!` over file-imported word list; non-alpha chars (quotes) silently skipped |
-| 43 | Sub-string Divisibility | |
+| [43](../pe-0043/source/app.d) | Sub-string Divisibility | DFS over 0–9 pandigitals; checks each 3-digit window constraint as it completes (depth 3–9) — prunes to ~O(1) paths vs 10! brute force |
 | 44 | Pentagon Numbers | |
 | 45 | Triangular, Pentagonal, and Hexagonal | |
 | 46 | Goldbach's Other Conjecture | |
