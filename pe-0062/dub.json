@@ -1,0 +1,7 @@
+{
+	"name": "pe-0062",
+	"description": "Cubic Permutations - Project Euler #62.",
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
+}

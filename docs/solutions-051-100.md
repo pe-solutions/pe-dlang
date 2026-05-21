@@ -15,7 +15,7 @@
 | [59](../pe-0059/source/app.d) | XOR Decryption | Frequency analysis per sub-stream: split cipher by position mod 3; for each of the 3 positions try all 26 lowercase candidates, pick the one maximising common-English-char count; CTFE-parsed cipher embedded via `import("data/cipher.txt")` |
 | [60](../pe-0060/source/app.d) | Prime Pair Sets | 5-clique in prime-pair graph: any two concatenate to a prime; primes from euler.math.sieve(), CTFE-baked |
 | [61](../pe-0061/source/app.d) | Cyclical Figurate Numbers | Generate 4-digit k-gonal numbers for k=3..8; per-type lookup table keyed by first-two-digit prefix; DFS fixes triangle as chain head, extends with each remaining type matching the current tail; cycle closes when last2 of 6th number equals first2 of 1st |
-| 62 | Cubic Permutations | |
+| [62](../pe-0062/source/app.d) | Cubic Permutations | Group cubes by `digitFreq` fingerprint (nibble-per-digit, same value iff digit permutation); two AAs track count and smallest cube per group; return smallest when count reaches 5 |
 | [63](../pe-0063/source/app.d) | Powerful Digit Counts | dⁿ has n digits iff n ≤ ⌊1 / (1 − log₁₀ d)⌋; sum over d = 1..9 |
 | 64 | Odd Period Square Roots | |
 | 65 | Convergents of e | |
