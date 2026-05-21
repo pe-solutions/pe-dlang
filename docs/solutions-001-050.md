@@ -38,7 +38,7 @@
 | [32](../pe-0032/source/app.d) | Pandigital Products | Bitmask per-digit tracking (bits 1–9); only 1+4+4 and 2+3+4 digit splits total 9; `digitMask` sum == `0x3FE` guards overlap and full coverage; `bool[10_000]` deduplicates products |
 | [33](../pe-0033/source/app.d) | Digit Cancelling Fractions | 4-way digit-share test (if/else); cross-multiply n×cd == d×cn; trivial cases (na==da, nb==db) self-exclude by forcing n==d; GCD-reduce the product |
 | [34](../pe-0034/source/app.d) | Digit Factorials | Precomputed `fact[10]` table; upper bound 7×9! (8-digit numbers can't match); `iota(3, limit).filter!(digitFactSum == n).sum` |
-| 35 | Circular Primes | |
+| [35](../pe-0035/source/app.d) | Circular Primes | Sieve to 1 M; single-digit primes always circular; multi-digit candidates filtered to digits {1,3,7,9}; rotation via `rotate(n, pow10)` — strip leading digit, shift left, append |
 | 36 | Double-base Palindromes | |
 | 37 | Truncatable Primes | |
 | [38](../pe-0038/source/app.d) | Pandigital Multiples | Search n × 100002; verify 9-digit pandigital |
