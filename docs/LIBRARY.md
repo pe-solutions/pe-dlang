@@ -11,7 +11,7 @@
 | Symbol | Description |
 |--------|-------------|
 | `countDivisors(n)` | Number of divisors via prime factorisation — O(√n), any integral type |
-| `isPrime(n)` | Trial division primality test — O(√n), works on any integral type |
+| `isPrime(n)` | Primality test — trial division for n ≤ 1 000 000; deterministic Miller-Rabin (witnesses {2,3,5,7}, correct for n < 3 215 031 751) for the middle range; trial division above that bound — any integral type |
 | `sieve(n)` | Sieve of Eratosthenes — returns `bool[0..n]`, O(n log log n) |
 | `segmentedSieve(lo, hi)` | Range sieve — returns `bool[]` where `result[i]` is true iff `lo+i` is prime; O(hi-lo + √hi) memory |
 | `nthPrime!T(n)` | Returns the nth prime as type `T` (default `int`), sized by Rosser's bound |

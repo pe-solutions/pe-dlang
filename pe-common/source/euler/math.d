@@ -19,14 +19,42 @@ auto countDivisors(T)(T n) if (isIntegral!T) {
     return count;
 }
 
+// Trial division for n ≤ 1_000_000; deterministic Miller-Rabin (witnesses {2,3,5,7},
+// correct for n < 3_215_031_751) for the middle range; trial division above that bound.
 bool isPrime(T)(T n) if (isIntegral!T) {
     if (n <= 1) return false;
     if (n <= 3) return true;
     if (n % 2 == 0 || n % 3 == 0) return false;
+    if (n > 1_000_000 && cast(ulong)n < 3_215_031_751UL)
+        return isPrimeMR(cast(ulong)n);
     Unqual!T i = 5;
     while (i * i <= n) {
         if (n % i == 0 || n % (i + 2) == 0) return false;
         i += 6;
+    }
+    return true;
+}
+
+// b^e mod m — requires m < 2^32 so b*b never overflows ulong.
+private ulong modpow(ulong b, ulong e, ulong m) pure nothrow @nogc {
+    ulong r = 1; b %= m;
+    for (; e > 0; e >>= 1) {
+        if (e & 1) r = r * b % m;
+        b = b * b % m;
+    }
+    return r;
+}
+
+// Miller-Rabin with witnesses {2,3,5,7}: deterministic for n < 3_215_031_751.
+private bool isPrimeMR(ulong n) pure nothrow @nogc {
+    ulong d = n - 1; int r = 0;
+    while (!(d & 1)) { d >>= 1; ++r; }
+    static immutable ulong[4] w = [2, 3, 5, 7];
+    outer: foreach (a; w) {
+        ulong x = modpow(a, d, n);
+        if (x == 1 || x == n - 1) continue;
+        foreach (_; 1 .. r) { x = x * x % n; if (x == n - 1) continue outer; }
+        return false;
     }
     return true;
 }
@@ -175,4 +203,18 @@ T fib(T = BigInt)(int n) if (isIntegral!T || is(T == BigInt)) {
     T a = T(0), b = T(1);
     foreach (_; 2..n + 1) { T c = a + b; a = b; b = c; }
     return b;
+}
+
+unittest {
+    // trial-division path (n ≤ 1_000_000)
+    assert(!isPrime(0) && !isPrime(1) && !isPrime(4) && !isPrime(9) && !isPrime(1_000_000));
+    assert( isPrime(2) &&  isPrime(3) &&  isPrime(5) &&  isPrime(997));
+
+    // Miller-Rabin path (1_000_000 < n < 3_215_031_751)
+    assert(!isPrime!long(1_000_001L));   // 101 × 9901
+    assert( isPrime!long(1_000_003L));   // prime
+    assert( isPrime!long(15_485_863L));  // the 1_000_000th prime
+
+    // large trial-division fallback (n ≥ 3_215_031_751) — composite clearly divisible by 7
+    assert(!isPrime!long(7L * 459_290_253L)); // 3_215_031_771, odd, not div by 3
 }
