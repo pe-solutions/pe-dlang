@@ -14,7 +14,7 @@
 | [58](../pe-0058/source/app.d) | Spiral Primes | Deterministic Miller-Rabin (witnesses {2,3,5,7}) on ring-k diagonal corners s²−d, s²−2d, s²−3d (s=2k+1, d=s−1); stop when 10·primes < 1+4k |
 | [59](../pe-0059/source/app.d) | XOR Decryption | Frequency analysis per sub-stream: split cipher by position mod 3; for each of the 3 positions try all 26 lowercase candidates, pick the one maximising common-English-char count; CTFE-parsed cipher embedded via `import("data/cipher.txt")` |
 | [60](../pe-0060/source/app.d) | Prime Pair Sets | 5-clique in prime-pair graph: any two concatenate to a prime; primes from euler.math.sieve(), CTFE-baked |
-| 61 | Cyclical Figurate Numbers | |
+| [61](../pe-0061/source/app.d) | Cyclical Figurate Numbers | Generate 4-digit k-gonal numbers for k=3..8; per-type lookup table keyed by first-two-digit prefix; DFS fixes triangle as chain head, extends with each remaining type matching the current tail; cycle closes when last2 of 6th number equals first2 of 1st |
 | 62 | Cubic Permutations | |
 | [63](../pe-0063/source/app.d) | Powerful Digit Counts | dⁿ has n digits iff n ≤ ⌊1 / (1 − log₁₀ d)⌋; sum over d = 1..9 |
 | 64 | Odd Period Square Roots | |
