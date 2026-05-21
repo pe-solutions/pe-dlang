@@ -25,7 +25,7 @@
 | [69](../pe-0069/source/app.d) | Totient Maximum | n/φ(n)=∏p/(p−1) over distinct prime factors; maximised by the largest primorial ≤10⁶; multiply consecutive primes via `nthPrime` until the next factor would exceed the limit |
 | [70](../pe-0070/source/app.d) | Totient Permutation | Euler's totient sieve (phi[p]=p iff prime; phi[j]=phi[j]/p*(p−1) for each prime p and multiple j); scan 2..10⁷ comparing `digitFreq(n)==digitFreq(phi[n])`; track minimum n/φ(n) via cross-multiply with `long` to avoid fp |
 | [71](../pe-0071/source/app.d) | Ordered Fractions | For each d≤10⁶ the largest n with n/d<3/7 is n=⌊(3d−1)/7⌋; track best fraction via cross-multiplication (n·bestD > bestN·d) to avoid floating point; O(N) |
-| 72 | Counting Fractions | |
+| [72](../pe-0072/source/app.d) | Counting Fractions | Count of reduced proper fractions with d≤N equals Σφ(d) for d=2..N; totient sieve (phi[j]=phi[j]/p*(p−1) for each prime p) in O(N log log N) |
 | 72 | Counting Fractions | |
 | 73 | Counting Fractions in a Range | |
 | 74 | Digit Factorial Chains | |
