@@ -84,7 +84,68 @@ Elapsed time: 3 milliseconds.
 
 ```
 
+**Import layout** — stdlib imports precede all `euler.*` imports; `euler.common : runSolution` is always the last import in the file.
+
 **D idioms** — range pipelines (`iota`, `filter`, `map`, `sum`, etc. from `std.range` / `std.algorithm`) are preferred over imperative loops where they read naturally; heavier numerical work uses explicit loops.
+
+**Module-level helpers** — always mark `private`; always give an explicit return type (never `auto`); apply `pure nothrow @nogc` to any helper whose body is pure arithmetic with no allocation or exceptions:
+
+```d
+private bool isPent(long n) pure nothrow @nogc { … }
+private uint digitMask(int n) pure nothrow @nogc { … }
+```
+
+**Nested functions** — when a helper must capture and mutate `solve()`-local state (e.g., a DFS accumulator), define it as a nested function inside `solve()` — not a module-level function. No `private`, no attribute annotation:
+
+```d
+auto solve() {
+    long total;
+    void build(int depth) { … total += …; }
+    build(0);
+    return total;
+}
+```
+
+**Constants** — use `enum` for compile-time scalar constants inside `solve()`, never `const` or bare magic numbers:
+
+```d
+enum int N      = 10_000;
+enum     limit  = 1_000_000;
+enum uint full  = 0x3FEu;
+```
+
+**`immutable` for per-iteration invariants** — when a value is computed once per outer-loop iteration and read repeatedly in the inner loop, bind it to `immutable` at the outer scope:
+
+```d
+foreach (a; 10 .. 100) {
+    immutable ma = digitMask(a);   // hoisted — not recomputed inside inner loop
+    foreach (b; 100 .. 1_000) { … }
+}
+```
+
+**Control flow**
+- Prefer `break` over a re-checked `continue` when an inner loop variable is monotonically increasing and exceeding a bound makes all further iterations useless.
+- Use a labeled block (`outer: for (…) { … continue outer; }`) rather than a flag variable for multi-level loop control.
+- End an exhaustive-search loop that is guaranteed to return before completion with `assert(false)` to signal the unreachable path:
+
+```d
+outer: for (int n = 9; n < limit; n += 2) {
+    for (int k = 1; …; ++k)
+        if (…) continue outer;
+    return n;           // found
+}
+assert(false);          // unreachable — search always terminates
+```
+
+**Deduplication** — a flat `bool[N]` array is the preferred structure for set membership and result deduplication; stack-allocated for small N, it avoids AA allocation and GC overhead:
+
+```d
+bool[10_000] seen;
+…
+seen[c] = true;
+…
+return iota(1_000, 10_000).filter!(i => seen[i]).sum;
+```
 
 **External data** — when a problem supplies a large dataset (digit strings, grids, matrices), store it in `source/data/` and embed it at compile time rather than hardcoding it inline:
 
