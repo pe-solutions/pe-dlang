@@ -1,0 +1,8 @@
+{
+	"name": "pe-0081",
+	"description": "Path Sum: Two Ways - Project Euler #81.",
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	},
+	"stringImportPaths": ["source"]
+}
