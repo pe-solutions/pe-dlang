@@ -17,7 +17,7 @@
 | [61](../pe-0061/source/app.d) | Cyclical Figurate Numbers | Generate 4-digit k-gonal numbers for k=3..8; per-type lookup table keyed by first-two-digit prefix; DFS fixes triangle as chain head, extends with each remaining type matching the current tail; cycle closes when last2 of 6th number equals first2 of 1st |
 | [62](../pe-0062/source/app.d) | Cubic Permutations | Group cubes by `digitFreq` fingerprint (nibble-per-digit, same value iff digit permutation); two AAs track count and smallest cube per group; return smallest when count reaches 5 |
 | [63](../pe-0063/source/app.d) | Powerful Digit Counts | dⁿ has n digits iff n ≤ ⌊1 / (1 − log₁₀ d)⌋; sum over d = 1..9 |
-| 64 | Odd Period Square Roots | |
+| [64](../pe-0064/source/app.d) | Odd Period Square Roots | CF expansion of √n: iterate m←d·a−m, d←(n−m²)/d, a←⌊(a₀+m)/d⌋ until a=2a₀; period length is the step count; skip perfect squares; count N≤10000 with odd period |
 | 65 | Convergents of e | |
 | 66 | Diophantine Equation | |
 | [67](../pe-0067/source/app.d) | Maximum Path Sum II | Same bottom-up DP as #18; CTFE-parsed 100-row triangle file |
