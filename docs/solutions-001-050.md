@@ -35,7 +35,7 @@
 | [29](../pe-0029/source/app.d) | Distinct Powers | Reduce a^b to minBase^(k·b); count distinct (base, exponent) pairs in a bool bitmap — no BigInt needed |
 | [30](../pe-0030/source/app.d) | Digit Fifth Powers | Precomputed digit⁵ table; `iota(2, 6×9⁵).filter!(...).sum` — upper bound from 7×9⁵ being only 6 digits |
 | [31](../pe-0031/source/app.d) | Coin Sums | Unbounded knapsack DP |
-| 32 | Pandigital Products | |
+| [32](../pe-0032/source/app.d) | Pandigital Products | Bitmask per-digit tracking (bits 1–9); only 1+4+4 and 2+3+4 digit splits total 9; `digitMask` sum == `0x3FE` guards overlap and full coverage; `bool[10_000]` deduplicates products |
 | 33 | Digit Cancelling Fractions | |
 | 34 | Digit Factorials | |
 | 35 | Circular Primes | |
