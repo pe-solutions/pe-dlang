@@ -19,7 +19,7 @@
 | [63](../pe-0063/source/app.d) | Powerful Digit Counts | dⁿ has n digits iff n ≤ ⌊1 / (1 − log₁₀ d)⌋; sum over d = 1..9 |
 | [64](../pe-0064/source/app.d) | Odd Period Square Roots | CF expansion of √n: iterate m←d·a−m, d←(n−m²)/d, a←⌊(a₀+m)/d⌋ until a=2a₀; period length is the step count; skip perfect squares; count N≤10000 with odd period |
 | [65](../pe-0065/source/app.d) | Convergents of e | CF coefficients of e: a(k)=2k/3 when k%3=0, else 1; apply h_n=a_n·h_{n−1}+h_{n−2} recurrence 99 times on BigInt starting from h₁=2; sum digits of h₁₀₀ |
-| 66 | Diophantine Equation | |
+| [66](../pe-0066/source/app.d) | Diophantine Equation | Pell equation x²−Dy²=1: for each non-square D≤1000 step CF convergents of √D (same m/d/a recurrence as #64) accumulating numerator h and denominator k on BigInt until h²−Dk²=1; return D with the largest minimal x |
 | [67](../pe-0067/source/app.d) | Maximum Path Sum II | Same bottom-up DP as #18; CTFE-parsed 100-row triangle file |
 | 68 | Magic 5-gon Ring | |
 | 69 | Totient Maximum | |
