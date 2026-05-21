@@ -22,8 +22,8 @@ pe-dlang/
 │   └── source/euler/
 │       ├── common.d    # runSolution template
 │       ├── math.d      # countDivisors, isPrime, sieve, segmentedSieve, nthPrime,
-│       │               # reverseDigits, isPalindrome, isPerfectSquare, largestPrimeFactor,
-│       │               # mod, fib, matMul, matVecMul, matPow
+│       │               # reverseDigits, isPalindrome, digitFreq, isPerfectSquare, largestPrimeFactor,
+│       │               # mod, fib, fibFirstNDigits, matMul, matVecMul, matPow
 │       └── numerics.d  # Solver, Method, SolveResult — root-finding
 │                       # (Newton-Raphson, Brent-Dekker, TOMS 748, ITP)
 ├── pe-XXXX/            # One DUB package per problem

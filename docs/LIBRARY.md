@@ -17,6 +17,7 @@
 | `nthPrime!T(n)` | Returns the nth prime as type `T` (default `int`), sized by Rosser's bound |
 | `reverseDigits(n)` | Reverses the decimal digits of an integer |
 | `isPalindrome(n)` | Returns `true` if `n == reverseDigits(n)` |
+| `digitFreq(n)` | Digit-frequency fingerprint as a `ulong` (nibble per digit 0–9); `digitFreq(a) == digitFreq(b)` iff `a` and `b` are digit permutations of each other — any integral type |
 | `isPerfectSquare(n)` | `true` if `n` is a perfect square — any integral type |
 | `largestPrimeFactor(n)` | Returns the largest prime factor of `n` |
 | `mod(a, b)` | True modulo — always non-negative, unlike D's `%` remainder |

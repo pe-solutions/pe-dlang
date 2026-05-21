@@ -1,28 +1,27 @@
 // Powers with Trailing Digits
 // https://projecteuler.net/problem=455
 
-import std.stdio : writefln;
-import std.datetime.stopwatch : StopWatch, AutoStart;
 import std.math : powmod;
+import euler.common : runSolution;
 
-void main() {
-    auto timer = StopWatch(AutoStart.yes);
+auto solve() {
+    enum ulong limit   = 1_000_000;
+    enum ulong modulus = 1_000_000_000;
 
     ulong totalSum = 0;
 
-    for (ulong number = 2; number <= 1000000; number += !(++number % 10)) {
-        ulong current, next;
+    for (ulong n = 2; n <= limit; ++n) {
+        if (n % 10 == 0) continue;
 
-        for (current = number; ; current = next) {
-            next = powmod(number, current, 1000000000UL);
+        ulong current, next;
+        for (current = n; ; current = next) {
+            next = powmod(n, current, modulus);
             if (next == current) break;
         }
-
         totalSum += current;
     }
 
-    timer.stop();
-
-    writefln("\nProject Euler #455\nAnswer: %s", totalSum);
-    writefln("Elapsed time: %s milliseconds.\n", timer.peek.total!"msecs"());
+    return totalSum;
 }
+
+void main() { runSolution!(solve)(455); }
