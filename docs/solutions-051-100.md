@@ -23,7 +23,7 @@
 | [67](../pe-0067/source/app.d) | Maximum Path Sum II | Same bottom-up DP as #18; CTFE-parsed 100-row triangle file |
 | [68](../pe-0068/source/app.d) | Magic 5-gon Ring | Fix inner pentagon as 5 values from {1..9} (forces 10 outer ⇒ 16-digit string); S=(sumInner+55)/5; outer[i]=S−inner[i]−inner[i+1] must cover {1..10}∖inner; bitmask dedup; read clockwise from smallest outer node; keep lexicographic max |
 | [69](../pe-0069/source/app.d) | Totient Maximum | n/φ(n)=∏p/(p−1) over distinct prime factors; maximised by the largest primorial ≤10⁶; multiply consecutive primes via `nthPrime` until the next factor would exceed the limit |
-| 70 | Totient Permutation | |
+| [70](../pe-0070/source/app.d) | Totient Permutation | Euler's totient sieve (phi[p]=p iff prime; phi[j]=phi[j]/p*(p−1) for each prime p and multiple j); scan 2..10⁷ comparing `digitFreq(n)==digitFreq(phi[n])`; track minimum n/φ(n) via cross-multiply with `long` to avoid fp |
 | 71 | Ordered Fractions | |
 | 72 | Counting Fractions | |
 | 73 | Counting Fractions in a Range | |
