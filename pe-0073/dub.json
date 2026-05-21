@@ -1,0 +1,7 @@
+{
+	"name": "pe-0073",
+	"description": "Counting Fractions in a Range - Project Euler #73.",
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
+}
