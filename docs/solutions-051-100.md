@@ -6,7 +6,7 @@
 |---|-------|----------|
 | [51](../pe-0051/source/app.d) | Prime Digit Replacements | Sieve to 1 M; for each prime try all 2ⁿ−1 position subsets as wildcard; replace with 0–9 via `val += (r − digs[i])·pow10[i]`; skip leading-zero replacements; return smallest prime when count ≥ 8 |
 | [52](../pe-0052/source/app.d) | Permuted Multiples | Nibble-packed `digitFreq` encodes digit multiset as a `ulong`; iterate only the valid band `[10^(d−1), 10^d/6]` where x and 6x share digit count; single equality check per multiple |
-| 53 | Combinatoric Selections | |
+| [53](../pe-0053/source/app.d) | Combinatoric Selections | Pascal's triangle in a single `int[101]` row updated right-to-left; cap at 1 000 001 prevents overflow and BigInt; count entries ≥ cap per row |
 | 54 | Poker Hands | |
 | [55](../pe-0055/source/app.d) | Lychrel Numbers | Reverse-and-add up to 50 times; no palindrome ⇒ Lychrel |
 | [56](../pe-0056/source/app.d) | Powerful Digit Sum | Maximise digit sum of aᵇ (BigInt) for a, b < 100 |
