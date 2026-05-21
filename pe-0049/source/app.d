@@ -7,12 +7,12 @@ import std.conv : to;
 import euler.math : isPrime;
 import euler.common : runSolution;
 
-bool ispermutation(ulong a, ulong b) {
+private bool ispermutation(ulong a, ulong b) {
     return equal(to!string(a).array.sort, to!string(b).array.sort);
 }
 
 auto solve() {
-    const ulong STEP = 3330;
+    enum ulong STEP = 3330;
     for (ulong a = 1488; a <= STEP + 1; a++) {
         ulong b = a + STEP;
         ulong c = b + STEP;

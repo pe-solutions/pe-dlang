@@ -10,7 +10,7 @@ enum MOD = 105;
 enum MSK = 32;
 enum ST  = MOD * MSK;
 
-void buildTables(ref int[DC * MOD] nxR, ref int[DC] fl)
+private void buildTables(ref int[DC * MOD] nxR, ref int[DC] fl)
 {
     foreach (r; 0 .. MOD)
         foreach (d; 0 .. DC)
@@ -19,7 +19,7 @@ void buildTables(ref int[DC * MOD] nxR, ref int[DC] fl)
         fl[d] = 1 << d;
 }
 
-void findLen(ref const int[DC * MOD] nxR, ref const int[DC] fl,
+private void findLen(ref const int[DC * MOD] nxR, ref const int[DC] fl,
              ulong target, out int bestLen, out ulong prefix)
 {
     auto cur = new ulong[ST];
@@ -58,7 +58,7 @@ void findLen(ref const int[DC * MOD] nxR, ref const int[DC] fl,
     }
 }
 
-ulong[] buildComp(ref const int[DC * MOD] nxR, ref const int[DC] fl, int len)
+private ulong[] buildComp(ref const int[DC * MOD] nxR, ref const int[DC] fl, int len)
 {
     auto comp = new ulong[(len + 1) * ST];
     comp[31] = 1;
@@ -89,7 +89,7 @@ ulong[] buildComp(ref const int[DC * MOD] nxR, ref const int[DC] fl, int len)
     return comp;
 }
 
-string buildAnswer(ref const int[DC * MOD] nxR, ref const int[DC] fl,
+private string buildAnswer(ref const int[DC * MOD] nxR, ref const int[DC] fl,
                    ulong k, int len, const ulong[] comp)
 {
     char[] res;

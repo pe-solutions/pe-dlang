@@ -192,7 +192,7 @@ private uint computeP(WB w, in uint[Edges] bounds) {
     return result;
 }
 
-long solve() {
+auto solve() {
     initTables();
     shared long total = 0;
 

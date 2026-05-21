@@ -5,7 +5,7 @@ import std.math : sqrt;
 import euler.math : isPrime, reverseDigits;
 import euler.common : runSolution;
 
-ulong sumOfReversiblePrimes(uint count) {
+private ulong sumOfReversiblePrimes(uint count) {
     ulong sum = 0;
     uint powersOf10 = 10;
     uint powersOf100 = 100;

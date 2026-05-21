@@ -3,7 +3,7 @@
 
 import euler.common : runSolution;
 
-ulong[] generateOmegaSieve(ulong limit) {
+private ulong[] generateOmegaSieve(ulong limit) {
     ulong[] omegaSieve = new ulong[](limit);
     for (ulong i = 2; i < limit; i++)
         if (omegaSieve[i] == 0)
@@ -13,8 +13,8 @@ ulong[] generateOmegaSieve(ulong limit) {
 }
 
 auto solve() {
-    const ulong limit = 135_000;
-    const ulong requiredFactors = 4;
+    enum ulong limit = 135_000;
+    enum ulong requiredFactors = 4;
     auto omegaSieve = generateOmegaSieve(limit);
     for (ulong i = 1; i < limit - requiredFactors; i++) {
         bool found = true;

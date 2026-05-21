@@ -6,14 +6,14 @@ import std.algorithm : sort;
 import std.conv : text;
 import euler.common : runSolution;
 
-bool isPandigitalConcatenation(int num) {
+private bool isPandigitalConcatenation(int num) {
     auto s = text(num);
     return s.length == 9 && text(s.array.sort) == "123456789";
 }
 
 auto solve() {
-    const int MAX_INDEX = 9_876;
-    const MULTIPLIER = 10^^5 + 2;
+    enum int MAX_INDEX = 9_876;
+    enum MULTIPLIER = 10^^5 + 2;
     for (int index = MAX_INDEX; index > 0; index--) {
         int candidate = index * MULTIPLIER;
         if (isPandigitalConcatenation(candidate))

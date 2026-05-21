@@ -7,7 +7,7 @@ import euler.common : runSolution;
 
 // Returns a bitmask with bit d set for each digit d of n (d = 1-9).
 // Returns 0 if any digit is 0 or appears more than once.
-uint digitMask(int n) pure nothrow @nogc
+private uint digitMask(int n) pure nothrow @nogc
 {
     uint mask = 0;
     while (n > 0)

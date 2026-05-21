@@ -4,7 +4,7 @@
 import std.bigint : BigInt, powmod;
 import euler.common : runSolution;
 
-long large_non_mersenne_prime(BigInt base, BigInt exponent, BigInt coeff, BigInt modulus) {
+private long large_non_mersenne_prime(BigInt base, BigInt exponent, BigInt coeff, BigInt modulus) {
     return powmod((coeff * powmod(base, exponent, modulus) + 1), 1.BigInt, modulus).toLong;
 }
 

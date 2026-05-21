@@ -4,7 +4,7 @@
 import std.algorithm : max;
 import euler.common : runSolution;
 
-long f_alternate(long numIterations, long moduloValue) {
+private long f_alternate(long numIterations, long moduloValue) {
     long maxs = 2 * numIterations * (numIterations - 1);
     long maxd = 4 * (numIterations - 1);
 

@@ -8,7 +8,7 @@ import euler.math : isPrime;
 import euler.common : runSolution;
 
 auto solve() {
-    const long LIMIT = 1_000_000L;
+    enum long LIMIT = 1_000_000L;
     auto primes = iota(2L, LIMIT).filter!(isPrime).array;
     long maxSum = 0;
     long maxLength = 0;

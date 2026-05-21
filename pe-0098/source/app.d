@@ -12,7 +12,7 @@ import euler.common : runSolution;
 // Returns (value, string-form) pairs for all N-digit squares, largest first.
 struct Sq { long val; string str; }
 
-Sq[] nDigitSquares(int n) {
+private Sq[] nDigitSquares(int n) {
     long lo = 1;
     foreach (_; 1 .. n) lo *= 10;
     long hi = lo * 10 - 1;
@@ -29,7 +29,7 @@ Sq[] nDigitSquares(int n) {
 
 // Fills m[0..26] with the letter→digit mapping induced by matching word w to ns.
 // Returns false on any inconsistency (same letter→two digits, or two letters→same digit).
-bool buildMap(string w, string ns, ref int[26] m, ref bool[10] used) {
+private bool buildMap(string w, string ns, ref int[26] m, ref bool[10] used) {
     m[]   = -1;
     used[] = false;
     foreach (i, c; w) {
@@ -46,7 +46,7 @@ bool buildMap(string w, string ns, ref int[26] m, ref bool[10] used) {
     return true;
 }
 
-long applyMap(string w, ref int[26] m) {
+private long applyMap(string w, ref int[26] m) {
     long r = 0;
     foreach (c; w)
         r = r * 10 + m[c - 'A'];

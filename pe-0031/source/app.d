@@ -4,7 +4,7 @@
 import euler.common : runSolution;
 
 auto solve() {
-    const TARGET = 200;
+    enum TARGET = 200;
     int[] coinValues = [1, 2, 5, 10, 20, 50, 100, 200];
     int[] ways = new int[TARGET + 1];
     ways[0] = 1;

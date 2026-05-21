@@ -12,9 +12,9 @@ struct Board {
     int[9] rowUsed, colUsed, boxUsed;
 }
 
-int boxOf(int r, int c) pure { return (r / 3) * 3 + c / 3; }
+private int boxOf(int r, int c) pure nothrow @nogc { return (r / 3) * 3 + c / 3; }
 
-bool backtrack(ref Board b) {
+private bool backtrack(ref Board b) {
     // MRV: pick the empty cell with the fewest available digits.
     int br = -1, bc = -1, bavail = FULL;
     foreach (r; 0 .. 9) foreach (c; 0 .. 9) {

@@ -5,7 +5,7 @@ import std.range : iota;
 import std.algorithm : cartesianProduct, count, filter;
 import euler.common : runSolution;
 
-bool isValidTuple(int k1, int k2, int l1, int l2) {
+private bool isValidTuple(int k1, int k2, int l1, int l2) pure nothrow @nogc {
     return k1 * l2 != k2 * l1 &&
            (k1 * k1 + k2 * k2 == k1 * l1 + k2 * l2 ||
             l1 * l1 + l2 * l2 == k1 * l1 + k2 * l2 ||

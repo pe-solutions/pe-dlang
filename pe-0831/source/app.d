@@ -4,7 +4,7 @@
 import std.bigint;
 import euler.common : runSolution;
 
-BigInt g(BigInt m) {
+private BigInt g(BigInt m) {
     // Polynomial interpolation
     auto m4 = m * m * m * m;
     auto m5 = m4 * m;
@@ -13,7 +13,7 @@ BigInt g(BigInt m) {
 }
 
 // Convert a non-negative BigInt to a string in the given radix (2..=36)
-string toBase(BigInt n, int radix)
+private string toBase(BigInt n, int radix)
 in (radix >= 2 && radix <= 36)
 {
     if (n == 0) return "0";

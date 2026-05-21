@@ -1,15 +1,15 @@
 // An Arithmetic Geometric Sequence
 // https://projecteuler.net/problem=235
 
-import std.format   : format;
-import std.math     : abs, pow;
-import euler.common : runSolution;
+import std.format     : format;
+import std.math       : abs, pow;
 import euler.numerics : Solver, Method;
+import euler.common   : runSolution;
 
 // s(n,r) = Σ_{k=1}^{n} (900-3k)·r^(k-1) = 900·G1 - 3·G2
 // G1 = (rⁿ-1)/(r-1),  G2 = (1-(n+1)·rⁿ+n·rⁿ⁺¹)/(r-1)²;  r=1: G1=n, G2=n(n+1)/2
 // TODO: generalise to arithmetico_geometric_sum(n, a, d, r) and promote to euler.math
-double s(ulong n, double r) pure nothrow @nogc @safe
+private double s(ulong n, double r) pure nothrow @nogc @safe
 {
     immutable double nf = cast(double) n;
     if (abs(r - 1.0) < 1e-14)

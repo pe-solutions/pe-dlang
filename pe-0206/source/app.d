@@ -4,15 +4,15 @@
 import std.math : sqrt;
 import euler.common : runSolution;
 
-ulong calculateSquareRootUpperBound() {
+private ulong calculateSquareRootUpperBound() pure nothrow @nogc {
     return (cast(ulong)sqrt(cast(double)1929394959697989990uL) / 10) * 10;
 }
 
-ulong calculateSquareRootLowerBound() {
+private ulong calculateSquareRootLowerBound() pure nothrow @nogc {
     return (cast(ulong)sqrt(cast(double)1020304050607080900uL) / 10) * 10;
 }
 
-bool hasConcealedSquarePattern(ulong candidate) {
+private bool hasConcealedSquarePattern(ulong candidate) pure nothrow @nogc {
     candidate /= 100;
     for (ulong digit = 9; digit > 0; digit--, candidate /= 100) {
         if (candidate % 10 != digit) return false;

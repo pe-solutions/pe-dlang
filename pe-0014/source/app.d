@@ -3,7 +3,7 @@
 
 import euler.common : runSolution;
 
-ulong computeCollatzLength(ulong n, ulong[ulong] lengths) {
+private ulong computeCollatzLength(ulong n, ulong[ulong] lengths) {
     ulong length = 0;
     ulong num = n;
     while (num != 1) {
@@ -19,7 +19,7 @@ ulong computeCollatzLength(ulong n, ulong[ulong] lengths) {
 }
 
 auto solve() {
-    const ulong MAX_NUMBER = 1_000_000;
+    enum ulong MAX_NUMBER = 1_000_000;
     ulong[ulong] lengths;
     lengths[1] = 1;
     ulong longestSequence = 1;

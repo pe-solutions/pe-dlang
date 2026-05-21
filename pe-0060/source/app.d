@@ -15,7 +15,7 @@ static immutable ulong[] primes = () {
     return result;
 }();
 
-bool checkPair(ulong x, ulong y) {
+private bool checkPair(ulong x, ulong y) {
     auto xy = to!string(x) ~ to!string(y).dup;
     auto yx = to!string(y) ~ to!string(x).dup;
 

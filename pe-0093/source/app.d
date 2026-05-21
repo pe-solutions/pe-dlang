@@ -8,7 +8,7 @@ import euler.common  : runSolution;
 // Exact rational — avoids fp errors from intermediate fractions like (1/3)*3.
 struct Rat { long n, d; bool ok = true; }
 
-Rat applyOp(Rat a, int op, Rat b) {
+private Rat applyOp(Rat a, int op, Rat b) pure nothrow @nogc {
     if (!a.ok || !b.ok) return Rat(0, 0, false);
     final switch (op) {
         case 0: return Rat(a.n*b.d + b.n*a.d, a.d*b.d);
@@ -21,12 +21,12 @@ Rat applyOp(Rat a, int op, Rat b) {
     }
 }
 
-bool isPosInt(Rat r) {
+private bool isPosInt(Rat r) pure nothrow @nogc {
     return r.ok && r.n > 0 && r.d > 0 && r.n % r.d == 0;
 }
 
 // Evaluate all 5 parenthesisations × 64 operator combos for one digit permutation.
-void collect(long[4] p, bool[] reach) {
+private void collect(long[4] p, bool[] reach) {
     Rat[4] v = [Rat(p[0],1), Rat(p[1],1), Rat(p[2],1), Rat(p[3],1)];
     foreach (ops; 0 .. 64) {
         int o0 = ops & 3, o1 = (ops >> 2) & 3, o2 = ops >> 4;

@@ -1,8 +1,8 @@
 // Highly Divisible Triangular Number
 // https://projecteuler.net/problem=12
 
+import euler.math   : countDivisors;
 import euler.common : runSolution;
-import euler.math : countDivisors;
 
 auto solve() {
     // T_n = n*(n+1)/2. Since gcd(n, n+1) = 1, d(T_n) = d(a) * d(b)

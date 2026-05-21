@@ -6,7 +6,7 @@ import euler.common : runSolution;
 
 enum PERIMETER = 1_000u;
 
-Tuple!(uint, uint, uint) findTriplet() {
+private Tuple!(uint, uint, uint) findTriplet() {
     foreach (uint a; 1 .. PERIMETER/3)
         foreach (uint b; a + 1 .. PERIMETER/2) {
             uint c = PERIMETER - a - b;

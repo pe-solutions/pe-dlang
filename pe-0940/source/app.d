@@ -36,7 +36,7 @@ struct Precomputed {
     }
 }
 
-long S(int k, long mod) {
+private long S(int k, long mod) {
     auto pre = Precomputed(k, mod);
     long total = 0;
     for (int i = 2; i <= k; i++) {

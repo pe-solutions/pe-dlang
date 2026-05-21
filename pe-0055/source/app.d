@@ -4,7 +4,7 @@
 import euler.math : isPalindrome, reverseDigits;
 import euler.common : runSolution;
 
-bool isLychrel(long number) {
+private bool isLychrel(long number) {
     long temp = number;
     for (long iteration = 1; iteration <= 50; iteration++) {
         temp += reverseDigits(temp);

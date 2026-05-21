@@ -3,7 +3,7 @@
 
 import euler.common : runSolution;
 
-size_t computePartitions(int n) {
+private size_t computePartitions(int n) {
     auto partitions = new size_t[n + 1];
     partitions[0] = 1;
     foreach (i; 1 .. n + 1) {

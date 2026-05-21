@@ -9,7 +9,7 @@ import euler.common  : runSolution;
 static immutable int[20] ones = [0,3,3,5,4,4,3,5,5,4, 3,6,6,8,8,7,7,9,8,8];
 static immutable int[10] tens = [0,0,6,6,5,5,5,7,6,6];
 
-int letterCount(int n) {
+private int letterCount(int n) pure nothrow @nogc {
     if (n == 1000) return 11;                          // "onethousand"
     if (n >= 100) {
         int h = ones[n / 100] + 7;                     // "X hundred"
