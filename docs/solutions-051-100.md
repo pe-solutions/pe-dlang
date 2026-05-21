@@ -4,7 +4,7 @@
 
 | # | Title | Approach |
 |---|-------|----------|
-| 51 | Prime Digit Replacements | |
+| [51](../pe-0051/source/app.d) | Prime Digit Replacements | Sieve to 1 M; for each prime try all 2ⁿ−1 position subsets as wildcard; replace with 0–9 via `val += (r − digs[i])·pow10[i]`; skip leading-zero replacements; return smallest prime when count ≥ 8 |
 | 52 | Permuted Multiples | |
 | 53 | Combinatoric Selections | |
 | 54 | Poker Hands | |
