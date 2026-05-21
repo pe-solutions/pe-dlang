@@ -26,19 +26,18 @@
 | [70](../pe-0070/source/app.d) | Totient Permutation | Euler's totient sieve (phi[p]=p iff prime; phi[j]=phi[j]/p*(p−1) for each prime p and multiple j); scan 2..10⁷ comparing `digitFreq(n)==digitFreq(phi[n])`; track minimum n/φ(n) via cross-multiply with `long` to avoid fp |
 | [71](../pe-0071/source/app.d) | Ordered Fractions | For each d≤10⁶ the largest n with n/d<3/7 is n=⌊(3d−1)/7⌋; track best fraction via cross-multiplication (n·bestD > bestN·d) to avoid floating point; O(N) |
 | [72](../pe-0072/source/app.d) | Counting Fractions | Count of reduced proper fractions with d≤N equals Σφ(d) for d=2..N; totient sieve (phi[j]=phi[j]/p*(p−1) for each prime p) in O(N log log N) |
-| 72 | Counting Fractions | |
-| 73 | Counting Fractions in a Range | |
-| 74 | Digit Factorial Chains | |
-| 75 | Singular Integer Right Triangles | |
+| [73](../pe-0073/source/app.d) | Counting Fractions in a Range | Recursive Stern-Brocot tree; right-spine jump: from state (leftD, midD, rightD), k=(12 000−midD)/rightD counts all k+1 spine fractions at once then recurses only into each of the k left subtrees; initial call count(3, 5, 2) |
+| [74](../pe-0074/source/app.d) | Digit Factorial Chains | Walk chain via `digitFactSum` (sum of digit factorials) until cycle or cached node; back-fill chain lengths for all nodes on path; MAXVAL=2 177 280 bounds any reachable value from n<10⁶; count starts with length 60 |
+| [75](../pe-0075/source/app.d) | Singular Integer Right Triangles | Euclid's formula p=2m(m+n) for coprime opposite-parity m>n; ubyte array capped at 2 counts primitive-triple + multiple contributions per perimeter ≤1.5M; count perimeters with exactly one triple |
 | [76](../pe-0076/source/app.d) | Counting Summations | Partition DP — p(100) − 1 |
-| 77 | Prime Summations | |
-| 78 | Coin Partitions | |
-| 79 | Passcode Derivation | |
-| 80 | Square Root Digital Expansion | |
-| 81 | Path Sum: Two Ways | |
-| 82 | Path Sum: Three Ways | |
-| 83 | Path Sum: Four Ways | |
-| 84 | Monopoly Odds | |
+| [77](../pe-0077/source/app.d) | Prime Summations | Coin-change DP with primes as coin denominations; outer loop over primes gives unordered prime-summations; return first n where ways[n] > 5 000 |
+| [78](../pe-0078/source/app.d) | Coin Partitions | Euler's pentagonal number theorem: p(n)=Σ(±1)·p(n−gₖ) where gₖ=k(3k±1)/2; build p mod 10⁶ incrementally; return first n with p(n)≡0 (mod 10⁶) |
+| [79](../pe-0079/source/app.d) | Passcode Derivation | Extract ordering constraints from 50 three-digit keylog entries; Kahn's topological sort picks smallest digit with no unplaced predecessor; 8 digits used, unique topological ordering |
+| [80](../pe-0080/source/app.d) | Square Root Digital Expansion | `floor(√(n·10¹⁹⁸))` via BigInt Newton's method gives a 100-digit integer; sum its digits for each non-square n in 2..99 |
+| [81](../pe-0081/source/app.d) | Path Sum: Two Ways | DP right+down only: dp[i][j]=grid[i][j]+min(dp[i−1][j], dp[i][j−1]); CTFE-parsed 80×80 matrix; answer is dp[79][79] |
+| [82](../pe-0082/source/app.d) | Path Sum: Three Ways | Column-by-column DP: right move initialises each column, one downward sweep then one upward sweep handles all up/down moves; answer is min over all rows in the final column |
+| [83](../pe-0083/source/app.d) | Path Sum: Four Ways | Dijkstra over 80×80 grid with 4-directional adjacency; `BinaryHeap!(Array!Entry)` min-heap with stale-entry skip; CTFE-parsed matrix |
+| [84](../pe-0084/source/app.d) | Monopoly Odds | Markov chain with 120 states (40 squares × 3 consecutive-double counts); 4-sided dice; G2J/CC/CH card distributions in nested `land()` (including recursive CH3→CC3 back-3); 500 power-iteration rounds; top-3 squares by stationary probability |
 | 85 | Counting Rectangles | |
 | 86 | Cuboid Route | |
 | 87 | Prime Power Triples | |
