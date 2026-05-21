@@ -21,7 +21,7 @@
 | [65](../pe-0065/source/app.d) | Convergents of e | CF coefficients of e: a(k)=2k/3 when k%3=0, else 1; apply h_n=a_n·h_{n−1}+h_{n−2} recurrence 99 times on BigInt starting from h₁=2; sum digits of h₁₀₀ |
 | [66](../pe-0066/source/app.d) | Diophantine Equation | Pell equation x²−Dy²=1: for each non-square D≤1000 step CF convergents of √D (same m/d/a recurrence as #64) accumulating numerator h and denominator k on BigInt until h²−Dk²=1; return D with the largest minimal x |
 | [67](../pe-0067/source/app.d) | Maximum Path Sum II | Same bottom-up DP as #18; CTFE-parsed 100-row triangle file |
-| 68 | Magic 5-gon Ring | |
+| [68](../pe-0068/source/app.d) | Magic 5-gon Ring | Fix inner pentagon as 5 values from {1..9} (forces 10 outer ⇒ 16-digit string); S=(sumInner+55)/5; outer[i]=S−inner[i]−inner[i+1] must cover {1..10}∖inner; bitmask dedup; read clockwise from smallest outer node; keep lexicographic max |
 | 69 | Totient Maximum | |
 | 70 | Totient Permutation | |
 | 71 | Ordered Fractions | |
