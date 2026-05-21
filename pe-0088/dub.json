@@ -1,0 +1,7 @@
+{
+	"name": "pe-0088",
+	"description": "Product-sum Numbers - Project Euler #88.",
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
+}
