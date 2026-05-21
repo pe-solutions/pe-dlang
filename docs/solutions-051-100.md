@@ -11,7 +11,7 @@
 | [55](../pe-0055/source/app.d) | Lychrel Numbers | Reverse-and-add up to 50 times; no palindrome ⇒ Lychrel |
 | [56](../pe-0056/source/app.d) | Powerful Digit Sum | Maximise digit sum of aᵇ (BigInt) for a, b < 100 |
 | [57](../pe-0057/source/app.d) | Square Root Convergents | Recurrence n' = n + 2d, d' = n + d on BigInt; track digit-count via `tn`/`td` (smallest power of 10 exceeding n/d) — `tn > td` iff n has more digits; avoids string conversion entirely |
-| 58 | Spiral Primes | |
+| [58](../pe-0058/source/app.d) | Spiral Primes | Deterministic Miller-Rabin (witnesses {2,3,5,7}) on ring-k diagonal corners s²−d, s²−2d, s²−3d (s=2k+1, d=s−1); stop when 10·primes < 1+4k |
 | 59 | XOR Decryption | |
 | [60](../pe-0060/source/app.d) | Prime Pair Sets | 5-clique in prime-pair graph: any two concatenate to a prime; primes from euler.math.sieve(), CTFE-baked |
 | 61 | Cyclical Figurate Numbers | |
