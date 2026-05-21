@@ -18,7 +18,7 @@
 | [62](../pe-0062/source/app.d) | Cubic Permutations | Group cubes by `digitFreq` fingerprint (nibble-per-digit, same value iff digit permutation); two AAs track count and smallest cube per group; return smallest when count reaches 5 |
 | [63](../pe-0063/source/app.d) | Powerful Digit Counts | dⁿ has n digits iff n ≤ ⌊1 / (1 − log₁₀ d)⌋; sum over d = 1..9 |
 | [64](../pe-0064/source/app.d) | Odd Period Square Roots | CF expansion of √n: iterate m←d·a−m, d←(n−m²)/d, a←⌊(a₀+m)/d⌋ until a=2a₀; period length is the step count; skip perfect squares; count N≤10000 with odd period |
-| 65 | Convergents of e | |
+| [65](../pe-0065/source/app.d) | Convergents of e | CF coefficients of e: a(k)=2k/3 when k%3=0, else 1; apply h_n=a_n·h_{n−1}+h_{n−2} recurrence 99 times on BigInt starting from h₁=2; sum digits of h₁₀₀ |
 | 66 | Diophantine Equation | |
 | [67](../pe-0067/source/app.d) | Maximum Path Sum II | Same bottom-up DP as #18; CTFE-parsed 100-row triangle file |
 | 68 | Magic 5-gon Ring | |
