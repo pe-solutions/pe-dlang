@@ -22,7 +22,7 @@
 | [66](../pe-0066/source/app.d) | Diophantine Equation | Pell equation x²−Dy²=1: for each non-square D≤1000 step CF convergents of √D (same m/d/a recurrence as #64) accumulating numerator h and denominator k on BigInt until h²−Dk²=1; return D with the largest minimal x |
 | [67](../pe-0067/source/app.d) | Maximum Path Sum II | Same bottom-up DP as #18; CTFE-parsed 100-row triangle file |
 | [68](../pe-0068/source/app.d) | Magic 5-gon Ring | Fix inner pentagon as 5 values from {1..9} (forces 10 outer ⇒ 16-digit string); S=(sumInner+55)/5; outer[i]=S−inner[i]−inner[i+1] must cover {1..10}∖inner; bitmask dedup; read clockwise from smallest outer node; keep lexicographic max |
-| 69 | Totient Maximum | |
+| [69](../pe-0069/source/app.d) | Totient Maximum | n/φ(n)=∏p/(p−1) over distinct prime factors; maximised by the largest primorial ≤10⁶; multiply consecutive primes via `nthPrime` until the next factor would exceed the limit |
 | 70 | Totient Permutation | |
 | 71 | Ordered Fractions | |
 | 72 | Counting Fractions | |
