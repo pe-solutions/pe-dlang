@@ -27,6 +27,17 @@
 | `matVecMul(M, v, modulus)` | 2×2 matrix × 2-vector multiplication mod `modulus` |
 | `matPow(M, n, modulus)` | 2×2 matrix power `M^n` mod `modulus`; `n` may be any integral type or `BigInt` |
 
+### `euler.rat`
+
+| Symbol | Description |
+|--------|-------------|
+| `Rat(n, d)` | Exact rational `n/d` — GCD-reduced, denominator always positive; `long`-backed |
+| `+  -  *  /` | Arithmetic operators; `/` asserts divisor is non-zero |
+| `==  <  <=  >  >=` | Comparison via `opEquals` / `opCmp` |
+| `isInteger()` | `true` if denominator is 1 after reduction |
+| `toDouble()` | Floating-point approximation |
+| `toString()` | `"n"` when integer, `"n/d"` otherwise |
+
 ### `euler.numerics`
 
 | Symbol | Description |

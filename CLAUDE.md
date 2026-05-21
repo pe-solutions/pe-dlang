@@ -16,6 +16,7 @@ pe-dlang/
 │       ├── math.d      # countDivisors, isPrime, sieve, segmentedSieve, nthPrime,
 │       │               # reverseDigits, isPalindrome, digitFreq, isPerfectSquare, largestPrimeFactor,
 │       │               # mod, fib, fibFirstNDigits, matMul, matVecMul, matPow
+│       ├── rat.d       # Rat — exact rational arithmetic (GCD-reduced, long-backed)
 │       └── numerics.d  # Solver, Method, SolveResult — root-finding
 │                       # (Newton-Raphson, Brent-Dekker, TOMS 748, ITP)
 ├── pe-XXXX/            # One DUB package per problem
@@ -198,6 +199,17 @@ Never hardcode large data blobs inline — this pattern gives identical binary e
 | `matMul(A, B, modulus)` | 2×2 matrix multiplication mod `modulus` |
 | `matVecMul(M, v, modulus)` | 2×2 matrix × 2-vector multiplication mod `modulus` |
 | `matPow(M, n, modulus)` | 2×2 matrix power `M^n` mod `modulus`; `n` may be any integral type or `BigInt` |
+
+### `euler.rat`
+
+| Symbol | Description |
+|--------|-------------|
+| `Rat(n, d)` | Exact rational `n/d` — GCD-reduced, denominator always positive; `long`-backed |
+| `+  -  *  /` | Arithmetic operators; `/` asserts divisor is non-zero |
+| `==  <  <=  >  >=` | Comparison via `opEquals` / `opCmp` |
+| `isInteger()` | `true` if denominator is 1 after reduction |
+| `toDouble()` | Floating-point approximation |
+| `toString()` | `"n"` when integer, `"n/d"` otherwise |
 
 ### `euler.numerics`
 

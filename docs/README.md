@@ -24,6 +24,7 @@ pe-dlang/
 │       ├── math.d      # countDivisors, isPrime, sieve, segmentedSieve, nthPrime,
 │       │               # reverseDigits, isPalindrome, digitFreq, isPerfectSquare, largestPrimeFactor,
 │       │               # mod, fib, fibFirstNDigits, matMul, matVecMul, matPow
+│       ├── rat.d       # Rat — exact rational arithmetic
 │       └── numerics.d  # Solver, Method, SolveResult — root-finding
 │                       # (Newton-Raphson, Brent-Dekker, TOMS 748, ITP)
 ├── pe-XXXX/            # One DUB package per problem
