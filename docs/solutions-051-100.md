@@ -10,7 +10,7 @@
 | [54](../pe-0054/source/app.d) | Poker Hands | Frequency-table hand evaluator; insertion-sort 5 cards by `(cnt desc, val desc)` for canonical tiebreaker order; pack rank + nibbles into one `int`; direct fixed-offset line parsing avoids split |
 | [55](../pe-0055/source/app.d) | Lychrel Numbers | Reverse-and-add up to 50 times; no palindrome ⇒ Lychrel |
 | [56](../pe-0056/source/app.d) | Powerful Digit Sum | Maximise digit sum of aᵇ (BigInt) for a, b < 100 |
-| 57 | Square Root Convergents | |
+| [57](../pe-0057/source/app.d) | Square Root Convergents | Recurrence n' = n + 2d, d' = n + d on BigInt; track digit-count via `tn`/`td` (smallest power of 10 exceeding n/d) — `tn > td` iff n has more digits; avoids string conversion entirely |
 | 58 | Spiral Primes | |
 | 59 | XOR Decryption | |
 | [60](../pe-0060/source/app.d) | Prime Pair Sets | 5-clique in prime-pair graph: any two concatenate to a prime; primes from euler.math.sieve(), CTFE-baked |
