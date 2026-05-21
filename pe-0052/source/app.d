@@ -1,15 +1,8 @@
 // Permuted Multiples
 // https://projecteuler.net/problem=52
 
+import euler.math   : digitFreq;
 import euler.common : runSolution;
-
-// Pack digit frequencies into nibbles (4 bits per digit 0–9); equal iff same multiset.
-private ulong digitFreq(int n) pure nothrow @nogc
-{
-    ulong f = 0;
-    while (n > 0) { f += 1uL << ((n % 10) * 4); n /= 10; }
-    return f;
-}
 
 auto solve()
 {

@@ -14,8 +14,7 @@ private int cardVal(char c) pure nothrow @nogc
     return 14; // 'A'
 }
 
-// Packed score: bits 23-20 = hand rank (0 high-card … 8 straight-flush),
-// bits 19-0 = up to 5 tiebreaker nibbles in order of importance.
+// Packed int: rank in bits 23-20 (0=high-card…8=straight-flush), tiebreaker nibbles in bits 19-0.
 private int evalHand(int[5] v, char[5] s) pure nothrow @nogc
 {
     int[15] cnt;

@@ -106,6 +106,14 @@ bool isPalindrome(T)(T n) if (isIntegral!T) {
     return n == reverseDigits(n);
 }
 
+// Digit-multiset fingerprint: nibble per digit 0–9; equal iff same digit multiset.
+ulong digitFreq(T)(T n) pure nothrow @nogc if (isIntegral!T) {
+    ulong f = 0;
+    Unqual!T m = n;
+    while (m > 0) { f += 1uL << ((m % 10) * 4); m /= 10; }
+    return f;
+}
+
 // Uses real (80-bit) instead of double so every 64-bit integer is representable exactly;
 // checks s-1/s/s+1 to absorb fp rounding in either direction.
 bool isPerfectSquare(T)(T n) if (isIntegral!T) {

@@ -14,7 +14,7 @@ pe-dlang/
 │   └── source/euler/
 │       ├── common.d    # runSolution template
 │       ├── math.d      # countDivisors, isPrime, sieve, segmentedSieve, nthPrime,
-│       │               # reverseDigits, isPalindrome, isPerfectSquare, largestPrimeFactor,
+│       │               # reverseDigits, isPalindrome, digitFreq, isPerfectSquare, largestPrimeFactor,
 │       │               # mod, fib, fibFirstNDigits, matMul, matVecMul, matPow
 │       └── numerics.d  # Solver, Method, SolveResult — root-finding
 │                       # (Newton-Raphson, Brent-Dekker, TOMS 748, ITP)
@@ -189,6 +189,7 @@ Never hardcode large data blobs inline — this pattern gives identical binary e
 | `nthPrime!T(n)` | nth prime as type `T` (default `int`), sized by Rosser's bound |
 | `reverseDigits(n)` | Reverses the decimal digits of an integer |
 | `isPalindrome(n)` | `true` if `n == reverseDigits(n)` |
+| `digitFreq(n)` | Digit-frequency fingerprint as a `ulong` (nibble per digit 0–9); `digitFreq(a) == digitFreq(b)` iff `a` and `b` are digit permutations of each other — any integral type |
 | `isPerfectSquare(n)` | `true` if `n` is a perfect square — any integral type |
 | `largestPrimeFactor(n)` | Largest prime factor of `n` |
 | `mod(a, b)` | True modulo — always non-negative, unlike D's `%` |

@@ -1,25 +1,21 @@
 // Prime Permutations
 // https://projecteuler.net/problem=49
 
-import std.algorithm : equal, sort;
-import std.array : array;
-import std.conv : to;
-import euler.math : isPrime;
+import euler.math   : isPrime, digitFreq;
 import euler.common : runSolution;
 
-private bool ispermutation(ulong a, ulong b) {
-    return equal(to!string(a).array.sort, to!string(b).array.sort);
-}
+auto solve()
+{
+    enum int step = 3330;
 
-auto solve() {
-    enum ulong STEP = 3330;
-    for (ulong a = 1488; a <= STEP + 1; a++) {
-        ulong b = a + STEP;
-        ulong c = b + STEP;
-        if (isPrime(a) && isPrime(b) && isPrime(c) && ispermutation(a, b) && ispermutation(b, c))
-            return 10^^(2 * 4) * a + 10^^4 * b + c;
+    for (int a = 1488; a <= 9999 - 2 * step; ++a)
+    {
+        int b = a + step, c = b + step;
+        if (isPrime(a) && isPrime(b) && isPrime(c) &&
+            digitFreq(a) == digitFreq(b) && digitFreq(b) == digitFreq(c))
+            return 100_000_000L * a + 10_000L * b + c;
     }
-    return 0uL;
+    assert(false);
 }
 
 void main() { runSolution!(solve)(49); }
