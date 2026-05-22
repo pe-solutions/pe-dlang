@@ -1,0 +1,7 @@
+{
+    "name": "pe-0116",
+    "description": "Red, Green or Blue Tiles - Project Euler #116.",
+    "dependencies": {
+        "pe-common": {"path": "../pe-common"}
+    }
+}
