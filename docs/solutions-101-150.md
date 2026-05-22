@@ -35,3 +35,4 @@
 | [129](../pe-0129/source/app.d) | Repunit Divisibility | A(n) ≤ n so A(n)>10⁶ requires n>10⁶; iterate n from 10⁶+1 skipping gcd(n,10)≠1; compute A(n) via R(k)=(R(k−1)·10+1) mod n until remainder=0 |
 | [130](../pe-0130/source/app.d) | Composites with Prime Repunit Property | Same A(n) recurrence; skip primes and n with gcd(n,10)≠1; collect composites where A(n) | (n−1); sum first 25 |
 | [131](../pe-0131/source/app.d) | Prime Cube Partnership | n²(n+p) perfect cube with gcd(n,p)=1 forces n=m³, n+p=(m+1)³; p=(m+1)³−m³=3m²+3m+1; count primes of this form ≤ 10⁶ |
+| [132](../pe-0132/source/app.d) | Large Repunit Factors | p | R(10⁹) iff ord_p(10) | 10⁹ iff 10^(10⁹) ≡ 1 (mod p); modpow per prime (p=3 excluded — 10≡1 mod 3 is a false positive); sum first 40 qualifying primes |
