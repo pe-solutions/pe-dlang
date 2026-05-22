@@ -18,3 +18,4 @@
 | [112](../pe-0112/source/app.d) | Bouncy Numbers | Scan digits right-to-left: d < prev ⟹ hasUp, d > prev ⟹ hasDown; bouncy iff both; iterate n, stop when bouncy×100 = n×99 |
 | [113](../pe-0113/source/app.d) | Non-bouncy Numbers | Combinatorics: n-digit increasing = C(n+8,8), decreasing = C(n+9,9)−1; hockey-stick sums to C(109,9)−1 and C(110,10)−101; subtract 9×100 repdigits counted twice |
 | [114](../pe-0114/source/app.d) | Counting Block Combinations I | f(n) = ways to tile n with black (1) and red (≥3) tiles; differencing the running-sum recurrence yields f(n) = 2f(n−1)−f(n−2)+f(n−4) |
+| [115](../pe-0115/source/app.d) | Counting Block Combinations II | Generalisation of #114 with minimum red length m=50; same differencing gives f(n) = 2f(n−1)−f(n−2)+f(n−m−1); find least n with f > 10⁶ |
