@@ -20,3 +20,4 @@
 | [114](../pe-0114/source/app.d) | Counting Block Combinations I | f(n) = ways to tile n with black (1) and red (≥3) tiles; differencing the running-sum recurrence yields f(n) = 2f(n−1)−f(n−2)+f(n−4) |
 | [115](../pe-0115/source/app.d) | Counting Block Combinations II | Generalisation of #114 with minimum red length m=50; same differencing gives f(n) = 2f(n−1)−f(n−2)+f(n−m−1); find least n with f > 10⁶ |
 | [116](../pe-0116/source/app.d) | Red, Green or Blue Tiles | For each colour length L ∈ {2,3,4}: g(n) = g(n−1)+g(n−L) (no separation constraint); sum g(50,L)−1 over the three colours |
+| [117](../pe-0117/source/app.d) | Red, Green, and Blue Tiles | Colours may be mixed freely; f(n) = f(n−1)+f(n−2)+f(n−3)+f(n−4) (tetranacci-style recurrence) |
