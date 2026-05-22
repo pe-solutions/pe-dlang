@@ -24,3 +24,4 @@
 | [118](../pe-0118/source/app.d) | Pandigital Prime Sets | For each of 511 digit-subset masks enumerate prime-forming permutations; backtrack over all partitions of {1..9} consuming the lowest available bit first (canonical order prevents duplicate unordered sets) |
 | [119](../pe-0119/source/app.d) | Digit Power Sum | Enumerate n = b^k (b ≥ 2, k ≥ 2) with digit_sum(n) = b; iterate b up to 200, powers up to 10¹⁸ with overflow guard; sort and return the 30th term |
 | [120](../pe-0120/source/app.d) | Square Remainders | Binomial theorem mod a²: even n → r=2, odd n → r=2na mod a²; sawtooth maximum at n=⌊(a−1)/2⌋ gives r_max(a)=2a·⌊(a−1)/2⌋; closed-form sum over a=3..1000 |
+| [121](../pe-0121/source/app.d) | Disc Game Prize Fund | DP over 15 turns: dp[k] = numerator of P(k blue) with denominator (n+1)!; transition dp[k] ← dp[k−1]+dp[k]·n (right-to-left); prize = ⌊16! / Σ_{k≥8} dp[k]⌋ |
