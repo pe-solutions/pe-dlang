@@ -34,3 +34,4 @@
 | [128](../pe-0128/source/app.d) | Hexagonal Tile Differences | Axial-coord analysis: only F(k)=3k²−3k+2 and L(k)=3k²+3k+1 can have PD=3; F(k): diffs {1,6(k−1),6k−1,6k,6k+1,12k+5} → PD=3 iff 6k−1,6k+1,12k+5 prime; L(k): diffs {1,6k−1,6k,12k−7,6k+5,6(k+1)} → PD=3 iff 6k−1,12k−7,6k+5 prime |
 | [129](../pe-0129/source/app.d) | Repunit Divisibility | A(n) ≤ n so A(n)>10⁶ requires n>10⁶; iterate n from 10⁶+1 skipping gcd(n,10)≠1; compute A(n) via R(k)=(R(k−1)·10+1) mod n until remainder=0 |
 | [130](../pe-0130/source/app.d) | Composites with Prime Repunit Property | Same A(n) recurrence; skip primes and n with gcd(n,10)≠1; collect composites where A(n) | (n−1); sum first 25 |
+| [131](../pe-0131/source/app.d) | Prime Cube Partnership | n²(n+p) perfect cube with gcd(n,p)=1 forces n=m³, n+p=(m+1)³; p=(m+1)³−m³=3m²+3m+1; count primes of this form ≤ 10⁶ |
