@@ -29,3 +29,4 @@
 | [123](../pe-0123/source/app.d) | Prime Square Remainders | Same binomial result as #120: even n → r=2, odd n → r=2n·pₙ mod pₙ²; for large n (2n < pₙ) no mod reduction needed; find first odd n with r > 10¹⁰ |
 | [124](../pe-0124/source/app.d) | Ordered Radicals | Sieve-style rad(n) computation: for each prime p multiply rad[m] by p for every multiple; sort index array 1..100000 by (rad(n), n); return ns[9999] |
 | [125](../pe-0125/source/app.d) | Palindromic Sums | Double loop: outer on start a, inner extends sum by one square per step; collect palindromic sums < 10⁸, sort+uniq, then sum (dedup needed — same value reachable from different starts) |
+| [126](../pe-0126/source/app.d) | Cuboid Layers | C(a,b,c,n)=2(ab+bc+ca)+4(a+b+c)(n−1)+4(n−1)(n−2); count array over a≤b≤c,n≥1 with LIMIT=20000; return first value with count=1000 |
