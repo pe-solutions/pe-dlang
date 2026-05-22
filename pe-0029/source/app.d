@@ -1,12 +1,12 @@
 // Distinct Powers
 // https://projecteuler.net/problem=29
 
-import std.math     : pow, round;
 import euler.common : runSolution;
 
 // Smallest g >= 2 such that a = g^k for some k >= 1.
 private int minBase(int a)
 {
+    import std.math : pow, round;
     foreach_reverse (k; 2 .. 7)
     {
         immutable g = cast(int) round(pow(cast(double) a, 1.0 / k));

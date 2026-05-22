@@ -1,11 +1,11 @@
 // Amicable Numbers
 // https://projecteuler.net/problem=21
 
-import std.algorithm : filter, sum;
-import std.range     : iota;
 import euler.common  : runSolution;
 
 auto solve() {
+    import std.algorithm : filter, sum;
+    import std.range     : iota;
     enum int N = 10_000;
 
     auto spd = new int[N];

@@ -1,10 +1,10 @@
 // Cube Digit Pairs
 // https://projecteuler.net/problem=90
 
-import core.bitop : popcnt;
 import euler.common : runSolution;
 
 auto solve() {
+    import core.bitop : popcnt;
     // Digit pairs needed to display squares 01,04,09,16,25,36,49,64,81.
     // With 6≡9, pairs (4,9) and (6,4) reduce to the same constraint — keep both for clarity.
     static immutable ubyte[2][9] required = [

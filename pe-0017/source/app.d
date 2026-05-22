@@ -1,8 +1,6 @@
 // Number Letter Counts
 // https://projecteuler.net/problem=17
 
-import std.algorithm : map, sum;
-import std.range     : iota;
 import euler.common  : runSolution;
 
 // Letter counts for 0-19 and for the tens (20,30,...,90).
@@ -21,6 +19,8 @@ private int letterCount(int n) pure nothrow @nogc {
 }
 
 auto solve() {
+    import std.algorithm : map, sum;
+    import std.range     : iota;
     return iota(1, 1001).map!letterCount.sum;
 }
 

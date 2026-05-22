@@ -1,7 +1,6 @@
 // Truncatable Primes
 // https://projecteuler.net/problem=37
 
-import euler.math   : sieve;
 import euler.common : runSolution;
 
 private bool isRightTrunc(int n, const bool[] s) pure nothrow @nogc
@@ -25,6 +24,7 @@ private bool isLeftTrunc(int n, const bool[] s) pure nothrow @nogc
 
 auto solve()
 {
+    import euler.math : sieve;
     enum int limit = 1_000_000;
     immutable s = sieve(limit);
     long total = 0;

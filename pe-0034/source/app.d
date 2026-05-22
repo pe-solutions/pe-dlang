@@ -1,8 +1,6 @@
 // Digit Factorials
 // https://projecteuler.net/problem=34
 
-import std.range     : iota;
-import std.algorithm : filter, sum;
 import euler.common  : runSolution;
 
 // Upper bound: 8 × 9! = 2_903_040 has only 7 digits, so no 8-digit number qualifies.
@@ -19,6 +17,8 @@ private uint digitFactSum(uint n) pure nothrow @nogc
 
 auto solve()
 {
+    import std.range     : iota;
+    import std.algorithm : filter, sum;
     // 1! = 1 and 2! = 2 are excluded by the problem (not sums); start at 3.
     return iota(3u, limit + 1u).filter!(n => digitFactSum(n) == n).sum;
 }

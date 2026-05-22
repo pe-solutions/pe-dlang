@@ -1,7 +1,6 @@
 // Circular Primes
 // https://projecteuler.net/problem=35
 
-import euler.math   : sieve;
 import euler.common : runSolution;
 
 private bool allOddNon5(int n) pure nothrow @nogc
@@ -23,6 +22,7 @@ private int rotate(int n, int pow10) pure nothrow @nogc
 
 auto solve()
 {
+    import euler.math : sieve;
     enum int limit = 1_000_000;
     immutable s = sieve(limit);
     int count = 0;

@@ -1,13 +1,13 @@
 // Monopoly Odds
 // https://projecteuler.net/problem=84
 
-import std.algorithm : sort;
-import std.array : array;
-import std.format : format;
-import std.range : iota;
 import euler.common : runSolution;
 
 auto solve() {
+    import std.algorithm : sort;
+    import std.array : array;
+    import std.format : format;
+    import std.range : iota;
     enum int N = 40;
     enum int STATES = N * 3;  // position × consecutive doubles (0,1,2)
 

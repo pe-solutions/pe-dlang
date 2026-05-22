@@ -1,11 +1,11 @@
 // Odd Period Square Roots
 // https://projecteuler.net/problem=64
 
-import std.math : sqrt;
 import euler.common : runSolution;
 
 // Returns the CF period length of √n, or 0 for perfect squares.
 private uint cfPeriod(int n) pure nothrow @nogc {
+    import std.math : sqrt;
     immutable int a0 = cast(int) sqrt(cast(double) n);
     if (a0 * a0 == n) return 0;
     int m = 0, d = 1, a = a0;

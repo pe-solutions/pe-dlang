@@ -1,9 +1,6 @@
 // Double-base Palindromes
 // https://projecteuler.net/problem=36
 
-import std.range     : iota;
-import std.algorithm : filter, sum;
-import euler.math    : isPalindrome;
 import euler.common  : runSolution;
 
 // Reverse the bits of n, stopping at the most-significant set bit (no leading zeros).
@@ -16,6 +13,9 @@ private bool isBinPalindrome(int n) pure nothrow @nogc
 
 auto solve()
 {
+    import std.range     : iota;
+    import std.algorithm : filter, sum;
+    import euler.math    : isPalindrome;
     // Binary palindromes must be odd: leading bit == 1 == trailing bit.
     return iota(1, 1_000_000, 2)
         .filter!(n => isPalindrome(n) && isBinPalindrome(n))

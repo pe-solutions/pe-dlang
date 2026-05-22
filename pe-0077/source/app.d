@@ -1,10 +1,10 @@
 // Prime Summations
 // https://projecteuler.net/problem=77
 
-import euler.math : sieve;
 import euler.common : runSolution;
 
 auto solve() {
+    import euler.math : sieve;
     enum int limit  = 200;
     enum int target = 5_000;
 

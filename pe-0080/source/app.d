@@ -2,12 +2,11 @@
 // https://projecteuler.net/problem=80
 
 import std.bigint : BigInt;
-import std.conv : to;
-import euler.math : isPerfectSquare;
 import euler.common : runSolution;
 
 // Integer square root via Newton's method, starting from 10^ceil(digits/2).
 private BigInt isqrt(BigInt n) {
+    import std.conv : to;
     if (n == 0) return BigInt(0);
     int halfLen = (cast(int)n.to!string.length + 1) / 2;
     BigInt x = BigInt(1);
@@ -18,6 +17,9 @@ private BigInt isqrt(BigInt n) {
 }
 
 auto solve() {
+    import std.bigint : BigInt;
+    import std.conv : to;
+    import euler.math : isPerfectSquare;
     // floor(sqrt(n * 10^198)) gives the first 100 significant digits of sqrt(n)
     // as a 100-digit integer (since sqrt(n) < 10 for n < 100).
     BigInt scale = BigInt(1);

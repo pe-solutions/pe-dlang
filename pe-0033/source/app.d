@@ -1,11 +1,11 @@
 // Digit Cancelling Fractions
 // https://projecteuler.net/problem=33
 
-import std.numeric  : gcd;
 import euler.common : runSolution;
 
 auto solve()
 {
+    import std.numeric : gcd;
     int numProd = 1, denProd = 1;
 
     foreach (n; 10 .. 100)

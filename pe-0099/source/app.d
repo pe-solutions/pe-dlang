@@ -1,14 +1,14 @@
 // Largest Exponential
 // https://projecteuler.net/problem=99
 
-import std.algorithm : map, maxIndex;
-import std.array    : array;
-import std.conv     : to;
-import std.math     : log;
-import std.string   : splitLines, split;
 import euler.common : runSolution;
 
 auto solve() {
+    import std.algorithm : map, maxIndex;
+    import std.array    : array;
+    import std.conv     : to;
+    import std.math     : log;
+    import std.string   : splitLines, split;
     // a^b > c^d  iff  b·log(a) > d·log(c)
     auto logValues = import("data/base_exp.txt").splitLines
         .map!((line) {

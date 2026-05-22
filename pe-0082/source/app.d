@@ -1,13 +1,13 @@
 // Path Sum: Three Ways
 // https://projecteuler.net/problem=82
 
-import std.algorithm : min, minElement;
-import std.array : split;
-import std.conv : to;
-import std.string : splitLines;
 import euler.common : runSolution;
 
 auto solve() {
+    import std.algorithm : min, minElement;
+    import std.array : split;
+    import std.conv : to;
+    import std.string : splitLines;
     enum int N = 80;
     static immutable int[N][N] grid = () {
         int[N][N] g;

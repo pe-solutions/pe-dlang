@@ -1,10 +1,6 @@
 // Path Sum: Four Ways
 // https://projecteuler.net/problem=83
 
-import std.array : split;
-import std.container : Array, BinaryHeap;
-import std.conv : to;
-import std.string : splitLines;
 import euler.common : runSolution;
 
 private struct Entry {
@@ -13,8 +9,12 @@ private struct Entry {
 }
 
 auto solve() {
+    import std.container : Array, BinaryHeap;
     enum int N = 80;
     static immutable int[N][N] grid = () {
+        import std.array : split;
+        import std.conv : to;
+        import std.string : splitLines;
         int[N][N] g;
         foreach (r, line; import("data/matrix.txt").splitLines)
             foreach (c, tok; line.split(","))

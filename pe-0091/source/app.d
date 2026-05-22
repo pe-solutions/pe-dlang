@@ -1,8 +1,6 @@
 // Right Triangles with Integer Coordinates
 // https://projecteuler.net/problem=91
 
-import std.range : iota;
-import std.algorithm : cartesianProduct, count, filter;
 import euler.common : runSolution;
 
 private bool isValidTuple(int k1, int k2, int l1, int l2) pure nothrow @nogc {
@@ -13,6 +11,8 @@ private bool isValidTuple(int k1, int k2, int l1, int l2) pure nothrow @nogc {
 }
 
 auto solve() {
+    import std.range : iota;
+    import std.algorithm : cartesianProduct, count, filter;
     auto ranges = iota(0, 51);
     return cartesianProduct(ranges, ranges, ranges, ranges)
         .filter!(t => isValidTuple(t[0], t[1], t[2], t[3]))

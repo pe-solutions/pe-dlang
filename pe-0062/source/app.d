@@ -1,10 +1,10 @@
 // Cubic Permutations
 // https://projecteuler.net/problem=62
 
-import euler.math : digitFreq;
 import euler.common : runSolution;
 
 auto solve() {
+    import euler.math : digitFreq;
     long[ulong] cnt;
     long[ulong] smallest;
 

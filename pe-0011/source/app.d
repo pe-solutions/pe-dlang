@@ -1,12 +1,12 @@
 // Largest Product in a Grid
 // https://projecteuler.net/problem=11
 
-import std.string : splitLines, split;
-import std.conv : to;
 import euler.common : runSolution;
 
 // Grid parsed from file at compile time via CTFE.
 static immutable int[20][20] g = () {
+    import std.string : splitLines, split;
+    import std.conv : to;
     int[20][20] result;
     foreach (r, line; import("data/grid_20x20.txt").splitLines)
         foreach (c, tok; line.split)

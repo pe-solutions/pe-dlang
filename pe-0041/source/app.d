@@ -1,13 +1,13 @@
 // Pandigital Prime
 // https://projecteuler.net/problem=41
 
-import std.algorithm : nextPermutation;
-import euler.math    : isPrime;
 import euler.common  : runSolution;
 
 // Enumerate all permutations (ascending start); return largest prime found.
 private int largestPandigitalPrime(int[] digits)
 {
+    import std.algorithm : nextPermutation;
+    import euler.math    : isPrime;
     int result = 0;
     do {
         int n = 0;

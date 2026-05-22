@@ -2,12 +2,11 @@
 // https://projecteuler.net/problem=66
 
 import std.bigint : BigInt;
-import std.math : sqrt;
-import euler.math : isPerfectSquare;
 import euler.common : runSolution;
 
 // Minimal x in x² − D·y² = 1 via convergents of the CF expansion of √D.
 private BigInt pellMinX(int D) {
+    import std.math : sqrt;
     immutable int a0 = cast(int) sqrt(cast(double) D);
     int m = 0, d = 1, a = a0;
     BigInt h2 = BigInt(1), h1 = BigInt(a0);
@@ -26,6 +25,8 @@ private BigInt pellMinX(int D) {
 }
 
 auto solve() {
+    import std.bigint : BigInt;
+    import euler.math : isPerfectSquare;
     BigInt maxX;
     int bestD;
     foreach (D; 2 .. 1001) {

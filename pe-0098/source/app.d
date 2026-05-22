@@ -1,18 +1,14 @@
 // Anagramic Squares
 // https://projecteuler.net/problem=98
 
-import std.algorithm : sort, map, max, filter;
-import std.array    : array;
-import std.conv     : to;
-import std.math     : sqrt;
-import std.string   : split, strip;
-import euler.math   : isPerfectSquare;
 import euler.common : runSolution;
 
 // Returns (value, string-form) pairs for all N-digit squares, largest first.
 struct Sq { long val; string str; }
 
 private Sq[] nDigitSquares(int n) {
+    import std.conv : to;
+    import std.math : sqrt;
     long lo = 1;
     foreach (_; 1 .. n) lo *= 10;
     long hi = lo * 10 - 1;
@@ -54,6 +50,10 @@ private long applyMap(string w, ref int[26] m) {
 }
 
 auto solve() {
+    import std.algorithm : sort, map, max, filter;
+    import std.array    : array;
+    import std.string   : split, strip;
+    import euler.math   : isPerfectSquare;
     string[] words = import("data/words.txt").strip.split(",").map!(w => w[1 .. $ - 1]).array;
 
     // Group by sorted-letter key to find anagram families.

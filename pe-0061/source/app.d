@@ -1,7 +1,6 @@
 // Cyclical Figurate Numbers
 // https://projecteuler.net/problem=61
 
-import std.algorithm : sum;
 import euler.common : runSolution;
 
 private int first2(int n) pure nothrow @nogc { return n / 100; }
@@ -55,6 +54,7 @@ auto solve() {
         if (found) break;
     }
 
+    import std.algorithm : sum;
     return chain[].sum;
 }
 

@@ -1,8 +1,6 @@
 // Su Doku
 // https://projecteuler.net/problem=96
 
-import std.string   : splitLines, strip, startsWith;
-import core.bitop   : popcnt, bsf;
 import euler.common : runSolution;
 
 enum int FULL = 0x3FE;  // bits 1..9 set
@@ -15,6 +13,7 @@ struct Board {
 private int boxOf(int r, int c) pure nothrow @nogc { return (r / 3) * 3 + c / 3; }
 
 private bool backtrack(ref Board b) {
+    import core.bitop : popcnt, bsf;
     // MRV: pick the empty cell with the fewest available digits.
     int br = -1, bc = -1, bavail = FULL;
     foreach (r; 0 .. 9) foreach (c; 0 .. 9) {
@@ -38,6 +37,7 @@ private bool backtrack(ref Board b) {
 }
 
 auto solve() {
+    import std.string : splitLines, strip, startsWith;
     enum string data = import("data/sudoku.txt");
     int sum = 0;
     Board b;

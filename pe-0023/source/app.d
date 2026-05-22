@@ -1,11 +1,11 @@
 // Non-Abundant Sums
 // https://projecteuler.net/problem=23
 
-import std.range : assumeSorted;
 import euler.common : runSolution;
 
 auto solve()
 {
+    import std.range : assumeSorted;
     enum int N = 28_123;
 
     // Additive sieve for sum of proper divisors

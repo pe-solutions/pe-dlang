@@ -1,11 +1,11 @@
 // Spiral Primes
 // https://projecteuler.net/problem=58
 
-import euler.math : isPrime;
 import euler.common : runSolution;
 
 auto solve()
 {
+    import euler.math : isPrime;
     long primes = 0;
 
     for (long k = 1; ; ++k)

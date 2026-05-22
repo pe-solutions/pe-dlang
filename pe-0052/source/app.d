@@ -1,11 +1,11 @@
 // Permuted Multiples
 // https://projecteuler.net/problem=52
 
-import euler.math   : digitFreq;
 import euler.common : runSolution;
 
 auto solve()
 {
+    import euler.math : digitFreq;
     // x and 6x share digit count iff x < 10^d / 6, i.e. x starts with 1.
     // Iterate directly over each digit-length band [10^(d-1), 10^d / 6].
     for (int pow10 = 10; ; pow10 *= 10)

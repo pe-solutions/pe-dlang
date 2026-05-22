@@ -1,8 +1,6 @@
 // Pandigital Products
 // https://projecteuler.net/problem=32
 
-import std.algorithm : filter, sum;
-import std.range    : iota;
 import euler.common : runSolution;
 
 // Returns a bitmask with bit d set for each digit d of n (d = 1-9).
@@ -22,6 +20,8 @@ private uint digitMask(int n) pure nothrow @nogc
 
 auto solve()
 {
+    import std.algorithm : filter, sum;
+    import std.range    : iota;
     // Total digits across a, b, c must equal 9: valid splits are 1+4+4 and 2+3+4.
     // Masks must be disjoint and cover bits 1-9 exactly: sum == 0x3FE.
     enum uint full = 0x3FEu;

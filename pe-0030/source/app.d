@@ -1,8 +1,6 @@
 // Digit Fifth Powers
 // https://projecteuler.net/problem=30
 
-import std.range     : iota;
-import std.algorithm : filter, sum;
 import euler.common  : runSolution;
 
 // Upper bound: 7 × 9^5 = 413343 has only 6 digits, so no 7-digit number qualifies.
@@ -19,6 +17,8 @@ private uint dp5(uint n) pure nothrow @nogc
 
 auto solve()
 {
+    import std.range     : iota;
+    import std.algorithm : filter, sum;
     return iota(2u, limit + 1u).filter!(n => dp5(n) == n).sum;
 }
 

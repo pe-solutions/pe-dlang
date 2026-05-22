@@ -1,12 +1,12 @@
 // Convergents of e
 // https://projecteuler.net/problem=65
 
-import std.algorithm : map, sum;
-import std.bigint : BigInt;
-import std.conv : to;
 import euler.common : runSolution;
 
 auto solve() {
+    import std.algorithm : map, sum;
+    import std.bigint : BigInt;
+    import std.conv : to;
     enum int n = 100;
     BigInt prev2 = BigInt(1);
     BigInt prev1 = BigInt(2);

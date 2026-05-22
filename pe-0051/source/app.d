@@ -1,11 +1,11 @@
 // Prime Digit Replacements
 // https://projecteuler.net/problem=51
 
-import euler.math   : sieve;
 import euler.common : runSolution;
 
 auto solve()
 {
+    import euler.math : sieve;
     enum int limit = 1_000_000;
     immutable s = sieve(limit);
 

@@ -1,8 +1,6 @@
 // Reciprocal Cycles
 // https://projecteuler.net/problem=26
 
-import std.range     : iota;
-import std.algorithm : maxElement;
 import euler.common  : runSolution;
 
 private int cycleLength(int d)
@@ -20,6 +18,8 @@ private int cycleLength(int d)
 
 auto solve()
 {
+    import std.range     : iota;
+    import std.algorithm : maxElement;
     return iota(2, 1000).maxElement!cycleLength;
 }
 

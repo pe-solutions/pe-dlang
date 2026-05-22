@@ -1,12 +1,12 @@
 // Passcode Derivation
 // https://projecteuler.net/problem=79
 
-import std.string : splitLines;
 import euler.common : runSolution;
 
 enum string data = import("data/keylog.txt");
 
 auto solve() {
+    import std.string : splitLines;
     bool[10][10] before;  // before[a][b]: a must appear before b
     bool[10] used;
 

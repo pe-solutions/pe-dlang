@@ -1,10 +1,10 @@
 // Cuboid Route
 // https://projecteuler.net/problem=86
 
-import euler.math : isPerfectSquare;
 import euler.common : runSolution;
 
 auto solve() {
+    import euler.math : isPerfectSquare;
     // For a ≤ b ≤ c the shortest surface path is √((a+b)²+c²).
     // Fix c and iterate over s = a+b in [2, 2c].  For each s where s²+c² is a
     // perfect square, the valid (a,b) pairs satisfy a ≤ b ≤ c and a+b = s, so

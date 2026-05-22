@@ -1,12 +1,12 @@
 // Names Scores
 // https://projecteuler.net/problem=22
 
-import std.algorithm : sort, map, sum;
-import std.array     : replace, split;
-import std.range     : enumerate;
 import euler.common  : runSolution;
 
 auto solve() {
+    import std.algorithm : sort, map, sum;
+    import std.array     : replace, split;
+    import std.range     : enumerate;
     auto names = import("data/names.txt").replace(`"`, "").split(",");
     names.sort();
     return names

@@ -1,10 +1,10 @@
 // Lychrel Numbers
 // https://projecteuler.net/problem=55
 
-import euler.math : isPalindrome, reverseDigits;
 import euler.common : runSolution;
 
 private bool isLychrel(long number) {
+    import euler.math : isPalindrome, reverseDigits;
     long temp = number;
     for (long iteration = 1; iteration <= 50; iteration++) {
         temp += reverseDigits(temp);

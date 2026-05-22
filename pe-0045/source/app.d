@@ -1,12 +1,12 @@
 // Triangular, Pentagonal, and Hexagonal
 // https://projecteuler.net/problem=45
 
-import std.math     : sqrt;
 import euler.common : runSolution;
 
 // n is pentagonal iff 24n+1 is a perfect square s and (s+1) % 6 == 0
 private bool isPent(long n) pure nothrow @nogc
 {
+    import std.math : sqrt;
     immutable d = 24 * n + 1;
     immutable s = cast(long)(sqrt(cast(real) d));
     if (s * s == d) return (s + 1) % 6 == 0;

@@ -1,11 +1,11 @@
 // Goldbach's Other Conjecture
 // https://projecteuler.net/problem=46
 
-import euler.math   : sieve;
 import euler.common : runSolution;
 
 auto solve()
 {
+    import euler.math : sieve;
     enum limit = 1_000_000;
     immutable s = sieve(limit);
 

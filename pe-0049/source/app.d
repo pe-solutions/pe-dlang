@@ -1,11 +1,11 @@
 // Prime Permutations
 // https://projecteuler.net/problem=49
 
-import euler.math   : isPrime, digitFreq;
 import euler.common : runSolution;
 
 auto solve()
 {
+    import euler.math : isPrime, digitFreq;
     enum int step = 3330;
 
     for (int a = 1488; a <= 9999 - 2 * step; ++a)

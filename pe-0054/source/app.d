@@ -1,7 +1,6 @@
 // Poker Hands
 // https://projecteuler.net/problem=54
 
-import std.string   : splitLines;
 import euler.common : runSolution;
 
 private int cardVal(char c) pure nothrow @nogc
@@ -58,6 +57,7 @@ private int evalHand(int[5] v, char[5] s) pure nothrow @nogc
 
 auto solve()
 {
+    import std.string : splitLines;
     enum string data = import("data/poker.txt");
     int count = 0;
 

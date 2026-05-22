@@ -1,10 +1,10 @@
 // Counting Rectangles
 // https://projecteuler.net/problem=85
 
-import std.math : sqrt;
 import euler.common : runSolution;
 
 auto solve() {
+    import std.math : sqrt;
     enum long target = 2_000_000;
     long best = long.max;
     int answer = 0;

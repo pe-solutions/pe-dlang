@@ -1,12 +1,13 @@
 // Special Pythagorean Triplet
 // https://projecteuler.net/problem=9
 
-import std.typecons : tuple, Tuple;
+import std.typecons : Tuple;
 import euler.common : runSolution;
 
 enum PERIMETER = 1_000u;
 
 private Tuple!(uint, uint, uint) findTriplet() {
+    import std.typecons : tuple;
     foreach (uint a; 1 .. PERIMETER/3)
         foreach (uint b; a + 1 .. PERIMETER/2) {
             uint c = PERIMETER - a - b;

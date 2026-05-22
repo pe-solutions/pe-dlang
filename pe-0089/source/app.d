@@ -1,9 +1,6 @@
 // Roman Numerals
 // https://projecteuler.net/problem=89
 
-import std.algorithm : map, sum;
-import std.array : appender;
-import std.string : splitLines, strip;
 import euler.common : runSolution;
 
 private int parseRoman(string s) pure nothrow @nogc {
@@ -23,6 +20,7 @@ private int parseRoman(string s) pure nothrow @nogc {
 }
 
 private string toMinimalRoman(int n) pure {
+    import std.array : appender;
     static immutable int[]    values  = [1000,900,500,400,100, 90, 50, 40, 10,  9,  5,  4,  1];
     static immutable string[] symbols = ["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"];
     auto buf = appender!string;
@@ -33,6 +31,8 @@ private string toMinimalRoman(int n) pure {
 }
 
 auto solve() {
+    import std.algorithm : map, sum;
+    import std.string : splitLines, strip;
     enum string raw = import("data/roman.txt");
     return raw.splitLines
               .map!(line => line.strip)

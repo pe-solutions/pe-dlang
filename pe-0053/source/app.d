@@ -1,11 +1,11 @@
 // Combinatoric Selections
 // https://projecteuler.net/problem=53
 
-import std.algorithm : min;
 import euler.common  : runSolution;
 
 auto solve()
 {
+    import std.algorithm : min;
     // Cap at cap to stay in int range; values ≥ cap count as "> 1 000 000".
     enum int cap = 1_000_001;
     int[101] row;

@@ -1,11 +1,11 @@
 // Quadratic Primes
 // https://projecteuler.net/problem=27
 
-import euler.math   : sieve;
 import euler.common : runSolution;
 
 auto solve()
 {
+    import euler.math : sieve;
     enum limit = 100_000;
     immutable s = sieve(limit);
 

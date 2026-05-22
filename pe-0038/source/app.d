@@ -1,12 +1,12 @@
 // Pandigital Multiples
 // https://projecteuler.net/problem=38
 
-import std.array : array;
-import std.algorithm : sort;
-import std.conv : text;
 import euler.common : runSolution;
 
 private bool isPandigitalConcatenation(int num) {
+    import std.array : array;
+    import std.algorithm : sort;
+    import std.conv : text;
     auto s = text(num);
     return s.length == 9 && text(s.array.sort) == "123456789";
 }

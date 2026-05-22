@@ -1,13 +1,11 @@
 // Prime Pair Sets
 // https://projecteuler.net/problem=60
 
-import std.conv : to, ConvOverflowException;
-import std.algorithm : filter, sum;
-import euler.math : isPrime, sieve;
 import euler.common : runSolution;
 
 // Evaluated at compile time via CTFE; primes baked into binary, zero runtime cost.
 static immutable ulong[] primes = () {
+    import euler.math : sieve;
     auto s = sieve(9999);
     ulong[] result;
     foreach (i, p; s)
@@ -16,6 +14,8 @@ static immutable ulong[] primes = () {
 }();
 
 private bool checkPair(ulong x, ulong y) {
+    import std.conv : to, ConvOverflowException;
+    import euler.math : isPrime;
     auto xy = to!string(x) ~ to!string(y).dup;
     auto yx = to!string(y) ~ to!string(x).dup;
 
@@ -27,6 +27,7 @@ private bool checkPair(ulong x, ulong y) {
 }
 
 auto solve() {
+    import std.algorithm : filter, sum;
     foreach (a; primes) {
         auto m = primes.filter!(b => b > a && checkPair(a, b));
         foreach (b; m) {

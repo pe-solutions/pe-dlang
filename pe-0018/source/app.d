@@ -1,12 +1,11 @@
 // Maximum Path Sum I
 // https://projecteuler.net/problem=18
 
-import std.string    : splitLines, split;
-import std.conv      : to;
-import std.algorithm : max;
 import euler.common  : runSolution;
 
 static immutable int[15][15] tri = () {
+    import std.string : splitLines, split;
+    import std.conv   : to;
     int[15][15] t;
     foreach (r, line; import("data/triangle.txt").splitLines)
         foreach (c, tok; line.split)
@@ -15,6 +14,7 @@ static immutable int[15][15] tri = () {
 }();
 
 auto solve() {
+    import std.algorithm : max;
     int[15] dp = tri[14];
     foreach_reverse (i; 0 .. 14)
         foreach (j; 0 .. i + 1)

@@ -1,10 +1,10 @@
 // Totient Permutation
 // https://projecteuler.net/problem=70
 
-import euler.math : digitFreq;
 import euler.common : runSolution;
 
 auto solve() {
+    import euler.math : digitFreq;
     enum int N = 10_000_000;
 
     // Euler's totient sieve: phi[p]==p on first visit iff p is prime.

@@ -1,13 +1,13 @@
 // Pentagon Numbers
 // https://projecteuler.net/problem=44
 
-import std.math     : sqrt;
 import euler.common : runSolution;
 
 private long pent(long n) pure nothrow @nogc { return n * (3 * n - 1) / 2; }
 
 private bool isPent(long n) pure nothrow @nogc
 {
+    import std.math : sqrt;
     immutable d = 24 * n + 1;
     immutable s = cast(long)(sqrt(cast(real) d));
     if (s * s == d) return (s + 1) % 6 == 0;

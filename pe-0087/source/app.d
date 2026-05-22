@@ -1,10 +1,10 @@
 // Prime Power Triples
 // https://projecteuler.net/problem=87
 
-import euler.math : sieve;
 import euler.common : runSolution;
 
 auto solve() {
+    import euler.math : sieve;
     enum int limit = 50_000_000;
     auto isPrime = sieve(7071);
 

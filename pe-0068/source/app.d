@@ -1,10 +1,10 @@
 // Magic 5-gon Ring
 // https://projecteuler.net/problem=68
 
-import std.conv : to;
 import euler.common : runSolution;
 
 auto solve() {
+    import std.conv : to;
     string maxStr;
     int[5] inner;
 

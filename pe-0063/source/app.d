@@ -1,10 +1,10 @@
 // Powerful Digit Counts
 // https://projecteuler.net/problem=63
 
-import std.math : floor, log10;
 import euler.common : runSolution;
 
 auto solve() {
+    import std.math : floor, log10;
     int totalCount = 0;
     foreach (i; 1 .. 10) {
         real log_i = log10(cast(real)i);

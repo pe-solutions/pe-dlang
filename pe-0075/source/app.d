@@ -1,10 +1,10 @@
 // Singular Integer Right Triangles
 // https://projecteuler.net/problem=75
 
-import std.numeric : gcd;
 import euler.common : runSolution;
 
 auto solve() {
+    import std.numeric : gcd;
     enum int limit = 1_500_000;
     auto cnt = new ubyte[limit + 1];
 

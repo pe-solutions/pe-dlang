@@ -1,8 +1,6 @@
 // Arithmetic Expressions
 // https://projecteuler.net/problem=93
 
-import std.algorithm : nextPermutation;
-import std.conv      : to;
 import euler.common  : runSolution;
 
 // Exact rational — avoids fp errors from intermediate fractions like (1/3)*3.
@@ -43,6 +41,8 @@ private void collect(long[4] p, bool[] reach) {
 }
 
 auto solve() {
+    import std.algorithm : nextPermutation;
+    import std.conv      : to;
     int bestN, bestA, bestB, bestC, bestD;
     auto reach = new bool[4096];
 
