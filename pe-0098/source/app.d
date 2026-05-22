@@ -25,7 +25,7 @@ private Sq[] nDigitSquares(int n) {
 
 // Fills m[0..26] with the letter→digit mapping induced by matching word w to ns.
 // Returns false on any inconsistency (same letter→two digits, or two letters→same digit).
-private bool buildMap(string w, string ns, ref int[26] m, ref bool[10] used) {
+private bool buildMap(string w, string ns, ref int[26] m, ref bool[10] used) pure nothrow @nogc {
     m[]   = -1;
     used[] = false;
     foreach (i, c; w) {
@@ -42,7 +42,7 @@ private bool buildMap(string w, string ns, ref int[26] m, ref bool[10] used) {
     return true;
 }
 
-private long applyMap(string w, ref int[26] m) {
+private long applyMap(string w, ref int[26] m) pure nothrow @nogc {
     long r = 0;
     foreach (c; w)
         r = r * 10 + m[c - 'A'];

@@ -4,9 +4,11 @@
 import euler.common : runSolution;
 
 auto solve() {
+    enum int minP  = 12;    // 3+4+5, smallest Pythagorean triple
+    enum int limit = 1_000;
     int maxPerimeter = 0;
     int maxCount = 0;
-    foreach (int p; 12 .. 1001) {
+    foreach (int p; minP .. limit + 1) {
         int count = 0;
         foreach (int b; 2 .. p / 2) {
             // From a+b+c=p and a²+b²=c², solving for a gives:

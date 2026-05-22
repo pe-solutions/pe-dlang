@@ -3,7 +3,7 @@
 
 import euler.common : runSolution;
 
-private bool isLychrel(long number) {
+private bool isLychrel(long number) pure nothrow @nogc {
     import euler.math : isPalindrome, reverseDigits;
     long temp = number;
     for (long iteration = 1; iteration <= 50; iteration++) {

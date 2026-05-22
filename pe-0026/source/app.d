@@ -3,7 +3,7 @@
 
 import euler.common  : runSolution;
 
-private int cycleLength(int d)
+private int cycleLength(int d) pure nothrow @nogc
 {
     int[1000] seen = -1;
     int r = 1, p = 0;

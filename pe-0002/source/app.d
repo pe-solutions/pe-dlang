@@ -3,7 +3,7 @@
 
 import euler.common : runSolution;
 
-private static ulong genEvenFibonacci(R)(R state, size_t n) {
+private static ulong genEvenFibonacci(R)(R state, size_t n) pure nothrow @nogc {
     return 4 * state[n-1] + state[n-2];
 }
 
