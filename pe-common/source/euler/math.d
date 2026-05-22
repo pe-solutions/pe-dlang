@@ -158,6 +158,17 @@ T mod(T)(T a, T b) if (isIntegral!T) {
     return (a % b + b) % b;
 }
 
+// Binomial coefficient C(n, k). Returns 0 for k < 0 or k > n.
+// Intermediate divisions are exact; result fits in long for n ≤ 66.
+long binomial(int n, int k) pure nothrow @nogc {
+    if (k < 0 || k > n) return 0;
+    if (k > n - k) k = n - k;
+    long result = 1;
+    foreach (i; 0 .. k)
+        result = result * (n - i) / (i + 1);
+    return result;
+}
+
 // 2×2 matrix multiplication mod modulus.
 long[][] matMul(long[][] A, long[][] B, long modulus) {
     long[][] C = [[0L, 0L], [0L, 0L]];
@@ -203,6 +214,14 @@ T fib(T = BigInt)(int n) if (isIntegral!T || is(T == BigInt)) {
     T a = T(0), b = T(1);
     foreach (_; 2..n + 1) { T c = a + b; a = b; b = c; }
     return b;
+}
+
+unittest {
+    assert(binomial(0,  0) == 1);
+    assert(binomial(5,  2) == 10);
+    assert(binomial(10, 3) == 120);
+    assert(binomial(10, -1) == 0);
+    assert(binomial(10, 11) == 0);
 }
 
 unittest {

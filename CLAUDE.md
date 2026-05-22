@@ -246,6 +246,7 @@ Never hardcode large data blobs inline — this pattern gives identical binary e
 | `isPerfectSquare(n)` | `true` if `n` is a perfect square — any integral type |
 | `largestPrimeFactor(n)` | Largest prime factor of `n` |
 | `mod(a, b)` | True modulo — always non-negative, unlike D's `%` |
+| `binomial(n, k)` | Binomial coefficient C(n, k); 0 for k < 0 or k > n; result fits in `long` for n ≤ 66 |
 | `fib!T(n)` | nth Fibonacci number as type `T` (default `BigInt`); use `fib!long(n)` for n ≤ 93 |
 | `fibFirstNDigits(d)` | Index of the first Fibonacci number with at least `d` decimal digits — Binet's formula, 80-bit real |
 | `matMul(A, B, modulus)` | 2×2 matrix multiplication mod `modulus` |

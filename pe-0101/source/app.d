@@ -33,21 +33,14 @@ private long solveFiniteDiff() pure nothrow @nogc {
 // Approach 2 — closed-form Lagrange weights
 // For integer nodes {1..k} evaluated at x = k+1, the i-th Lagrange basis
 // weight simplifies to C(k, i-1) · (-1)^(k-i), eliminating any matrix solve.
-// binom is scoped here — it is not shared with any other approach.
 private long solveLagrange() pure nothrow @nogc {
-    long binom(int n, int k) pure nothrow @nogc {
-        if (k > n - k) k = n - k;
-        long result = 1;
-        foreach (i; 0 .. k)
-            result = result * (n - i) / (i + 1);
-        return result;
-    }
+    import euler.math : binomial;
     long total = 0;
     foreach (k; 1 .. 11) {
         long fit = 0;
         foreach (i; 1 .. k + 1) {
             immutable sign = (k - i) % 2 == 0 ? 1L : -1L;
-            fit += u(i) * binom(k, i - 1) * sign;
+            fit += u(i) * binomial(k, i - 1) * sign;
         }
         total += fit;
     }
