@@ -1,11 +1,6 @@
 // 5D Summation
 // https://projecteuler.net/problem=968
 
-import std.parallelism  : TaskPool, totalCPUs;
-import std.range        : iota;
-
-import core.atomic      : atomicOp;
-
 import euler.common : runSolution;
 
 private enum : uint {
@@ -193,6 +188,9 @@ private uint computeP(WB w, in uint[Edges] bounds) {
 }
 
 auto solve() {
+    import std.parallelism : TaskPool, totalCPUs;
+    import std.range       : iota;
+    import core.atomic     : atomicOp;
     initTables();
     shared long total = 0;
 

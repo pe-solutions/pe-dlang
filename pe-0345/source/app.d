@@ -1,8 +1,6 @@
 // Matrix Sum
 // https://projecteuler.net/problem=345
 
-import std.string : splitLines, split;
-import std.conv : to;
 import euler.common : runSolution;
 
 enum N = 15;
@@ -10,6 +8,8 @@ enum N2 = 1 << N;
 
 // Matrix parsed from file at compile time via CTFE.
 static immutable int[N][N] a = () {
+    import std.string : splitLines, split;
+    import std.conv : to;
     int[N][N] result;
     foreach (r, line; import("data/matrix_15x15.txt").splitLines)
         foreach (c, tok; line.split)

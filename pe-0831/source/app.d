@@ -1,7 +1,7 @@
 // Triple Product
 // https://projecteuler.net/problem=831
 
-import std.bigint;
+import std.bigint : BigInt;
 import euler.common : runSolution;
 
 private BigInt g(BigInt m) {

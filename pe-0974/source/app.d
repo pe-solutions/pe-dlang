@@ -1,7 +1,6 @@
 // Very Odd Numbers
 // https://projecteuler.net/problem=974
 
-import std.algorithm.mutation : swap;
 import euler.common : runSolution;
 
 enum DC  = 5;
@@ -22,6 +21,7 @@ private void buildTables(ref int[DC * MOD] nxR, ref int[DC] fl)
 private void findLen(ref const int[DC * MOD] nxR, ref const int[DC] fl,
              ulong target, out int bestLen, out ulong prefix)
 {
+    import std.algorithm.mutation : swap;
     auto cur = new ulong[ST];
     auto nxt = new ulong[ST];
     cur[0] = 1;

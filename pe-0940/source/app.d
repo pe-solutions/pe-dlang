@@ -1,7 +1,6 @@
 // Two-Dimensional Recurrence
 // https://projecteuler.net/problem=940
 
-import euler.math : fib, matMul, matPow, matVecMul;
 import euler.common : runSolution;
 
 enum long MOD = 1123581313;
@@ -16,6 +15,7 @@ struct Precomputed {
     long   sumC0, sumC1; // Σ_j M_col^fib(j)[0,0] and [0,1]
 
     this(int k, long mod) {
+        import euler.math : fib, matMul, matPow, matVecMul;
         fibs    = new long[k - 1];
         dFi     = new long[k - 1];
         dFiPrev = new long[k - 1];

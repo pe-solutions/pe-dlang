@@ -1,11 +1,11 @@
 // Hybrid Integers
 // https://projecteuler.net/problem=800
 
-import std.math : log;
-import euler.math : sieve;
 import euler.common : runSolution;
 
 auto solve() {
+    import std.math : log;
+    import euler.math : sieve;
     enum int B = 800_800;
     enum int E = 800_800;
     immutable double limit = E * log(cast(double)B);

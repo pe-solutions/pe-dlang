@@ -1,14 +1,15 @@
 // Concealed Square
 // https://projecteuler.net/problem=206
 
-import std.math : sqrt;
 import euler.common : runSolution;
 
 private ulong calculateSquareRootUpperBound() pure nothrow @nogc {
+    import std.math : sqrt;
     return (cast(ulong)sqrt(cast(double)1929394959697989990uL) / 10) * 10;
 }
 
 private ulong calculateSquareRootLowerBound() pure nothrow @nogc {
+    import std.math : sqrt;
     return (cast(ulong)sqrt(cast(double)1020304050607080900uL) / 10) * 10;
 }
 

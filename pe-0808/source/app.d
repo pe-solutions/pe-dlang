@@ -1,11 +1,11 @@
 // Reversible Prime Squares
 // https://projecteuler.net/problem=808
 
-import std.math : sqrt;
-import euler.math : isPrime, reverseDigits;
 import euler.common : runSolution;
 
 private ulong sumOfReversiblePrimes(uint count) {
+    import std.math : sqrt;
+    import euler.math : isPrime, reverseDigits;
     ulong sum = 0;
     uint powersOf10 = 10;
     uint powersOf100 = 100;

@@ -1,9 +1,6 @@
 // An Arithmetic Geometric Sequence
 // https://projecteuler.net/problem=235
 
-import std.format     : format;
-import std.math       : abs, pow;
-import euler.numerics : Solver, Method;
 import euler.common   : runSolution;
 
 // s(n,r) = Σ_{k=1}^{n} (900-3k)·r^(k-1) = 900·G1 - 3·G2
@@ -11,6 +8,7 @@ import euler.common   : runSolution;
 // TODO: generalise to arithmetico_geometric_sum(n, a, d, r) and promote to euler.math
 private double s(ulong n, double r) pure nothrow @nogc @safe
 {
+    import std.math : abs, pow;
     immutable double nf = cast(double) n;
     if (abs(r - 1.0) < 1e-14)
         return 900.0 * nf - 3.0 * nf * (nf + 1.0) / 2.0;
@@ -23,6 +21,8 @@ private double s(ulong n, double r) pure nothrow @nogc @safe
 
 auto solve()
 {
+    import std.format     : format;
+    import euler.numerics : Solver, Method;
     // bracket: s(5000,1.0)+6e11 > 0 (exact), s(5000,1.01)+6e11 < 0 (dominant negative tail)
     immutable double root = Solver(
             Method.Toms748, 1.0, 1.01,

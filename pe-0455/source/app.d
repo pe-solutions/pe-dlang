@@ -1,10 +1,10 @@
 // Powers with Trailing Digits
 // https://projecteuler.net/problem=455
 
-import std.math : powmod;
 import euler.common : runSolution;
 
 auto solve() {
+    import std.math : powmod;
     enum ulong limit   = 1_000_000;
     enum ulong modulus = 1_000_000_000;
 

@@ -1,10 +1,10 @@
 // The Tournament
 // https://projecteuler.net/problem=849
 
-import std.algorithm : max;
 import euler.common : runSolution;
 
 private long f_alternate(long numIterations, long moduloValue) {
+    import std.algorithm : max;
     long maxs = 2 * numIterations * (numIterations - 1);
     long maxd = 4 * (numIterations - 1);
 
