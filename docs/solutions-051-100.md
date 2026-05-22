@@ -43,7 +43,7 @@
 | [87](../pe-0087/source/app.d) | Prime Power Triples | Sieve primes to √50M; triple nested loop over p²+q³+r⁴<50M with bool dedup array |
 | [88](../pe-0088/source/app.d) | Product-sum Numbers | DFS over factorizations of n recording minimum n per k-value; k = pad-with-ones count; sum distinct minPS values over k=2..12000 |
 | [89](../pe-0089/source/app.d) | Roman Numerals | Parse left-to-right with subtractive check; re-encode via greedy descent through 13 value/symbol pairs; sum length deltas across 1000 numerals |
-| 90 | Cube Digit Pairs | |
+| [90](../pe-0090/source/app.d) | Cube Digit Pairs | Enumerate all C(10,6)=210 face sets as bitmasks; expand 6≡9 into each mask; count ordered pairs (i≤j) where every required digit pair for squares 01–81 can be satisfied by one cube each |
 | [91](../pe-0091/source/app.d) | Right Triangles with Integer Coordinates | Dot-product perpendicularity check on three vertex pairs |
 | [92](../pe-0092/source/app.d) | Square Digit Chains | Digit-DP: precompute chain terminus for sums ≤ 567; count valid numbers by prepending non-zero leading digits to suffix distributions each round |
 | [93](../pe-0093/source/app.d) | Arithmetic Expressions | Try all C(10,4)=210 digit sets × 24 permutations × 64 operator combos × 5 parenthesisations; exact rational arithmetic avoids fp errors on intermediate fractions |
