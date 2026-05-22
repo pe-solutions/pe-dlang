@@ -1,0 +1,8 @@
+{
+	"name": "pe-0089",
+	"description": "Roman Numerals - Project Euler #89.",
+	"stringImportPaths": ["source"],
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
+}

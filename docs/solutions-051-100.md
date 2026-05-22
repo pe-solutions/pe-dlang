@@ -38,11 +38,11 @@
 | [82](../pe-0082/source/app.d) | Path Sum: Three Ways | Column-by-column DP: right move initialises each column, one downward sweep then one upward sweep handles all up/down moves; answer is min over all rows in the final column |
 | [83](../pe-0083/source/app.d) | Path Sum: Four Ways | Dijkstra over 80×80 grid with 4-directional adjacency; `BinaryHeap!(Array!Entry)` min-heap with stale-entry skip; CTFE-parsed matrix |
 | [84](../pe-0084/source/app.d) | Monopoly Odds | Markov chain with 120 states (40 squares × 3 consecutive-double counts); 4-sided dice; G2J/CC/CH card distributions in nested `land()` (including recursive CH3→CC3 back-3); 500 power-iteration rounds; top-3 squares by stationary probability |
-| 85 | Counting Rectangles | |
-| 86 | Cuboid Route | |
-| 87 | Prime Power Triples | |
-| 88 | Product-sum Numbers | |
-| 89 | Roman Numerals | |
+| [85](../pe-0085/source/app.d) | Counting Rectangles | Rectangle count in m×n grid = T(m)·T(n) where T(k)=k(k+1)/2; fix m, solve n via quadratic formula, check floor/ceil for closest count to 2 000 000 |
+| [86](../pe-0086/source/app.d) | Cuboid Route | Shortest surface path on a≤b≤c cuboid is √((a+b)²+c²); fix c, iterate s=a+b, count valid (a,b) pairs when s²+c² is a perfect square |
+| [87](../pe-0087/source/app.d) | Prime Power Triples | Sieve primes to √50M; triple nested loop over p²+q³+r⁴<50M with bool dedup array |
+| [88](../pe-0088/source/app.d) | Product-sum Numbers | DFS over factorizations of n recording minimum n per k-value; k = pad-with-ones count; sum distinct minPS values over k=2..12000 |
+| [89](../pe-0089/source/app.d) | Roman Numerals | Parse left-to-right with subtractive check; re-encode via greedy descent through 13 value/symbol pairs; sum length deltas across 1000 numerals |
 | 90 | Cube Digit Pairs | |
 | [91](../pe-0091/source/app.d) | Right Triangles with Integer Coordinates | Dot-product perpendicularity check on three vertex pairs |
 | [92](../pe-0092/source/app.d) | Square Digit Chains | Digit-DP: precompute chain terminus for sums ≤ 567; count valid numbers by prepending non-zero leading digits to suffix distributions each round |
