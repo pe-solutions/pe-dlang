@@ -16,3 +16,4 @@
 | [110](../pe-0110/source/app.d) | Diophantine Reciprocals II | Same identity; brute force infeasible — DFS over n = p1^a1·p2^a2·… (a1≥a2≥…≥1, first 15 primes) pruning n ≥ best; finds min n with τ(n²) > 7 999 999 |
 | [111](../pe-0111/source/app.d) | Primes with Runs | For each digit d, enumerate 10-digit candidates with exactly nonD non-d positions (starting at nonD=1) via recursive fill; Miller-Rabin primality (witnesses {2,3,5,7,11}, deterministic ≤ 2.15·10¹²) with binary mulmod (avoids 10²⁰ overflow) |
 | [112](../pe-0112/source/app.d) | Bouncy Numbers | Scan digits right-to-left: d < prev ⟹ hasUp, d > prev ⟹ hasDown; bouncy iff both; iterate n, stop when bouncy×100 = n×99 |
+| [113](../pe-0113/source/app.d) | Non-bouncy Numbers | Combinatorics: n-digit increasing = C(n+8,8), decreasing = C(n+9,9)−1; hockey-stick sums to C(109,9)−1 and C(110,10)−101; subtract 9×100 repdigits counted twice |
