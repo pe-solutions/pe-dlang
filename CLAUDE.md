@@ -54,7 +54,7 @@ There are no tests — correctness is verified by running and checking the print
 Every `app.d` follows the same pattern:
 
 1. **Header comment** — problem title and URL (`// Title\n// https://projecteuler.net/problem=N`)
-2. **Imports** — `euler.math` and/or `euler.numerics` utilities as needed, always `euler.common : runSolution`
+2. **Module-level imports** — `euler.common : runSolution` only (plus any types required by helper signatures — see Import layout below)
 3. **Helper functions** — kept in the same `app.d` file if needed
 4. **`solve()`** — returns the answer; no I/O, no timing
 5. **`main()`** — single call to `runSolution!(solve)(N)`
@@ -63,11 +63,11 @@ Every `app.d` follows the same pattern:
 // Problem title
 // https://projecteuler.net/problem=N
 
-import euler.math : sieve;          // math utilities as needed
-import euler.numerics : Solver, Method; // root-finding as needed
 import euler.common : runSolution;
 
 auto solve() {
+    import euler.math : sieve;          // math utilities as needed
+    import euler.numerics : Solver, Method; // root-finding as needed
     // ...
     return answer;
 }
@@ -85,7 +85,35 @@ Elapsed time: 3 milliseconds.
 
 ```
 
-**Import layout** — stdlib imports precede all `euler.*` imports; `euler.common : runSolution` is always the last import in the file.
+**Import layout** — `euler.common : runSolution` is the only module-level import in the normal case. All other imports (stdlib, `euler.math`, `euler.numerics`, etc.) belong inside the function, struct constructor, or CTFE lambda that uses them — this is idiomatic D (endorsed by Walter Bright and Andrei Alexandrescu) and keeps each symbol's scope as narrow as possible.
+
+Two situations require a module-level import:
+
+1. **Signature types** — any type that appears in a module-level helper's return type or parameter list must be imported at module scope. D resolves function signatures before entering the body, so a local import inside the body does not make the type visible to the signature. Common examples: `BigInt`, `Tuple!(…)`.
+
+   ```d
+   import std.bigint : BigInt;        // required — BigInt appears in the signature
+   import euler.common : runSolution;
+
+   private BigInt pellMinX(int D) {
+       import std.math : sqrt;        // fine — sqrt is body-only
+       …
+   }
+   ```
+
+2. **Inline CTFE expressions** — `enum x = foo(import("…")).bar` is not inside a function body, so its imports must be at module scope. Prefer a CTFE lambda whenever possible to keep imports local:
+
+   ```d
+   // Prefer this — imports stay local inside the lambda:
+   static immutable int[N][N] grid = () {
+       import std.string : splitLines, split;
+       import std.conv   : to;
+       …
+   }();
+
+   // Avoid this — forces splitLines/join to module scope:
+   enum string data = import("data/digits.txt").splitLines.join;
+   ```
 
 **D idioms** — range pipelines (`iota`, `filter`, `map`, `sum`, etc. from `std.range` / `std.algorithm`) are preferred over imperative loops where they read naturally; heavier numerical work uses explicit loops.
 
