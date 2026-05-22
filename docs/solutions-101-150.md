@@ -12,3 +12,4 @@
 | [106](../pe-0106/source/app.d) | Special Subset Sums: Meta-testing | Two approaches: standard Catalan filter C(n,2k)·(C(2k,k)/2−Catalan(k)) and ballot-sequence identity Catalan(k)=C(2k+1,k)/(2k+1); both reduce to a O(n/2)-term sum |
 | [107](../pe-0107/source/app.d) | Minimal Network | Kruskal's MST on a 40-vertex adjacency matrix; union-find with path halving and union by rank; saving = total edge weight − MST weight |
 | [108](../pe-0108/source/app.d) | Diophantine Reciprocals I | 1/x+1/y=1/n ⟺ (x−n)(y−n)=n²; solutions = (τ(n²)+1)/2; iterate n computing τ(n²) via trial-division factorisation until count exceeds 1000 |
+| [110](../pe-0110/source/app.d) | Diophantine Reciprocals II | Same identity; brute force infeasible — DFS over n = p1^a1·p2^a2·… (a1≥a2≥…≥1, first 15 primes) pruning n ≥ best; finds min n with τ(n²) > 7 999 999 |
