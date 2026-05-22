@@ -135,6 +135,26 @@ auto solve() {
 }
 ```
 
+**Multiple approaches** — when a problem has more than one interesting algorithm, house both in the same `app.d`. Name each `private solveXxx()` with an explicit return type and `pure nothrow @nogc` where applicable. Approach-specific helpers (not shared with other approaches) go as nested functions *inside* their approach. `solve()` runs the preferred implementation and cross-checks the others via `assert` — DMD's `-release` flag strips `assert` expressions entirely, so the secondary call costs nothing in release builds:
+
+```d
+// Approach 1 — brief description, key identity, complexity
+private long solveFiniteDiff() pure nothrow @nogc { … }
+
+// Approach 2 — brief description, key identity, complexity
+// helperFn is scoped here — not shared with other approaches
+private long solveLagrange() pure nothrow @nogc {
+    long helperFn(…) pure nothrow @nogc { … }
+    …
+}
+
+auto solve() {
+    immutable result = solveFiniteDiff();                          // preferred
+    assert(solveLagrange() == result, "implementations disagree"); // stripped by -release
+    return result;
+}
+```
+
 **Constants** — use `enum` for compile-time scalar constants inside `solve()`, never `const` or bare magic numbers:
 
 ```d

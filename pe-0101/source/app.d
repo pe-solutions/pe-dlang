@@ -3,7 +3,7 @@
 
 import euler.common : runSolution;
 
-// u(n) = 1 - n + n^2 - n^3 + ... + n^10
+// Generating polynomial: u(n) = 1 - n + n^2 - n^3 + ... + n^10
 private long u(long n) pure nothrow @nogc {
     long result = 0, sign = 1, power = 1;
     foreach (_; 0 .. 11) {
@@ -14,9 +14,10 @@ private long u(long n) pure nothrow @nogc {
     return result;
 }
 
-// Forward-difference approach: FIT(k) = u(k+1) − Δᵏu(1).
-// Builds the difference table in-place; O(n²) total, no helpers needed.
-private long fitFiniteDiff() pure nothrow @nogc {
+// Approach 1 — finite differences (default)
+// Newton's identity: OP(k, k+1) = u(k+1) − Δᵏu(1).
+// The difference table is built in-place; O(n²) total, no helpers needed.
+private long solveFiniteDiff() pure nothrow @nogc {
     long[12] uv;
     foreach (n; 1 .. 12) uv[n] = u(n);
     long[11] d;
@@ -29,17 +30,18 @@ private long fitFiniteDiff() pure nothrow @nogc {
     return total;
 }
 
-// Closed-form Lagrange approach: OP(k, k+1) = Σ C(k,i-1)·(-1)^(k-i)·u(i).
-// Basis weights at x = k+1 over integer nodes {1..k} simplify to binomial coefficients.
-private long binom(int n, int k) pure nothrow @nogc {
-    if (k > n - k) k = n - k;
-    long result = 1;
-    foreach (i; 0 .. k)
-        result = result * (n - i) / (i + 1);
-    return result;
-}
-
-private long fitClosedForm() pure nothrow @nogc {
+// Approach 2 — closed-form Lagrange weights
+// For integer nodes {1..k} evaluated at x = k+1, the i-th Lagrange basis
+// weight simplifies to C(k, i-1) · (-1)^(k-i), eliminating any matrix solve.
+// binom is scoped here — it is not shared with any other approach.
+private long solveLagrange() pure nothrow @nogc {
+    long binom(int n, int k) pure nothrow @nogc {
+        if (k > n - k) k = n - k;
+        long result = 1;
+        foreach (i; 0 .. k)
+            result = result * (n - i) / (i + 1);
+        return result;
+    }
     long total = 0;
     foreach (k; 1 .. 11) {
         long fit = 0;
@@ -53,10 +55,9 @@ private long fitClosedForm() pure nothrow @nogc {
 }
 
 auto solve() {
-    immutable a = fitFiniteDiff();
-    immutable b = fitClosedForm();
-    assert(a == b, "implementations disagree");
-    return a;
+    immutable result = solveFiniteDiff();
+    assert(solveLagrange() == result, "implementations disagree");  // stripped by -release
+    return result;
 }
 
 void main() { runSolution!(solve)(101); }
