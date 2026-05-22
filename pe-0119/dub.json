@@ -1,0 +1,7 @@
+{
+    "name": "pe-0119",
+    "description": "Digit Power Sum - Project Euler #119.",
+    "dependencies": {
+        "pe-common": {"path": "../pe-common"}
+    }
+}

@@ -22,3 +22,4 @@
 | [116](../pe-0116/source/app.d) | Red, Green or Blue Tiles | For each colour length L ∈ {2,3,4}: g(n) = g(n−1)+g(n−L) (no separation constraint); sum g(50,L)−1 over the three colours |
 | [117](../pe-0117/source/app.d) | Red, Green, and Blue Tiles | Colours may be mixed freely; f(n) = f(n−1)+f(n−2)+f(n−3)+f(n−4) (tetranacci-style recurrence) |
 | [118](../pe-0118/source/app.d) | Pandigital Prime Sets | For each of 511 digit-subset masks enumerate prime-forming permutations; backtrack over all partitions of {1..9} consuming the lowest available bit first (canonical order prevents duplicate unordered sets) |
+| [119](../pe-0119/source/app.d) | Digit Power Sum | Enumerate n = b^k (b ≥ 2, k ≥ 2) with digit_sum(n) = b; iterate b up to 200, powers up to 10¹⁸ with overflow guard; sort and return the 30th term |
