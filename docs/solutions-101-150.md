@@ -28,3 +28,4 @@
 | [122](../pe-0122/source/app.d) | Efficient Exponentiation | Star-chain IDDFS per target: depth-limited DFS with doubling bound ch[pos]≪remaining < target; star chains optimal for n ≤ 12509; sum minimum depths over k=1..200 |
 | [123](../pe-0123/source/app.d) | Prime Square Remainders | Same binomial result as #120: even n → r=2, odd n → r=2n·pₙ mod pₙ²; for large n (2n < pₙ) no mod reduction needed; find first odd n with r > 10¹⁰ |
 | [124](../pe-0124/source/app.d) | Ordered Radicals | Sieve-style rad(n) computation: for each prime p multiply rad[m] by p for every multiple; sort index array 1..100000 by (rad(n), n); return ns[9999] |
+| [125](../pe-0125/source/app.d) | Palindromic Sums | Double loop: outer on start a, inner extends sum by one square per step; collect palindromic sums < 10⁸, sort+uniq, then sum (dedup needed — same value reachable from different starts) |
