@@ -30,3 +30,4 @@
 | [124](../pe-0124/source/app.d) | Ordered Radicals | Sieve-style rad(n) computation: for each prime p multiply rad[m] by p for every multiple; sort index array 1..100000 by (rad(n), n); return ns[9999] |
 | [125](../pe-0125/source/app.d) | Palindromic Sums | Double loop: outer on start a, inner extends sum by one square per step; collect palindromic sums < 10⁸, sort+uniq, then sum (dedup needed — same value reachable from different starts) |
 | [126](../pe-0126/source/app.d) | Cuboid Layers | C(a,b,c,n)=2(ab+bc+ca)+4(a+b+c)(n−1)+4(n−1)(n−2); count array over a≤b≤c,n≥1 with LIMIT=20000; return first value with count=1000 |
+| [127](../pe-0127/source/app.d) | abc-hits | rad sieve; sort 1..N−1 by rad ascending; for each non-squarefree c iterate a in sorted order breaking when rad(a)·rad(c)≥c (monotone in sorted order); check rad(a)·rad(b)·rad(c)<c and gcd(a,b)=1 |
