@@ -37,3 +37,4 @@
 | [131](../pe-0131/source/app.d) | Prime Cube Partnership | n²(n+p) perfect cube with gcd(n,p)=1 forces n=m³, n+p=(m+1)³; p=(m+1)³−m³=3m²+3m+1; count primes of this form ≤ 10⁶ |
 | [132](../pe-0132/source/app.d) | Large Repunit Factors | p \| R(10⁹) iff ord_p(10) \| 10⁹ iff 10^(10⁹) ≡ 1 (mod p); modpow per prime (p=3 excluded — 10≡1 mod 3 is a false positive); sum first 40 qualifying primes |
 | [133](../pe-0133/source/app.d) | Repunit Non-factors | p \| R(10^n) for some n iff ord_p(10) is 2-5-smooth; check via 10^M ≡ 1 (mod p) with M=2^16·5^7 (covers all 2-5-smooth orders <10⁵); p=3 special-cased (ord formula breaks through 3\|9); sum primes <10⁵ with 10^M ≢ 1 |
+| [134](../pe-0134/source/app.d) | Prime Pair Connection | For consecutive primes (p1,p2) with 5≤p1≤10⁶ find smallest S>0 with p2\|S and S≡p1 (mod 10^len(p1)); CRT: S=p2·k, k≡p1·(p2)⁻¹ (mod m), m=10^len(p1); inverse via extended Euclidean; k≠0 since p1<m; sum all S |
