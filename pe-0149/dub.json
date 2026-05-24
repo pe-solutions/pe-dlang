@@ -1,0 +1,7 @@
+{
+    "name": "pe-0149",
+    "description": "Searching for a Maximum-sum Subsequence - Project Euler #149.",
+    "dependencies": {
+        "pe-common": {"path": "../pe-common"}
+    }
+}
