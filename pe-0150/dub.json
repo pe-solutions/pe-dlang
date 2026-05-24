@@ -1,0 +1,7 @@
+{
+    "name": "pe-0150",
+    "description": "Searching a Triangular Array for a Sub-triangle Having Minimum-sum - Project Euler #150.",
+    "dependencies": {
+        "pe-common": {"path": "../pe-common"}
+    }
+}
