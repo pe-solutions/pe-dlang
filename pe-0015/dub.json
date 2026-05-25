@@ -1,6 +1,6 @@
-{
+﻿{
 	"name": "pe-0015",
-	"description": "Project Euler problem 15 - D solution.",
+	"description": "Lattice Paths - Project Euler #15.",
 	"authors": [
 		"menjaraz"
 	],

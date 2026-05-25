@@ -1,6 +1,6 @@
-{
+﻿{
 	"name": "pe-0037",
-	"description": "Project Euler problem 37 - D solution.",
+	"description": "Truncatable Primes - Project Euler #37.",
 	"authors": [
 		"menjaraz"
 	],

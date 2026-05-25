@@ -1,6 +1,6 @@
-{
+﻿{
 	"name": "pe-0001",
-	"description": "Project Euler problem 1 - D solution.",
+	"description": "Multiples of 3 or 5 - Project Euler #1.",
 	"authors": [
 		"menjaraz"
 	],

@@ -1,6 +1,6 @@
-{
+﻿{
 	"name": "pe-0059",
-	"description": "Project Euler problem 59 - D solution.",
+	"description": "XOR Decryption - Project Euler #59.",
 	"authors": [
 		"menjaraz"
 	],

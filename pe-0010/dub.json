@@ -1,6 +1,6 @@
-{
+﻿{
 	"name": "pe-0010",
-	"description": "Project Euler problem 10 - D solution.",
+	"description": "Summation of Primes - Project Euler #10.",
 	"authors": [
 		"menjaraz"
 	],

@@ -1,6 +1,6 @@
-{
+﻿{
 	"name": "pe-0020",
-	"description": "Project Euler problem 20 - D solution.",
+	"description": "Factorial Digit Sum - Project Euler #20.",
 	"authors": [
 		"menjaraz"
 	],

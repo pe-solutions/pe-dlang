@@ -1,6 +1,6 @@
-{
+﻿{
 	"name": "pe-0021",
-	"description": "Project Euler problem 21 - D solution.",
+	"description": "Amicable Numbers - Project Euler #21.",
 	"authors": [
 		"menjaraz"
 	],

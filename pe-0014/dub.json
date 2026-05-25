@@ -1,6 +1,6 @@
-{
+﻿{
 	"name": "pe-0014",
-	"description": "Project Euler problem 14 - D solution.",
+	"description": "Longest Collatz Sequence - Project Euler #14.",
 	"authors": [
 		"menjaraz"
 	],
