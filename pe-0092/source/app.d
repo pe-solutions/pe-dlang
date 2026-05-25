@@ -3,13 +3,8 @@
 
 import euler.common : runSolution;
 
-private int digitSquareSum(int n) pure nothrow @nogc {
-    int s = 0;
-    while (n > 0) { int d = n % 10; s += d * d; n /= 10; }
-    return s;
-}
-
 auto solve() {
+    import euler.math : digitSquareSum;
     enum MAX_SUM = 7 * 81;  // 567: max digit-square sum for any number < 10^7
 
     bool[MAX_SUM + 1] endsAt89;

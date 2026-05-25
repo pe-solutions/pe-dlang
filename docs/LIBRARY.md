@@ -19,6 +19,9 @@
 | `reverseDigits(n)` | Reverses the decimal digits of an integer |
 | `isPalindrome(n)` | Returns `true` if `n == reverseDigits(n)` |
 | `digitFreq(n)` | Digit-frequency fingerprint as a `ulong` (nibble per digit 0–9); `digitFreq(a) == digitFreq(b)` iff `a` and `b` are digit permutations of each other — any integral type |
+| `digitReduce!(f)(n)` | Applies compile-time alias `f` to each decimal digit of `n` and sums the results — building block for digit-transform functions; any integral type |
+| `digitSum(n)` | Sum of the decimal digits of `n` — any integral type |
+| `digitSquareSum(n)` | Sum of the squares of the decimal digits of `n` — any integral type |
 | `digitFactSum(n)` | Sum of the factorials of the decimal digits of `n` — any integral type |
 | `isPerfectSquare(n)` | `true` if `n` is a perfect square — any integral type |
 | `pent(n)` | Pentagonal number generator — P(n) = n(3n−1)/2 — any integral type |

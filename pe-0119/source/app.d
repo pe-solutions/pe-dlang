@@ -3,13 +3,8 @@
 
 import euler.common : runSolution;
 
-private int digitSum(long n) pure nothrow @nogc {
-    int s = 0;
-    while (n > 0) { s += cast(int)(n % 10); n /= 10; }
-    return s;
-}
-
 auto solve() {
+    import euler.math : digitSum;
     import std.algorithm : sort;
 
     // Collect every n = b^k (b ≥ 2, k ≥ 2) where digit_sum(n) = b.

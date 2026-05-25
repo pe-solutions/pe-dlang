@@ -171,12 +171,30 @@ ulong digitFreq(T)(T n) pure nothrow @nogc if (isIntegral!T) {
     return f;
 }
 
+// Applies compile-time alias f to each decimal digit of n and sums the results.
+// f is inlined at every instantiation — zero function-pointer overhead.
+T digitReduce(alias f, T)(T n) pure nothrow @nogc if (isIntegral!T) {
+    Unqual!T s = 0, m = cast(Unqual!T)n;
+    while (m > 0) { s += cast(Unqual!T)f(cast(int)(m % 10)); m /= 10; }
+    return s;
+}
+
+// Sum of the decimal digits of n.
+T digitSum(T)(T n) pure nothrow @nogc if (isIntegral!T) {
+    return digitReduce!(d => d)(n);
+}
+
+// Sum of the squares of the decimal digits of n.
+T digitSquareSum(T)(T n) pure nothrow @nogc if (isIntegral!T) {
+    return digitReduce!(d => d * d)(n);
+}
+
+// Module-level table used by digitFactSum's digitReduce lambda.
+private static immutable int[10] _digitFact = [1,1,2,6,24,120,720,5_040,40_320,362_880];
+
 // Sum of the factorials of the decimal digits of n.
 T digitFactSum(T)(T n) pure nothrow @nogc if (isIntegral!T) {
-    static immutable int[10] fact = [1,1,2,6,24,120,720,5_040,40_320,362_880];
-    Unqual!T s = 0, m = cast(Unqual!T)n;
-    while (m > 0) { s += fact[m % 10]; m /= 10; }
-    return s;
+    return digitReduce!(d => _digitFact[d])(n);
 }
 
 // Uses real (80-bit) instead of double so every 64-bit integer is representable exactly;
