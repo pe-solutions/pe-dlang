@@ -142,6 +142,14 @@ ulong digitFreq(T)(T n) pure nothrow @nogc if (isIntegral!T) {
     return f;
 }
 
+// Sum of the factorials of the decimal digits of n.
+T digitFactSum(T)(T n) pure nothrow @nogc if (isIntegral!T) {
+    static immutable int[10] fact = [1,1,2,6,24,120,720,5_040,40_320,362_880];
+    Unqual!T s = 0, m = cast(Unqual!T)n;
+    while (m > 0) { s += fact[m % 10]; m /= 10; }
+    return s;
+}
+
 // Uses real (80-bit) instead of double so every 64-bit integer is representable exactly;
 // checks s-1/s/s+1 to absorb fp rounding in either direction.
 bool isPerfectSquare(T)(T n) if (isIntegral!T) {
@@ -152,6 +160,22 @@ bool isPerfectSquare(T)(T n) if (isIntegral!T) {
     if (s * s == n) return true;
     if ((s + 1) * (s + 1) == n) return true;
     return false;
+}
+
+// Pentagonal number generator: P(n) = n*(3n-1)/2.
+T pent(T)(T n) pure nothrow @nogc if (isIntegral!T) {
+    Unqual!T m = cast(Unqual!T)n;
+    return m * (3 * m - 1) / 2;
+}
+
+// True if n is a pentagonal number: 24n+1 must be a perfect square s with (s+1) % 6 == 0.
+bool isPent(T)(T n) pure nothrow @nogc if (isIntegral!T) {
+    import std.math : sqrt;
+    Unqual!T d  = 24 * cast(Unqual!T)n + 1;
+    Unqual!T s  = cast(Unqual!T)sqrt(cast(real)d);
+    if (s * s == d) return (s + 1) % 6 == 0;
+    Unqual!T s1 = s + 1;
+    return s1 * s1 == d && (s1 + 1) % 6 == 0;
 }
 
 T mod(T)(T a, T b) if (isIntegral!T) {

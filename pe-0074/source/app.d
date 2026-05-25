@@ -3,14 +3,8 @@
 
 import euler.common : runSolution;
 
-private int digitFactSum(int n) pure nothrow @nogc {
-    static immutable int[10] fact = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880];
-    int s = 0;
-    while (n > 0) { s += fact[n % 10]; n /= 10; }
-    return s;
-}
-
 auto solve() {
+    import euler.math : digitFactSum;
     enum int N      = 1_000_000;
     enum int MAXVAL = 2_200_000; // max digitFactSum for any n < N is 6*9! = 2,177,280
 

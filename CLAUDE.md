@@ -258,7 +258,10 @@ Never hardcode large data blobs inline — this pattern gives identical binary e
 | `reverseDigits(n)` | Reverses the decimal digits of an integer |
 | `isPalindrome(n)` | `true` if `n == reverseDigits(n)` |
 | `digitFreq(n)` | Digit-frequency fingerprint as a `ulong` (nibble per digit 0–9); `digitFreq(a) == digitFreq(b)` iff `a` and `b` are digit permutations of each other — any integral type |
+| `digitFactSum(n)` | Sum of the factorials of the decimal digits of `n` — any integral type |
 | `isPerfectSquare(n)` | `true` if `n` is a perfect square — any integral type |
+| `pent(n)` | Pentagonal number generator — P(n) = n(3n−1)/2 — any integral type |
+| `isPent(n)` | `true` if `n` is a pentagonal number — any integral type |
 | `largestPrimeFactor(n)` | Largest prime factor of `n` |
 | `mod(a, b)` | True modulo — always non-negative, unlike D's `%` |
 | `binomial(n, k)` | Binomial coefficient C(n, k); 0 for k < 0 or k > n; result fits in `long` for n ≤ 66 |
