@@ -198,9 +198,70 @@ This removes the duplication without polluting the library with domain-specific 
 
 ## Summary
 
-| Candidate | Decision | Generic? | Files touched |
-|-----------|----------|----------|---------------|
-| `isPent` / `pent` | Promote → `euler.math` | Yes, `T` | pe-0044, pe-0045 |
-| `digitFactSum` | Promote → `euler.math` | Yes, `T` | pe-0034, pe-0074 |
-| `mulmod` + `isPrime` upgrade | Promote → `euler.math` | No (`long` only) | pe-0111, pe-0146 + library |
-| `isSpecial` | Local harmonisation only | — | pe-0103 |
+| Candidate | Decision | Generic? | Files touched | Status |
+|-----------|----------|----------|---------------|--------|
+| `isPent` / `pent` | Promote → `euler.math` | Yes, `T` | pe-0044, pe-0045 | Done (967670d) |
+| `digitFactSum` | Promote → `euler.math` | Yes, `T` | pe-0034, pe-0074 | Done (967670d) |
+| `mulmod` + `isPrime` upgrade | Promote → `euler.math` | No (`long` only) | pe-0111, pe-0146 + library | Pending |
+| `isSpecial` | Local harmonisation only | — | pe-0103 | Done (b90f96c) |
+
+---
+
+## Plain-English Primer: `mulmod` + `isPrime` upgrade
+
+### Why the current `isPrime` has a gap
+
+The library splits primality testing into three tiers:
+
+```
+n ≤ 1 000 000        → trial division (try every divisor up to √n)
+1 000 000 < n < ~3.2B → Miller-Rabin, 4 witnesses {2,3,5,7}
+n ≥ ~3.2B             → trial division again   ← the problem
+```
+
+That third tier is the issue. Trial division on a large prime like 999 999 937
+means testing ~31 600 candidate divisors. Solutions that call `isPrime` on
+millions of large numbers (pe-0132, pe-0146, pe-0111, …) pay this cost
+repeatedly. Miller-Rabin does the same job in ~60 operations.
+
+The reason the library bails out at ~3.2B is that its internal `modpow` computes
+`a * a % n` directly — which silently overflows when `n` is large enough that
+`a * a` exceeds 64 bits, producing wrong answers.
+
+### What `mulmod` fixes
+
+`mulmod(a, b, m)` computes `(a × b) mod m` without ever materialising the full
+`a × b` product:
+
+- **x86-64**: a single `MUL` instruction produces a 128-bit result in `RDX:RAX`;
+  a `DIV` extracts the remainder. One instruction, exact, no overflow possible.
+- **everywhere else**: Russian-peasant binary method — repeated doubling with
+  modular reduction at each step, so no intermediate value ever exceeds `2m`.
+
+Once `mulmod` exists, a correct `modpow` for any `long` value is trivial to build
+on top of it.
+
+### The `isPrime` upgrade
+
+With a `mulmod`-based `modpow` in place, Miller-Rabin works correctly for the
+full `long` range. The 9 witnesses `{2, 3, 5, 7, 11, 13, 17, 19, 23}` are
+mathematically proven sufficient for all n below ~3.3 × 10²⁴ — far larger than
+`long.max` (~9.2 × 10¹⁸). The three-tier split becomes two:
+
+```
+n ≤ 1 000 000   → trial division (unchanged — fastest for small n)
+n > 1 000 000   → 9-witness Miller-Rabin via mulmod
+```
+
+The broken third tier disappears entirely. Every existing caller automatically
+gets the faster, correct path — no API change, no call sites to update except
+pe-0111 and pe-0146 whose local copies become redundant.
+
+### Why it is the "medium-complexity" item
+
+The previous promotions (`isPent`, `digitFactSum`) were pure additions with no
+existing code to modify. This one changes live library code (`isPrime`,
+`isPrimeMR`, internal `modpow`) and introduces inline assembly. The assembly is
+correct, but the compiler cannot verify `pure nothrow @nogc` on an `asm` block —
+the programmer must assert it by inspection. That is the one non-trivial claim
+in the entire tier-1 set.
