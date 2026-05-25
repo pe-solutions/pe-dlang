@@ -252,6 +252,17 @@ long binomial(int n, int k) pure nothrow @nogc {
     return result;
 }
 
+// Number of integer partitions of n (includes the trivial partition n = n itself).
+// p(n) grows super-exponentially: p(200) > 10^12, so ulong is used throughout.
+ulong partitions(T)(T n) if (isIntegral!T) {
+    auto p = new ulong[](cast(size_t)n + 1);
+    p[0] = 1;
+    foreach (i; 1 .. cast(size_t)n + 1)
+        foreach (j; i .. cast(size_t)n + 1)
+            p[j] += p[j - i];
+    return p[cast(size_t)n];
+}
+
 // 2×2 matrix multiplication mod modulus.
 long[][] matMul(long[][] A, long[][] B, long modulus) {
     long[][] C = [[0L, 0L], [0L, 0L]];

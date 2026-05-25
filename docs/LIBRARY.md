@@ -31,6 +31,7 @@
 | `largestPrimeFactor(n)` | Returns the largest prime factor of `n` |
 | `mod(a, b)` | True modulo — always non-negative, unlike D's `%` remainder |
 | `binomial(n, k)` | Binomial coefficient C(n, k); 0 for k < 0 or k > n; result fits in `long` for n ≤ 66 |
+| `partitions(n)` | Number of integer partitions of `n` (includes the trivial partition); returns `ulong` — any integral type |
 | `fib!T(n)` | nth Fibonacci number as type `T` (default `BigInt`); use `fib!long(n)` for n ≤ 93 |
 | `fibFirstNDigits(d)` | Index of the first Fibonacci number with at least `d` decimal digits — Binet's formula, 80-bit real |
 | `matMul(A, B, modulus)` | 2×2 matrix multiplication mod `modulus` |
