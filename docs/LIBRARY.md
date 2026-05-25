@@ -23,6 +23,8 @@
 | `isPerfectSquare(n)` | `true` if `n` is a perfect square — any integral type |
 | `pent(n)` | Pentagonal number generator — P(n) = n(3n−1)/2 — any integral type |
 | `isPent(n)` | `true` if `n` is a pentagonal number — any integral type |
+| `tri(n)` | Triangular number generator — T(n) = n(n+1)/2 — any integral type |
+| `isTriangle(n)` | `true` if `n` is a triangular number — any integral type |
 | `largestPrimeFactor(n)` | Returns the largest prime factor of `n` |
 | `mod(a, b)` | True modulo — always non-negative, unlike D's `%` remainder |
 | `binomial(n, k)` | Binomial coefficient C(n, k); 0 for k < 0 or k > n; result fits in `long` for n ≤ 66 |

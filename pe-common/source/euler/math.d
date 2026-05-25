@@ -207,6 +207,18 @@ bool isPent(T)(T n) pure nothrow @nogc if (isIntegral!T) {
     return s1 * s1 == d && (s1 + 1) % 6 == 0;
 }
 
+// Triangular number generator: T(n) = n*(n+1)/2.
+T tri(T)(T n) pure nothrow @nogc if (isIntegral!T) {
+    Unqual!T m = cast(Unqual!T)n;
+    return m * (m + 1) / 2;
+}
+
+// True if n is a triangular number: 1 + 8*n must be a perfect square.
+bool isTriangle(T)(T n) if (isIntegral!T) {
+    Unqual!T m = cast(Unqual!T)n;
+    return isPerfectSquare(1 + 8 * m);
+}
+
 T mod(T)(T a, T b) if (isIntegral!T) {
     return (a % b + b) % b;
 }
