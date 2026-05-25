@@ -202,7 +202,7 @@ This removes the duplication without polluting the library with domain-specific 
 |-----------|----------|----------|---------------|--------|
 | `isPent` / `pent` | Promote → `euler.math` | Yes, `T` | pe-0044, pe-0045 | Done (967670d) |
 | `digitFactSum` | Promote → `euler.math` | Yes, `T` | pe-0034, pe-0074 | Done (967670d) |
-| `mulmod` + `isPrime` upgrade | Promote → `euler.math` | No (`long` only) | pe-0111, pe-0146 + library | Pending |
+| `mulmod` + `isPrime` upgrade | Promote → `euler.math` | No (`long` only) | pe-0111, pe-0146 + library | Done (722d6a0) |
 | `isSpecial` | Local harmonisation only | — | pe-0103 | Done (b90f96c) |
 
 ---
