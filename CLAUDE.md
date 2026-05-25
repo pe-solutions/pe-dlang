@@ -176,6 +176,23 @@ auto solve() {
 }
 ```
 
+When the approaches are algebraically equivalent formula variants sharing the same inputs, the `solveXxx` functions take parameters and `solve()` defines the constants once with `enum`, passing them through:
+
+```d
+// Factored — 3·(2^x + 2^y + 2^z − 4)·2^(x+y+z−1)
+private ulong solveFactored(ulong x, ulong y, ulong z) pure nothrow @nogc { … }
+
+// Shifted — equivalent re-factoring
+private ulong solveShifted(ulong x, ulong y, ulong z) pure nothrow @nogc { … }
+
+auto solve() {
+    enum ulong x = 9, y = 10, z = 11;
+    immutable result = solveFactored(x, y, z);                           // preferred
+    assert(solveShifted(x, y, z) == result, "solveShifted disagrees");  // stripped by -release
+    return result;
+}
+```
+
 **Constants** — use `enum` for compile-time scalar constants inside `solve()`, never `const` or bare magic numbers:
 
 ```d
