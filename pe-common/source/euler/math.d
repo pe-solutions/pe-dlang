@@ -3,36 +3,7 @@ module euler.math;
 import std.traits : isIntegral, Unqual;
 import std.bigint : BigInt;
 
-// Number of divisors of n via prime factorisation.
-// For each prime p with exponent e, contributes (e+1) to the product.
-auto countDivisors(T)(T n) if (isIntegral!T) {
-    Unqual!T m = n;
-    Unqual!T count = 1;
-    for (Unqual!T p = 2; p * p <= m; ++p) {
-        if (m % p == 0) {
-            Unqual!T e = 0;
-            while (m % p == 0) { m /= p; ++e; }
-            count *= e + 1;
-        }
-    }
-    if (m > 1) count *= 2;  // remaining prime factor
-    return count;
-}
-
-// Trial division for n ≤ 1_000_000; deterministic Miller-Rabin (9 witnesses {2..23},
-// correct for all long values) above that bound.
-bool isPrime(T)(T n) if (isIntegral!T) {
-    if (n <= 1) return false;
-    if (n <= 3) return true;
-    if (n % 2 == 0 || n % 3 == 0) return false;
-    if (n > 1_000_000) return isPrimeMR(cast(long)n);
-    Unqual!T i = 5;
-    while (i * i <= n) {
-        if (n % i == 0 || n % (i + 2) == 0) return false;
-        i += 6;
-    }
-    return true;
-}
+//=== Primality =============================================================
 
 // Overflow-safe (a × b) mod m for arbitrary long values.
 // x86-64: hardware 128-bit MUL/DIV; other: Russian-peasant binary method.
@@ -88,6 +59,50 @@ private bool isPrimeMR(long n) pure nothrow @nogc {
     return true;
 }
 
+// Trial division for n ≤ 1_000_000; deterministic Miller-Rabin (9 witnesses {2..23},
+// correct for all long values) above that bound.
+bool isPrime(T)(T n) if (isIntegral!T) {
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n % 2 == 0 || n % 3 == 0) return false;
+    if (n > 1_000_000) return isPrimeMR(cast(long)n);
+    Unqual!T i = 5;
+    while (i * i <= n) {
+        if (n % i == 0 || n % (i + 2) == 0) return false;
+        i += 6;
+    }
+    return true;
+}
+
+// Number of divisors of n via prime factorisation.
+// For each prime p with exponent e, contributes (e+1) to the product.
+auto countDivisors(T)(T n) if (isIntegral!T) {
+    Unqual!T m = n;
+    Unqual!T count = 1;
+    for (Unqual!T p = 2; p * p <= m; ++p) {
+        if (m % p == 0) {
+            Unqual!T e = 0;
+            while (m % p == 0) { m /= p; ++e; }
+            count *= e + 1;
+        }
+    }
+    if (m > 1) count *= 2;  // remaining prime factor
+    return count;
+}
+
+// Largest prime factor of n via trial division.
+T largestPrimeFactor(T)(in T n) pure nothrow if (isIntegral!T) {
+    T limit = n / 2;
+    T retval = n;
+    for (T i = 3; i < limit; i += 2) {
+        for (T k = retval; k % i == 0; retval = k) {
+            k = k / i;
+            limit = k / 2;
+        }
+    }
+    return retval;
+}
+
 // Returns the nth prime using a sieve sized by Rosser's bound: p_n < n*(ln n + ln ln n) for n >= 6.
 T nthPrime(T = int)(int n) if (isIntegral!T) {
     import std.math : log;
@@ -102,17 +117,7 @@ T nthPrime(T = int)(int n) if (isIntegral!T) {
     return cast(T)-1;
 }
 
-T largestPrimeFactor(T)(in T n) pure nothrow if (isIntegral!T) {
-    T limit = n / 2;
-    T retval = n;
-    for (T i = 3; i < limit; i += 2) {
-        for (T k = retval; k % i == 0; retval = k) {
-            k = k / i;
-            limit = k / 2;
-        }
-    }
-    return retval;
-}
+//=== Sieves ================================================================
 
 // Returns bool[0..n+1]: result[i] == true iff i is prime.
 bool[] sieve(T)(T n) if (isIntegral!T) {
@@ -161,6 +166,9 @@ uint[] omegaSieve(T)(T limit) if (isIntegral!T) {
     return result;
 }
 
+//=== Digit functions =======================================================
+
+// Reverses the decimal digits of n.
 T reverseDigits(T)(T n) if (isIntegral!T) {
     T reversed = 0;
     while (n > 0) {
@@ -170,6 +178,7 @@ T reverseDigits(T)(T n) if (isIntegral!T) {
     return reversed;
 }
 
+// True if n reads the same forwards and backwards in decimal.
 bool isPalindrome(T)(T n) if (isIntegral!T) {
     return n == reverseDigits(n);
 }
@@ -200,13 +209,14 @@ T digitSquareSum(T)(T n) pure nothrow @nogc if (isIntegral!T) {
     return digitReduce!(d => d * d)(n);
 }
 
-// Module-level table used by digitFactSum's digitReduce lambda.
 private static immutable int[10] _digitFact = [1,1,2,6,24,120,720,5_040,40_320,362_880];
 
 // Sum of the factorials of the decimal digits of n.
 T digitFactSum(T)(T n) pure nothrow @nogc if (isIntegral!T) {
     return digitReduce!(d => _digitFact[d])(n);
 }
+
+//=== Figurate numbers & integer predicates =================================
 
 // Uses real (80-bit) instead of double so every 64-bit integer is representable exactly;
 // checks s-1/s/s+1 to absorb fp rounding in either direction.
@@ -248,6 +258,9 @@ bool isTriangle(T)(T n) if (isIntegral!T) {
     return isPerfectSquare(1 + 8 * m);
 }
 
+//=== Arithmetic ============================================================
+
+// True modulo — always non-negative, unlike D's % remainder operator.
 T mod(T)(T a, T b) if (isIntegral!T) {
     return (a % b + b) % b;
 }
@@ -273,6 +286,8 @@ ulong partitions(T)(T n) if (isIntegral!T) {
             p[j] += p[j - i];
     return p[cast(size_t)n];
 }
+
+//=== Continued fractions & Pell ============================================
 
 // Length of the continued-fraction period of √n; returns 0 if n is a perfect square.
 // Uses real (80-bit) sqrt for the initial approximation to handle large T without
@@ -312,6 +327,26 @@ BigInt pellMinX(int D) {
     }
 }
 
+//=== Sequences =============================================================
+
+// nth Fibonacci number as type T (default BigInt); for T = long, valid up to n = 93.
+T fib(T = BigInt)(int n) if (isIntegral!T || is(T == BigInt)) {
+    if (n <= 1) return T(n);
+    T a = T(0), b = T(1);
+    foreach (_; 2..n + 1) { T c = a + b; a = b; b = c; }
+    return b;
+}
+
+// Index of the first Fibonacci number with at least d decimal digits.
+// Derived from Binet's formula F(n) ~ phi^n/sqrt(5); uses 80-bit real for precision.
+int fibFirstNDigits(int d) {
+    import std.math : ceil, log10, sqrt;
+    enum real phi = (1.0L + sqrt(5.0L)) / 2.0L;
+    return cast(int) ceil((cast(real)(d - 1) + 0.5L * log10(5.0L)) / log10(phi));
+}
+
+//=== Linear algebra ========================================================
+
 // 2×2 matrix multiplication mod modulus.
 long[][] matMul(long[][] A, long[][] B, long modulus) {
     long[][] C = [[0L, 0L], [0L, 0L]];
@@ -341,22 +376,6 @@ long[][] matPow(N)(long[][] M, N n, long modulus) if (isIntegral!N || is(N == Bi
         n /= 2;
     }
     return result;
-}
-
-// Index of the first Fibonacci number with at least d decimal digits.
-// Derived from Binet's formula F(n) ~ phi^n/sqrt(5); uses 80-bit real for precision.
-int fibFirstNDigits(int d) {
-    import std.math : ceil, log10, sqrt;
-    enum real phi = (1.0L + sqrt(5.0L)) / 2.0L;
-    return cast(int) ceil((cast(real)(d - 1) + 0.5L * log10(5.0L)) / log10(phi));
-}
-
-// nth Fibonacci number as type T (default BigInt); for T = long, valid up to n = 93.
-T fib(T = BigInt)(int n) if (isIntegral!T || is(T == BigInt)) {
-    if (n <= 1) return T(n);
-    T a = T(0), b = T(1);
-    foreach (_; 2..n + 1) { T c = a + b; a = b; b = c; }
-    return b;
 }
 
 unittest {
