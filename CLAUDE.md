@@ -24,6 +24,10 @@ pe-dlang/
 │   └── source/
 │       ├── app.d
 │       └── data/       # optional: problem-given data files (digits, grids, matrices)
+├── docs/               # Solution index and library reference
+│   ├── SOLUTIONS.md    # Top-level index — total count + solved ranges per block
+│   ├── solutions-XXX-YYY.md  # Per-block tables with one-line approach summaries
+│   └── LIBRARY.md      # pe-common API reference
 ├── build-all.ps1       # Build all solutions in one shot
 ├── run-all.ps1         # Run all solutions in one shot
 └── clean-all.ps1       # Clean all solutions in one shot
@@ -49,7 +53,18 @@ dub run --build=release   # faster execution
 
 There are no tests — correctness is verified by running and checking the printed answer against the known Project Euler answer.
 
+**After committing a solution** — update the docs index:
+
+1. Add a row to `docs/solutions-XXX-YYY.md` (the block that contains the problem number), with a concise one-line approach summary matching the style of existing rows.
+2. In `docs/SOLUTIONS.md`: increment the total count, update the solved range for that block, and check whether adjacent solved ranges now collapse into one contiguous range.
+
 ## Solution Conventions
+
+**`dub.json` description field** — must be `"Title - Project Euler #N."` where `Title` is taken verbatim from the first line of `app.d` (strip the leading `// `):
+
+```json
+"description": "Largest Prime Factor - Project Euler #3."
+```
 
 Every `app.d` follows the same pattern:
 
