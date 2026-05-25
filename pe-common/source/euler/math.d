@@ -19,14 +19,13 @@ auto countDivisors(T)(T n) if (isIntegral!T) {
     return count;
 }
 
-// Trial division for n ≤ 1_000_000; deterministic Miller-Rabin (witnesses {2,3,5,7},
-// correct for n < 3_215_031_751) for the middle range; trial division above that bound.
+// Trial division for n ≤ 1_000_000; deterministic Miller-Rabin (9 witnesses {2..23},
+// correct for all long values) above that bound.
 bool isPrime(T)(T n) if (isIntegral!T) {
     if (n <= 1) return false;
     if (n <= 3) return true;
     if (n % 2 == 0 || n % 3 == 0) return false;
-    if (n > 1_000_000 && cast(ulong)n < 3_215_031_751UL)
-        return isPrimeMR(cast(ulong)n);
+    if (n > 1_000_000) return isPrimeMR(cast(long)n);
     Unqual!T i = 5;
     while (i * i <= n) {
         if (n % i == 0 || n % (i + 2) == 0) return false;
@@ -35,26 +34,56 @@ bool isPrime(T)(T n) if (isIntegral!T) {
     return true;
 }
 
-// b^e mod m — requires m < 2^32 so b*b never overflows ulong.
-private ulong modpow(ulong b, ulong e, ulong m) pure nothrow @nogc {
-    ulong r = 1; b %= m;
+// Overflow-safe (a × b) mod m for arbitrary long values.
+// x86-64: hardware 128-bit MUL/DIV; other: Russian-peasant binary method.
+long mulmod(long a, long b, long m) pure nothrow @nogc {
+    a %= m;
+    version (D_InlineAsm_X86_64) {
+        long result = void;
+        asm pure nothrow @nogc {
+            mov RAX, a;
+            mov RCX, m;
+            mul b;       // RDX:RAX = a*b (unsigned 128-bit)
+            div RCX;     // remainder → RDX
+            mov result, RDX;
+        }
+        return result;
+    } else {
+        long res = 0;
+        for (; b > 0; b >>= 1) {
+            if (b & 1) { res += a; if (res >= m) res -= m; }
+            a <<= 1; if (a >= m) a -= m;
+        }
+        return res;
+    }
+}
+
+private long mulpow(long b, long e, long m) pure nothrow @nogc {
+    long r = 1; b %= m;
     for (; e > 0; e >>= 1) {
-        if (e & 1) r = r * b % m;
-        b = b * b % m;
+        if (e & 1) r = mulmod(r, b, m);
+        b = mulmod(b, b, m);
     }
     return r;
 }
 
-// Miller-Rabin with witnesses {2,3,5,7}: deterministic for n < 3_215_031_751.
-private bool isPrimeMR(ulong n) pure nothrow @nogc {
-    ulong d = n - 1; int r = 0;
+// Miller-Rabin with 9 witnesses {2..23}: deterministic for all long values
+// (proven bound 3.317×10²⁴ >> long.max ≈ 9.2×10¹⁸).
+private bool isPrimeMR(long n) pure nothrow @nogc {
+    long d = n - 1; int r = 0;
     while (!(d & 1)) { d >>= 1; ++r; }
-    static immutable ulong[4] w = [2, 3, 5, 7];
-    outer: foreach (a; w) {
-        ulong x = modpow(a, d, n);
+    static immutable long[9] w = [2, 3, 5, 7, 11, 13, 17, 19, 23];
+    foreach (a; w) {
+        if (n == a) return true;
+        if (n % a == 0) return false;
+        long x = mulpow(a, d, n);
         if (x == 1 || x == n - 1) continue;
-        foreach (_; 1 .. r) { x = x * x % n; if (x == n - 1) continue outer; }
-        return false;
+        bool composite = true;
+        foreach (_; 1 .. r) {
+            x = mulmod(x, x, n);
+            if (x == n - 1) { composite = false; break; }
+        }
+        if (composite) return false;
     }
     return true;
 }
@@ -253,11 +282,10 @@ unittest {
     assert(!isPrime(0) && !isPrime(1) && !isPrime(4) && !isPrime(9) && !isPrime(1_000_000));
     assert( isPrime(2) &&  isPrime(3) &&  isPrime(5) &&  isPrime(997));
 
-    // Miller-Rabin path (1_000_000 < n < 3_215_031_751)
-    assert(!isPrime!long(1_000_001L));   // 101 × 9901
-    assert( isPrime!long(1_000_003L));   // prime
-    assert( isPrime!long(15_485_863L));  // the 1_000_000th prime
-
-    // large trial-division fallback (n ≥ 3_215_031_751) — composite clearly divisible by 7
-    assert(!isPrime!long(7L * 459_290_253L)); // 3_215_031_771, odd, not div by 3
+    // Miller-Rabin path (n > 1_000_000) — 9 witnesses, covers full long range
+    assert(!isPrime!long(1_000_001L));          // 101 × 9901
+    assert( isPrime!long(1_000_003L));          // prime
+    assert( isPrime!long(15_485_863L));         // 1_000_000th prime
+    assert( isPrime!long(1_000_000_007L));      // well-known large prime
+    assert(!isPrime!long(7L * 459_290_253L));   // 3_215_031_771 — composite above old ~3.2B boundary
 }

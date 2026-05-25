@@ -251,7 +251,8 @@ Never hardcode large data blobs inline — this pattern gives identical binary e
 | Symbol | Description |
 |--------|-------------|
 | `countDivisors(n)` | Number of divisors via prime factorisation — O(√n), any integral type |
-| `isPrime(n)` | Primality test — trial division for n ≤ 1 000 000; deterministic Miller-Rabin (witnesses {2,3,5,7}) for n < 3 215 031 751; trial division above that bound — any integral type |
+| `isPrime(n)` | Primality test — trial division for n ≤ 1 000 000; deterministic Miller-Rabin (9 witnesses {2..23}, covers full `long` range) above that bound — any integral type |
+| `mulmod(a, b, m)` | Overflow-safe `(a × b) mod m` for arbitrary `long` values — x86-64 hardware 128-bit path; Russian-peasant binary fallback elsewhere |
 | `sieve(n)` | Sieve of Eratosthenes — returns `bool[0..n]`, O(n log log n) |
 | `segmentedSieve(lo, hi)` | Range sieve — returns `bool[]` where `result[i]` is true iff `lo+i` is prime; O(hi-lo + √hi) memory |
 | `nthPrime!T(n)` | nth prime as type `T` (default `int`), sized by Rosser's bound |
