@@ -150,6 +150,17 @@ bool[] segmentedSieve(T)(T lo, T hi) if (isIntegral!T) {
     return result;
 }
 
+// ω(n) sieve: result[i] = number of distinct prime factors of i, for i in [0, limit).
+// Analogous to sieve(n); uint suffices (max ω(n) ≤ 15 for any 64-bit n).
+uint[] omegaSieve(T)(T limit) if (isIntegral!T) {
+    auto result = new uint[](cast(size_t)limit);
+    for (size_t i = 2; i < cast(size_t)limit; ++i)
+        if (result[i] == 0)
+            for (size_t j = i; j < cast(size_t)limit; j += i)
+                ++result[j];
+    return result;
+}
+
 T reverseDigits(T)(T n) if (isIntegral!T) {
     T reversed = 0;
     while (n > 0) {

@@ -3,23 +3,15 @@
 
 import euler.common : runSolution;
 
-private ulong[] generateOmegaSieve(ulong limit) {
-    ulong[] omegaSieve = new ulong[](limit);
-    for (ulong i = 2; i < limit; i++)
-        if (omegaSieve[i] == 0)
-            for (ulong j = i; j < limit; j += i)
-                omegaSieve[j]++;
-    return omegaSieve;
-}
-
 auto solve() {
+    import euler.math : omegaSieve;
     enum ulong limit = 135_000;
     enum ulong requiredFactors = 4;
-    auto omegaSieve = generateOmegaSieve(limit);
+    auto omega = omegaSieve(limit);
     for (ulong i = 1; i < limit - requiredFactors; i++) {
         bool found = true;
         for (ulong j = 0; j < requiredFactors; j++)
-            if (omegaSieve[i + j] != requiredFactors) { found = false; break; }
+            if (omega[i + j] != requiredFactors) { found = false; break; }
         if (found) return i;
     }
     return 0uL;

@@ -15,6 +15,7 @@
 | `mulmod(a, b, m)` | Overflow-safe `(a × b) mod m` for arbitrary `long` values — x86-64 hardware 128-bit path; Russian-peasant binary fallback elsewhere |
 | `sieve(n)` | Sieve of Eratosthenes — returns `bool[0..n]`, O(n log log n) |
 | `segmentedSieve(lo, hi)` | Range sieve — returns `bool[]` where `result[i]` is true iff `lo+i` is prime; O(hi-lo + √hi) memory |
+| `omegaSieve(limit)` | ω(n) sieve — returns `uint[]` where `result[i]` = number of distinct prime factors of `i`, for `i` in `[0, limit)` — any integral type |
 | `nthPrime!T(n)` | Returns the nth prime as type `T` (default `int`), sized by Rosser's bound |
 | `reverseDigits(n)` | Reverses the decimal digits of an integer |
 | `isPalindrome(n)` | Returns `true` if `n == reverseDigits(n)` |
