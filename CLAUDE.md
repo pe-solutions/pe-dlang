@@ -274,6 +274,7 @@ Never hardcode large data blobs inline — this pattern gives identical binary e
 | `binomial(n, k)` | Binomial coefficient C(n, k); 0 for k < 0 or k > n; result fits in `long` for n ≤ 66 |
 | `partitions(n)` | Number of integer partitions of `n` (includes the trivial partition); returns `ulong` — any integral type |
 | `cfPeriod(n)` | Length of the continued-fraction period of √n; returns 0 if `n` is a perfect square — any integral type |
+| `pellMinX(D)` | Minimal positive `x` satisfying x²−D·y²=1 (Pell equation), via CF convergents of √D; returns `BigInt` |
 | `fib!T(n)` | nth Fibonacci number as type `T` (default `BigInt`); use `fib!long(n)` for n ≤ 93 |
 | `fibFirstNDigits(d)` | Index of the first Fibonacci number with at least `d` decimal digits — Binet's formula, 80-bit real |
 | `matMul(A, B, modulus)` | 2×2 matrix multiplication mod `modulus` |

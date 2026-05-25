@@ -292,6 +292,26 @@ uint cfPeriod(T)(T n) pure nothrow @nogc if (isIntegral!T) {
     return period;
 }
 
+// Minimal positive x satisfying x² − D·y² = 1 (Pell equation), via CF convergents of √D.
+// D must be a non-square positive integer; result requires BigInt (x grows rapidly).
+BigInt pellMinX(int D) {
+    import std.math : sqrt;
+    immutable int a0 = cast(int)sqrt(cast(real)D);
+    int m = 0, d = 1, a = a0;
+    BigInt h2 = BigInt(1), h1 = BigInt(a0);
+    BigInt k2 = BigInt(0), k1 = BigInt(1);
+    for (;;) {
+        m = d * a - m;
+        d = (D - m * m) / d;
+        a = (a0 + m) / d;
+        BigInt h = BigInt(a) * h1 + h2;
+        BigInt k = BigInt(a) * k1 + k2;
+        if (h * h - k * k * D == 1) return h;
+        h2 = h1; h1 = h;
+        k2 = k1; k1 = k;
+    }
+}
+
 // 2×2 matrix multiplication mod modulus.
 long[][] matMul(long[][] A, long[][] B, long modulus) {
     long[][] C = [[0L, 0L], [0L, 0L]];
