@@ -13,9 +13,11 @@ pe-dlang/
 ├── pe-common/          # Shared library
 │   └── source/euler/
 │       ├── common.d    # runSolution template
-│       ├── math.d      # countDivisors, isPrime, sieve, segmentedSieve, nthPrime,
+│       ├── math.d      # countDivisors, isPrime, mulmod, sieve, segmentedSieve, omegaSieve, nthPrime,
 │       │               # reverseDigits, isPalindrome, digitFreq, isPerfectSquare, largestPrimeFactor,
-│       │               # mod, fib, fibFirstNDigits, matMul, matVecMul, matPow
+│       │               # digitReduce, digitSum, digitSquareSum, digitFactSum,
+│       │               # pent, isPent, tri, isTriangle, mod, binomial, partitions,
+│       │               # cfPeriod, pellMinX, fib, fibFirstNDigits, matMul, matVecMul, matPow
 │       ├── rat.d       # Rat — exact rational arithmetic (GCD-reduced, long-backed)
 │       └── numerics.d  # Solver, Method, SolveResult — root-finding
 │                       # (Newton-Raphson, Brent-Dekker, TOMS 748, ITP)
