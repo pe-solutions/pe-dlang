@@ -274,6 +274,24 @@ ulong partitions(T)(T n) if (isIntegral!T) {
     return p[cast(size_t)n];
 }
 
+// Length of the continued-fraction period of √n; returns 0 if n is a perfect square.
+// Uses real (80-bit) sqrt for the initial approximation to handle large T without
+// losing the integer part (53-bit double mantissa would fail for large n).
+uint cfPeriod(T)(T n) pure nothrow @nogc if (isIntegral!T) {
+    import std.math : sqrt;
+    Unqual!T a0 = cast(Unqual!T)sqrt(cast(real)n);
+    if (a0 * a0 == n) return 0;
+    Unqual!T m = 0, d = 1, a = a0;
+    uint period = 0;
+    do {
+        m = d * a - m;
+        d = (n - m * m) / d;
+        a = (a0 + m) / d;
+        ++period;
+    } while (a != 2 * a0);
+    return period;
+}
+
 // 2×2 matrix multiplication mod modulus.
 long[][] matMul(long[][] A, long[][] B, long modulus) {
     long[][] C = [[0L, 0L], [0L, 0L]];
