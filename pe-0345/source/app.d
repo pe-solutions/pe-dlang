@@ -2,12 +2,12 @@
 // https://projecteuler.net/problem=345
 
 import euler.common : runSolution;
+import euler.optim : AssignmentSolver;
 
 enum N = 15;
-enum N2 = 1 << N;
 
 // Matrix parsed from file at compile time via CTFE.
-static immutable int[N][N] a = () {
+static immutable int[N][N] matrix = () {
     import std.string : splitLines, split;
     import std.conv : to;
     int[N][N] result;
@@ -18,19 +18,8 @@ static immutable int[N][N] a = () {
 }();
 
 auto solve() {
-    static int[N2][N+1] dp;
-    foreach (n; 0 .. N) {
-        foreach (c; 0 .. N2) {
-            dp[n+1][c] = dp[n][c];
-            foreach (x; 0 .. N) {
-                if ((1 << x) & c) {
-                    auto r = a[n][x] + dp[n][c - (1 << x)];
-                    if (dp[n+1][c] < r) dp[n+1][c] = r;
-                }
-            }
-        }
-    }
-    return dp[N][N2 - 1];
+    auto solver = AssignmentSolver!(int, N)(matrix);
+    return solver.solveMax();
 }
 
 void main() { runSolution!(solve)(345); }

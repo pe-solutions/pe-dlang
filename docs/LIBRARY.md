@@ -106,3 +106,13 @@
 | `SolveResult` | Result struct — `method` (Method), `root` (double), `evals` (size_t) |
 | `Solver(method, a, b, func)` | Configures a root-finding solve for f(r) = 0 on \[a, b\]; `func` is a `double delegate(double)` |
 | `Solver.solve()` | Runs the selected algorithm and returns a `SolveResult` |
+
+---
+
+## `euler.optim`
+
+| Symbol | Description |
+|--------|-------------|
+| `AssignmentSolver(T, N)` | Solves the maximum-weight perfect assignment problem using a hybrid strategy: bitmask DP for N ≤ 20 (O(2^N · N²)), Hungarian algorithm for N > 20 (O(N³)) — any numeric type |
+| `AssignmentSolver.this(matrix)` | Initialize with an N×N cost matrix |
+| `AssignmentSolver.solveMax()` | Compute the maximum assignment sum and return the result |
