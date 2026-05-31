@@ -52,5 +52,5 @@
 | 996 | Overtakes | |
 | [997](../pe-0997/source/app.d) | Dice Box | Closed-form bit-shift formula — 3·(2^x+2^y+2^z−4)·2^(x+y+z−1) for box dimensions x=9, y=10, z=11 |
 | 998 | | |
-| 999 | | |
+| [999](../pe-0999/source/app.d) | Twisted Somos-4 Sequence | O(log n) sliding 8-window double-and-add ladder over parity-twisted halving identities; cross-checked against memoised halving, 7-window, and EDS division-polynomial approaches |
 | 1000 | | |

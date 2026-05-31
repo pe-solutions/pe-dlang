@@ -134,6 +134,17 @@ Two situations require a module-level import:
 
 **D idioms** — range pipelines (`iota`, `filter`, `map`, `sum`, etc. from `std.range` / `std.algorithm`) are preferred over imperative loops where they read naturally; heavier numerical work uses explicit loops.
 
+**`opEquals` completeness** — defining any `opEquals` overload on a struct suppresses D's default field-by-field equality. If you add a convenience overload (e.g. `opEquals(ulong x)` to compare against raw test values), you must also explicitly define `opEquals(const Self rhs)` — otherwise anything that requires struct-to-struct equality (associative arrays with the struct as value type, range algorithms, `==` between two instances) breaks with a confusing type-mismatch error at an AA internals call site:
+
+```d
+struct Mod(ulong P)
+{
+    ulong v;
+    bool opEquals(const Mod rhs) const pure nothrow @nogc { return v == rhs.v; }  // required
+    bool opEquals(ulong x)       const pure nothrow @nogc { return v == x % P; }  // convenience
+}
+```
+
 **Module-level helpers** — always mark `private`; always give an explicit return type (never `auto`); apply `pure nothrow @nogc` to any helper whose body is pure arithmetic with no allocation or exceptions:
 
 ```d

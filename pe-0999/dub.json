@@ -1,0 +1,12 @@
+{
+	"name": "pe-0999",
+	"description": "Twisted Somos-4 Sequence - Project Euler #999.",
+	"license": "proprietary",
+	"authors": [
+		"menjaraz"
+	],
+	"copyright": "Copyright © 2026, menjaraz",
+	"dependencies": {
+		"pe-common": {"path": "../pe-common"}
+	}
+}
