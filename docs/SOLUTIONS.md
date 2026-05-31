@@ -21,6 +21,11 @@ D language solutions to [Project Euler](https://projecteuler.net/) problems — 
 
 ---
 
+### [151–200](solutions-151-200.md)
+0 of 50 solved
+
+---
+
 ### [201–250](solutions-201-250.md)
 2 of 50 solved &nbsp;·&nbsp; 206, 235
 
