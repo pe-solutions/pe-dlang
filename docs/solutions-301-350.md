@@ -48,7 +48,7 @@
 | 342 | The Totient of a Square Is a Cube | |
 | 343 | Fractional Sequences | |
 | 344 | Silver Dollar Game | |
-| [345](../pe-0345/source/app.d) | Matrix Sum | Bitmask DP — optimal column assignment over 15×15 matrix; matrix file-imported via CTFE |
+| [345](../pe-0345/source/app.d) | Matrix Sum | Hybrid AssignmentSolver (bitmask DP for N≤20) — maximum-weight perfect matching over 15×15 matrix; uses euler.optim library |
 | 346 | Strong Repunits | |
 | 347 | Largest Integer Divisible by Two Primes | |
 | 348 | Sum of a Square and a Cube | |
