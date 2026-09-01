@@ -6,12 +6,6 @@ I followed the ins and outs of [DMD](https://dlang.org/) since early 2004 when t
 
 I ❤️ D and mostly `Math'n code` too!
 
-<p align="center">
-  <a href="https://projecteuler.net/profile/mavotroky.png">
-    <img src="https://projecteuler.net/profile/mavotroky.png" alt="Project Euler profile badge for mavotroky">
-  </a>
-</p>
-
 ---
 
 ## Structure
